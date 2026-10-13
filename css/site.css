@@ -238,3 +238,38 @@ p{margin:0}
 #inline-container iframe{width:100%!important;border:0}
 .modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:15px}
 @media (max-width:640px){.booking-modal{width:100vw;height:100dvh;border-radius:0}.modal-head{padding-left:20px}.modal-head .tools a{display:none}}
+
+/* Cennik */
+.pricing{padding-top:clamp(72px,8vw,110px)}
+.pricing-head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:clamp(32px,4vw,48px)}
+.pricing-head h2 em{font-style:normal;color:var(--bronze)}
+.pricing-head p{color:var(--muted);line-height:1.7;font-size:17px}
+.price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+.price-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px 26px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 30px rgba(29,26,22,.05);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s ease}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(29,26,22,.12);border-color:#D6C4A8}
+.price-card h3{font-family:var(--serif);font-size:20px;line-height:1.25;letter-spacing:-.01em;color:var(--ink);min-height:50px}
+.price-amount{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin:2px 0 0}
+.price-amount .from{font-size:14px;color:var(--muted);font-weight:600}
+.price-amount b{font-family:var(--serif);font-size:clamp(36px,3vw,44px);line-height:1;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.price-amount .unit{font-size:14px;color:var(--muted);width:100%}
+.price-desc{font-size:15px;line-height:1.6;color:var(--text)}
+.price-card ul{list-style:none;padding:0;margin:4px 0 8px;display:flex;flex-direction:column;gap:10px;flex:1}
+.price-card li{display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:var(--text)}
+.price-card li svg{flex-shrink:0;margin-top:2px;color:var(--bronze)}
+.price-card .btn{justify-content:center;width:100%}
+.price-badge{position:absolute;top:-13px;left:26px;font:700 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--panel);color:var(--bronze-dark);border:1px solid var(--line)}
+.price-free .price-amount b{background:linear-gradient(120deg,#7A5A37,#C9A574);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price-featured{background:linear-gradient(165deg,#25201B 0%,#141210 100%);border-color:#3A342D;box-shadow:0 30px 60px rgba(29,26,22,.25)}
+.price-featured:hover{border-color:var(--gold);box-shadow:0 36px 70px rgba(29,26,22,.32)}
+.price-featured h3,.price-featured .price-amount b{color:#F6EEE2}
+.price-featured .price-desc,.price-featured li{color:#CFC6B9}
+.price-featured .price-amount .from,.price-featured .price-amount .unit{color:#A89C8C}
+.price-featured li svg{color:var(--gold)}
+.price-featured .price-badge{background:var(--gold);color:#1D1A16;border-color:var(--gold)}
+.price-featured .btn-primary{background:var(--gold);color:#1D1A16}
+.price-featured .btn-primary:hover{background:#E6CBA5}
+.price-note{margin-top:24px;font-size:14px;line-height:1.7;color:var(--muted);max-width:900px}
+.price-card h3{font-weight:700}.price-card .btn{white-space:nowrap;padding:0 18px;font-size:15px;min-height:50px}.price-amount .from:empty{display:none}
+@media (max-width:1360px){.price-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}.price-card h3{min-height:0}}
+@media (max-width:640px){.price-grid{grid-template-columns:1fr}}
+.pricing-page{padding-top:8px}

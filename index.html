@@ -677,6 +677,40 @@ a.spec h3{color:var(--bg)}
 @keyframes haSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.ha-shield,.ha-card,.ha-ring2{animation:none}}
 @media (max-width:640px){.ha-card b{font-size:11px}.ha-bars{height:40px}.ha-chips{top:6%}.ha-cal{display:none}.ha-doc{top:46%}.ha-chart{top:50%}}
+
+/* Cennik */
+.pricing{padding-top:clamp(72px,8vw,110px)}
+.pricing-head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:clamp(32px,4vw,48px)}
+.pricing-head h2 em{font-style:normal;color:var(--bronze)}
+.pricing-head p{color:var(--muted);line-height:1.7;font-size:17px}
+.price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+.price-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px 26px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 30px rgba(29,26,22,.05);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .35s ease}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(29,26,22,.12);border-color:#D6C4A8}
+.price-card h3{font-family:var(--serif);font-size:20px;line-height:1.25;letter-spacing:-.01em;color:var(--ink);min-height:50px}
+.price-amount{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin:2px 0 0}
+.price-amount .from{font-size:14px;color:var(--muted);font-weight:600}
+.price-amount b{font-family:var(--serif);font-size:clamp(36px,3vw,44px);line-height:1;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.price-amount .unit{font-size:14px;color:var(--muted);width:100%}
+.price-desc{font-size:15px;line-height:1.6;color:var(--text)}
+.price-card ul{list-style:none;padding:0;margin:4px 0 8px;display:flex;flex-direction:column;gap:10px;flex:1}
+.price-card li{display:flex;gap:10px;font-size:14.5px;line-height:1.45;color:var(--text)}
+.price-card li svg{flex-shrink:0;margin-top:2px;color:var(--bronze)}
+.price-card .btn{justify-content:center;width:100%}
+.price-badge{position:absolute;top:-13px;left:26px;font:700 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--panel);color:var(--bronze-dark);border:1px solid var(--line)}
+.price-free .price-amount b{background:linear-gradient(120deg,#7A5A37,#C9A574);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price-featured{background:linear-gradient(165deg,#25201B 0%,#141210 100%);border-color:#3A342D;box-shadow:0 30px 60px rgba(29,26,22,.25)}
+.price-featured:hover{border-color:var(--gold);box-shadow:0 36px 70px rgba(29,26,22,.32)}
+.price-featured h3,.price-featured .price-amount b{color:#F6EEE2}
+.price-featured .price-desc,.price-featured li{color:#CFC6B9}
+.price-featured .price-amount .from,.price-featured .price-amount .unit{color:#A89C8C}
+.price-featured li svg{color:var(--gold)}
+.price-featured .price-badge{background:var(--gold);color:#1D1A16;border-color:var(--gold)}
+.price-featured .btn-primary{background:var(--gold);color:#1D1A16}
+.price-featured .btn-primary:hover{background:#E6CBA5}
+.price-note{margin-top:24px;font-size:14px;line-height:1.7;color:var(--muted);max-width:900px}
+.price-card h3{font-weight:700}.price-card .btn{white-space:nowrap;padding:0 18px;font-size:15px;min-height:50px}.price-amount .from:empty{display:none}
+@media (max-width:1360px){.price-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}.price-card h3{min-height:0}}
+@media (max-width:640px){.price-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -693,6 +727,7 @@ a.spec h3{color:var(--bg)}
       <div class="dd"><button type="button" aria-expanded="false">Kontrole i postępowania <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/kontrola-podatkowa/">Kontrola podatkowa<small>Pełnomocnik w kontroli US i KAS</small></a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego<small>Czynności sprawdzające, wyjaśnienia JPK</small></a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA<small>Postępowania i spory z fiskusem</small></a></div></div>
       <div class="dd"><button type="button" aria-expanded="false">Księgowość <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.<small>Pełna księgowość pod nadzorem doradcy</small></a><a href="/ksiegowosc-jdg/">Księgowość JDG<small>KPiR, ryczałt, VAT, ZUS</small></a><a href="/kadry-i-place/">Kadry i płace<small>Umowy, listy płac, ZUS, PPK</small></a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego<small>Przejęcie księgowości bez przerwy</small></a></div></div>
       <a href="/zespol/">Zespół</a>
+      <a href="/cennik/">Cennik</a>
       <a href="/blog/">Blog</a>
       <a href="/#kontakt">Kontakt</a>
       <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>
@@ -841,6 +876,47 @@ a.spec h3{color:var(--bg)}
     </div>
   </section>
 
+  <section id="cennik" class="wrap pricing">
+    <div class="pricing-head">
+      <span class="eyebrow">Cennik</span>
+      <h2 class="h2">Jasne ceny, <em>bez niespodzianek</em></h2>
+      <p>Zacznij od bezpłatnej rozmowy – a potem wybierz jednorazową konsultację albo stałą opiekę doradcy podatkowego.</p>
+    </div>
+    <!-- pricing:start -->
+    <div class="price-grid">
+      <article class="price-card price-free">
+        <span class="price-badge">Bezpłatnie</span><h3>Konsultacja wstępna</h3>
+        <p class="price-amount"><span class="from"></span><b>0 zł</b><span class="unit">do 20 minut</span></p>
+        <p class="price-desc">Krótka rozmowa z doradcą podatkowym: ocenimy Twoją sprawę i powiemy, jak możemy pomóc.</p>
+        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>telefonicznie, online lub w kancelarii</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>bez zobowiązań</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>dobry start przed wyceną abonamentu</span></li></ul>
+        <a href="#termin" class="btn btn-outline" data-booking-open>Umów rozmowę 0 zł</a>
+      </article>
+      <article class="price-card">
+        <h3>Konsultacja podatkowa</h3>
+        <p class="price-amount"><span class="from">od</span><b>400 zł</b><span class="unit">za godzinę</span></p>
+        <p class="price-desc">Szczegółowa analiza Twojej sytuacji – umów, transakcji, pism z urzędu – i konkretne rekomendacje.</p>
+        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>analiza dokumentów przed spotkaniem</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>rekomendacja rozwiązania</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>w kancelarii na Jagodnie lub online</span></li></ul>
+        <a href="#termin" class="btn btn-outline" data-booking-open>Umów konsultację</a>
+      </article>
+      <article class="price-card">
+        <h3>Abonament Doradca Podatkowy</h3>
+        <p class="price-amount"><span class="from">od</span><b>369 zł</b><span class="unit">miesięcznie</span></p>
+        <p class="price-desc">Stały doradca podatkowy dla firmy, która ma własną księgowość. Pytasz przed decyzją, a nie po fakcie.</p>
+        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>bieżące konsultacje telefoniczne i mailowe</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>opinia przed ważnymi transakcjami</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>pomoc przy wezwaniach i pismach z urzędu</span></li></ul>
+        <a href="#termin" class="btn btn-outline" data-booking-open>Zapytaj o abonament</a>
+      </article>
+      <article class="price-card price-featured">
+        <span class="price-badge">Pełna obsługa</span><h3>Księgowość + Doradca Podatkowy</h3>
+        <p class="price-amount"><span class="from">od</span><b>790 zł</b><span class="unit">miesięcznie</span></p>
+        <p class="price-desc">Księgowość i doradztwo w jednej kancelarii. Księgi prowadzimy pod nadzorem doradcy podatkowego.</p>
+        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>pełna księgowość, KPiR lub ryczałt</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>VAT, JPK, PIT/CIT i ZUS</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>konsultacje z doradcą podatkowym</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>wsparcie przy wezwaniach i kontrolach</span></li></ul>
+        <a href="#termin" class="btn btn-primary" data-booking-open>Zapytaj o wycenę</a>
+      </article>
+    </div>
+    <p class="price-note">Ceny abonamentów zależą od formy prawnej, liczby dokumentów, rozliczeń VAT i zatrudnienia – dokładną wycenę przygotujemy po bezpłatnej rozmowie. Reprezentacja w kontrolach, postępowaniach podatkowych i przed sądami administracyjnymi jest wyceniana indywidualnie.</p>
+<!-- pricing:end -->
+  </section>
+
   <section id="faq" class="wrap faq">
     <div class="faq-left">
       <span class="eyebrow">FAQ</span>
@@ -949,7 +1025,7 @@ a.spec h3{color:var(--bg)}
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span><a href="/doradztwo-podatkowe/">Doradca podatkowy Wrocław</a><a href="/kontrola-podatkowa/">Kontrola podatkowa</a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego</a><a href="/interpretacja-indywidualna/">Interpretacja indywidualna i WIS</a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA</a><a href="/wyplata-pieniedzy-ze-spolki/">Wypłata pieniędzy ze spółki</a><a href="/forma-opodatkowania/">Forma prawna i opodatkowania</a><a href="/restrukturyzacje-spolek/">Spółki z o.o. i SKA – reorganizacje</a><a href="/firmy-rodzinne-sukcesja/">Firmy rodzinne i sukcesja</a><a href="/podatki-nieruchomosci/">PCC i sprzedaż nieruchomości</a></nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.</a><a href="/ksiegowosc-jdg/">Księgowość JDG</a><a href="/kadry-i-place/">Kadry i płace</a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego</a><span class="k" style="margin-top:14px">Okolice</span><a href="/doradca-podatkowy-jagodno/">Jagodno i Krzyki</a><a href="/doradca-podatkowy-siechnice/">Siechnice i okolice</a></nav>
-      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>

@@ -60,6 +60,7 @@ def nav_html():
             f'      {dd("Kontrole i postępowania", spory)}\n'
             f'      {dd("Księgowość", P_KSI)}\n'
             '      <a href="/zespol/">Zespół</a>\n'
+            '      <a href="/cennik/">Cennik</a>\n'
             '      <a href="/blog/">Blog</a>\n'
             '      <a href="/#kontakt">Kontakt</a>\n'
             '      <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>\n'
@@ -78,7 +79,7 @@ def footer_html():
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span>{col(P_DOR)}</nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span>{col(P_KSI)}<span class="k" style="margin-top:14px">Okolice</span>{col(P_LOK)}</nav>
-      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
@@ -391,11 +392,43 @@ def build_team_page():
     write('zespol/index.html', body)
 
 
+def build_pricing_page():
+    s = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+    a = s.index('<!-- pricing:start -->'); z = s.index('<!-- pricing:end -->')
+    grid = s[a + len('<!-- pricing:start -->'):z]
+    path = '/cennik/'
+    crumbs = [('Strona główna', '/'), ('Cennik', path)]
+    def offer(name, price, unit=None):
+        ps = {"@type": "UnitPriceSpecification", "priceCurrency": "PLN", "minPrice": price}
+        if unit: ps["unitText"] = unit
+        return {"@type": "Offer", "itemOffered": {"@type": "Service", "name": name}, "priceSpecification": ps}
+    ld = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "OfferCatalog", "name": "Cennik RKDP – doradztwo podatkowe i księgowość", "url": SITE + path, "itemListElement": [
+        offer("Konsultacja wstępna (do 20 minut)", 0), offer("Konsultacja podatkowa", 400, "godzina"),
+        offer("Abonament Doradca Podatkowy", 369, "miesiąc"), offer("Abonament Księgowość + Doradca Podatkowy", 790, "miesiąc")]}]
+    body = head('Cennik – doradca podatkowy i księgowość Wrocław | RKDP', 'Cennik RKDP: pierwsza konsultacja do 20 minut bezpłatnie, konsultacja podatkowa od 400 zł/h, abonament doradcy podatkowego od 369 zł, księgowość z doradcą od 790 zł miesięcznie.', path, extra_ld=ld)
+    body += f'''<main>
+<section class="wrap page-hero"><div class="inner">
+  {crumbs_html(crumbs)}
+  <span class="eyebrow">Cennik</span>
+  <h1>Jasne ceny, bez niespodzianek</h1>
+  <p class="lead">Zacznij od bezpłatnej rozmowy z doradcą podatkowym – a potem wybierz jednorazową konsultację albo stałą opiekę: samego doradcy lub księgowości razem z doradcą.</p>
+</div></section>
+<section class="wrap pricing pricing-page" aria-label="Pakiety i ceny">{grid}</section>
+{cta_band('Nie wiesz, który pakiet wybrać?', 'Umów bezpłatną 20-minutową rozmowę – doradzimy i przygotujemy wycenę.')}
+</main>
+{footer_html()}
+{NAV_JS}
+</body>
+</html>
+'''
+    write('cennik/index.html', body)
+
+
 def build_sitemap():
     urls = [('/', '1.0', 'monthly')]
     urls += [(url(p['slug']), '0.8', 'monthly') for p in P_DOR + P_KSI]
     urls += [(url(p['slug']), '0.7', 'monthly') for p in P_LOK]
-    urls += [('/zespol/', '0.6', 'monthly'), ('/blog/', '0.7', 'weekly')]
+    urls += [('/cennik/', '0.7', 'monthly'), ('/zespol/', '0.6', 'monthly'), ('/blog/', '0.7', 'weekly')]
     urls += [(f'/blog/{p["slug"]}/', '0.6', 'yearly') for p in POSTS]
     urls += [('/aml.html', '0.3', 'yearly'), ('/polityka-prywatnosci.html', '0.2', 'yearly')]
     x = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -434,6 +467,7 @@ if __name__ == '__main__':
     for p in POSTS: counts['blog/' + p['slug']] = build_post(p)
     build_blog_index()
     build_team_page()
+    build_pricing_page()
     n = build_sitemap()
     if '--no-index' not in sys.argv: update_index()
     for k, v in counts.items(): print(f'{v:5d} słów  {k}')
