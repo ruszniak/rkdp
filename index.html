@@ -647,7 +647,8 @@ a.spec h3{color:var(--bg)}
 @media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
 
 .team{display:flex;flex-direction:column;gap:28px}
-.team-photo-light{object-position:58% 20%;background:#d9dadb}
+.team-photo-light{background:#d9dadb}
+.team-card:first-child .team-photo-light{object-position:58% 20%}
 .about-right .intro{font-family:var(--serif);font-size:clamp(26px,2.4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--ink)}
 .about-right{padding-top:44px}
 </style>
@@ -789,7 +790,7 @@ a.spec h3{color:var(--bg)}
       </div>
     </div>
     <div class="team-card">
-      <picture><source srcset="/img/marcin-otreba.webp" type="image/webp"><img class="team-photo" src="/img/marcin-otreba.jpg" alt="Marcin Otręba, doradca podatkowy, Wrocław" width="662" height="900" loading="lazy"></picture>
+      <picture><source srcset="/img/marcin-otreba.webp" type="image/webp"><img class="team-photo team-photo-light" src="/img/marcin-otreba.jpg" alt="Marcin Otręba, doradca podatkowy, Wrocław" width="662" height="900" loading="lazy"></picture>
       <div class="team-body">
         <span class="advisor-role">Doradca Podatkowy</span>
         <h3 class="team-name">Marcin Otręba</h3>
