@@ -7,5 +7,6 @@ Strona jest w pełni statyczna – nie wymaga żadnych zmiennych środowiskowych
 |---|---|
 | `index.html` | Strona główna (responsywna, z rezerwacją konsultacji przez Kalendarz Google) |
 | `polityka-prywatnosci.html` | Polityka prywatności (RODO) |
+| `aml.html` | Informacje dla klientów o obowiązkach AML |
 | `img/` | Logo, zdjęcie, ikona strony |
-| `dokumenty/` | Dokumenty PDF podlinkowane w stopce (AML, procedura dla sygnalistów, regulamin) |
+| `dokumenty/` | Dokumenty PDF podlinkowane w stopce (procedura dla sygnalistów, regulamin) |
