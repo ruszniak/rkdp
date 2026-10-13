@@ -62,7 +62,6 @@ def nav_html():
             '      <a href="/zespol/">Zespół</a>\n'
             '      <a href="/blog/">Blog</a>\n'
             '      <a href="/#kontakt">Kontakt</a>\n'
-            f'      <a href="{PHONE_HREF}" class="tel">{PHONE}</a>\n'
             '      <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>\n'
             '    </nav>\n  </div>\n</header>')
 
