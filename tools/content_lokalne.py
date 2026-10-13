@@ -50,6 +50,7 @@ PAGES = [
 {
 'slug': 'doradca-podatkowy-siechnice',
 'menu': 'Siechnice i okolice',
+'nav_label': 'Doradca podatkowy Siechnice',
 'menu_sub': 'Radwanice, Żerniki, Ozorzyce, Kobierzyce',
 'tile': 'Doradca podatkowy dla gminy Siechnice i okolic: działki, podatek od nieruchomości, firmy rodzinne.',
 'title': 'Doradca podatkowy Siechnice, Radwanice, Żerniki Wrocławskie | RKDP',

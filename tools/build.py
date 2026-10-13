@@ -44,12 +44,13 @@ def url(slug):
 
 
 def dd(label, pages):
-    items = ''.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}<small>{e(p["menu_sub"])}</small></a>' for p in pages)
+    items = ''.join(f'<a href="{url(p["slug"])}">{e(p.get("nav_label", p["menu"]))}<small>{e(p["menu_sub"])}</small></a>' for p in pages)
     return f'<div class="dd"><button type="button" aria-expanded="false">{label} {CHEV}</button><div class="dd-menu">{items}</div></div>'
 
 
 def nav_html():
     dor = [p for p in P_DOR if p['slug'] not in ('kontrola-podatkowa', 'czynnosci-sprawdzajace', 'odwolanie-od-decyzji')]
+    dor = dor[:1] + [BY_SLUG['doradca-podatkowy-siechnice']] + dor[1:]
     spory = [BY_SLUG[s] for s in ('kontrola-podatkowa', 'czynnosci-sprawdzajace', 'odwolanie-od-decyzji')]
     return ('<header class="site-header">\n  <div class="wrap nav">\n'
             '    <a href="/" class="nav-logo" aria-label="RKDP spółka doradztwa podatkowego – strona główna"><img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="183" height="54"></a>\n'
