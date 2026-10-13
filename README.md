@@ -11,4 +11,3 @@ Strona jest w pełni statyczna – nie wymaga żadnych zmiennych środowiskowych
 | `img/` | Logo, zdjęcie, ikona strony |
 | `dokumenty/` | Dokumenty PDF podlinkowane w stopce (procedura dla sygnalistów, regulamin) |
 | `sitemap.xml`, `robots.txt` | Mapa strony i wskazanie jej dla wyszukiwarek – **przy każdej nowej podstronie dopisz ją do `sitemap.xml`** |
-| `vercel.json` | Przekierowanie www.rkdp.pl → rkdp.pl (301), cache obrazów |
