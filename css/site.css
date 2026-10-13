@@ -186,7 +186,7 @@ p{margin:0}
 @media (min-width:1025px){.nav-links{gap:22px}}
 @media (max-width:1380px) and (min-width:1025px){.nav-links .tel{display:none}}
 
-@media (max-width:1200px){
+@media (max-width:1320px){
   .menu-btn{display:inline-flex}
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 24px;background:var(--bg);border-bottom:1px solid var(--line);display:none;max-height:calc(100dvh - 80px);overflow:auto}
   .nav-links.open{display:flex}
@@ -199,4 +199,26 @@ p{margin:0}
 }
 
 .nav-logo{flex-shrink:0}
-@media (min-width:1201px) and (max-width:1380px){.nav-links .tel{display:none!important}}
+@media (min-width:1321px) and (max-width:1480px){.nav-links .tel{display:none!important}}
+
+/* Zespół */
+.kidp-link{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.advisor-role{display:flex;align-items:center;gap:14px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
+.advisor-role::before{content:"";width:40px;height:2px;background:var(--bronze)}
+.team{padding-bottom:clamp(56px,7vw,100px)}
+.team-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);border-radius:24px;overflow:hidden;background:#141210;color:var(--bg);box-shadow:0 30px 60px rgba(29,26,22,.18)}
+.team-photo{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:50% 15%}
+.team-body{padding:clamp(28px,4.5vw,64px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.team-body .advisor-role{color:var(--gold)}
+.team-body .advisor-role::before{background:var(--gold)}
+.team-name{font-family:var(--serif);font-size:clamp(36px,3.8vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.02;color:var(--bg);margin:0}
+.team-reg{font-size:15px;color:var(--on-dark)}
+.team-body p{color:var(--on-dark-strong);font-size:16.5px;line-height:1.7;margin-top:8px}
+.team-list{margin:0;padding-left:20px;color:var(--on-dark);font-size:15px;line-height:1.65}
+.team-list li{margin:6px 0}
+.team-kidp{color:var(--gold)!important;margin-top:6px}
+.team-kidp:hover{color:#fff!important}
+.team{display:flex;flex-direction:column;gap:28px}
+.team-photo-light{background:#d9dadb}
+.team-card:first-child .team-photo-light{object-position:58% 20%}
+@media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}

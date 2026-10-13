@@ -59,6 +59,7 @@ def nav_html():
             f'      {dd("Doradztwo podatkowe", dor)}\n'
             f'      {dd("Kontrole i postępowania", spory)}\n'
             f'      {dd("Księgowość", P_KSI)}\n'
+            '      <a href="/zespol/">Zespół</a>\n'
             '      <a href="/blog/">Blog</a>\n'
             '      <a href="/#kontakt">Kontakt</a>\n'
             f'      <a href="{PHONE_HREF}" class="tel">{PHONE}</a>\n'
@@ -78,7 +79,7 @@ def footer_html():
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span>{col(P_DOR)}</nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span>{col(P_KSI)}<span class="k" style="margin-top:14px">Okolice</span>{col(P_LOK)}</nav>
-      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
@@ -328,11 +329,41 @@ def build_blog_index():
     write('blog/index.html', body)
 
 
+def build_team_page():
+    s = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
+    a = s.index('<section id="zespol"'); z = s.index('</section>', a) + len('</section>')
+    cards = s[a:z].replace('<section id="zespol" class="wrap team">', '<section class="wrap team" aria-label="Doradcy podatkowi">')
+    path = '/zespol/'
+    crumbs = [('Strona główna', '/'), ('Zespół', path)]
+    people = [
+        {"@context": "https://schema.org", "@type": "Person", "@id": SITE + "/#michal-ruszniak", "name": "Michał Ruszniak", "jobTitle": "Doradca podatkowy, Prezes Zarządu RKDP", "image": SITE + "/img/michal-ruszniak.jpg", "sameAs": ["https://kidp.pl/doradca/15009"], "worksFor": {"@id": SITE + "/#firma"}},
+        {"@context": "https://schema.org", "@type": "Person", "@id": SITE + "/#marcin-otreba", "name": "Marcin Otręba", "jobTitle": "Doradca podatkowy", "image": SITE + "/img/marcin-otreba.jpg", "sameAs": ["https://kidp.pl/doradca/14609"]},
+    ]
+    ld = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "AboutPage", "name": "Zespół RKDP", "url": SITE + path}] + people
+    body = head('Zespół – doradcy podatkowi Michał Ruszniak i Marcin Otręba | RKDP Wrocław', 'Poznaj doradców podatkowych RKDP: Michał Ruszniak (nr wpisu 15009, prezes zarządu) i Marcin Otręba (nr wpisu 14609). Doradztwo, kontrole, spory i księgowość we Wrocławiu.', path, extra_ld=ld)
+    body += f'''<main>
+<section class="wrap page-hero"><div class="inner">
+  {crumbs_html(crumbs)}
+  <span class="eyebrow">Zespół</span>
+  <h1>Nasi doradcy podatkowi</h1>
+  <p class="lead">Dwóch doradców podatkowych, jedna kancelaria. Łączymy doświadczenie przedsiębiorcy z doświadczeniem z administracji skarbowej – Twoją sprawą zajmuje się doradca podatkowy wpisany na listę Krajowej Izby Doradców Podatkowych.</p>
+</div></section>
+{cards}
+{cta_band('Porozmawiaj z doradcą', 'Umów konsultację w kancelarii na Jagodnie albo online.')}
+</main>
+{footer_html()}
+{NAV_JS}
+</body>
+</html>
+'''
+    write('zespol/index.html', body)
+
+
 def build_sitemap():
     urls = [('/', '1.0', 'monthly')]
     urls += [(url(p['slug']), '0.8', 'monthly') for p in P_DOR + P_KSI]
     urls += [(url(p['slug']), '0.7', 'monthly') for p in P_LOK]
-    urls += [('/blog/', '0.7', 'weekly')]
+    urls += [('/zespol/', '0.6', 'monthly'), ('/blog/', '0.7', 'weekly')]
     urls += [(f'/blog/{p["slug"]}/', '0.6', 'yearly') for p in POSTS]
     urls += [('/aml.html', '0.3', 'yearly'), ('/polityka-prywatnosci.html', '0.2', 'yearly')]
     x = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -370,6 +401,7 @@ if __name__ == '__main__':
     for p in P_LOK: counts[p['slug']] = build_page(p, 'Doradca podatkowy w okolicy')
     for p in POSTS: counts['blog/' + p['slug']] = build_post(p)
     build_blog_index()
+    build_team_page()
     n = build_sitemap()
     if '--no-index' not in sys.argv: update_index()
     for k, v in counts.items(): print(f'{v:5d} słów  {k}')

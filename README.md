@@ -7,6 +7,7 @@ Strona jest w pełni statyczna – nie wymaga żadnych zmiennych środowiskowych
 |---|---|
 | `index.html` | Strona główna; fragmenty między `<!-- gen:... -->` uzupełnia generator |
 | `<slug>/index.html` | 16 podstron usługowych i lokalnych (generowane) |
+| `zespol/index.html` | Zakładka Zespół (generowana z sekcji `#zespol` strony głównej) |
 | `blog/` | Blog: lista artykułów i artykuły (generowane) |
 | `css/site.css` | Wspólne style podstron i bloga |
 | `polityka-prywatnosci.html`, `aml.html` | RODO i informacje AML |
