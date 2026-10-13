@@ -359,7 +359,7 @@ section{scroll-margin-top:96px}
 .modal-close{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
 .modal-close:hover{background:var(--panel)}
 .modal-body{flex:1;position:relative;background:#fff}
-.modal-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#inline-container{position:absolute;inset:0;overflow:auto}#inline-container iframe{width:100%!important;border:0}
 .modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:15px}
 
 /* FOOTER */
@@ -933,7 +933,7 @@ a.spec h3{color:var(--bg)}
     </div>
     <div class="modal-body">
       <div class="modal-loading">Ładowanie kalendarza…</div>
-      <iframe title="Kalendarz rezerwacji konsultacji" data-src="https://m2taxdoradcypodatkowi.zohobookings.eu/portal-embed#/273514000000037002"></iframe>
+      <div id="inline-container"></div>
     </div>
   </dialog>
 </main>
@@ -971,12 +971,21 @@ a.spec h3{color:var(--bg)}
     if(e.target.closest('a')){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Otwórz menu');}
   });
 
-  var modal=document.getElementById('booking-modal'), frame=modal.querySelector('iframe');
+  var modal=document.getElementById('booking-modal'), zohoLoaded=false;
+  function loadZoho(){
+    if(zohoLoaded) return; zohoLoaded=true;
+    var sc=document.createElement('script'); sc.src='https://bookings.nimbuspop.com/assets/embed.js';
+    sc.onload=function(){
+      var h=Math.max(600, document.getElementById('inline-container').clientHeight);
+      Bookings.inlineEmbed({url:'https://m2taxdoradcypodatkowi.zohobookings.eu/portal-embed#/m2taxdoradcypodatkowi', parent:'#inline-container', height:h+'px'});
+    };
+    document.head.appendChild(sc);
+  }
   function openBooking(e){
     if(typeof modal.showModal!=='function') return; // starsza przeglądarka: zostaje przewinięcie do sekcji
     e.preventDefault();
-    if(!frame.src) frame.src=frame.dataset.src;
     modal.showModal();
+    loadZoho();
   }
   document.querySelectorAll('[data-booking-open]').forEach(function(el){el.addEventListener('click',openBooking);});
   modal.querySelector('[data-booking-close]').addEventListener('click',function(){modal.close();});
