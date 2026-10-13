@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://rkdp.pl/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rkdp.pl/doradztwo-podatkowe/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/kontrola-podatkowa/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/czynnosci-sprawdzajace/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/interpretacja-indywidualna/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/odwolanie-od-decyzji/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/wyplata-pieniedzy-ze-spolki/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/forma-opodatkowania/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/restrukturyzacje-spolek/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/firmy-rodzinne-sukcesja/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/podatki-nieruchomosci/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/ksiegowosc-spolki-z-o-o/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/ksiegowosc-jdg/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/kadry-i-place/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/zmiana-biura-rachunkowego/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rkdp.pl/doradca-podatkowy-jagodno/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rkdp.pl/doradca-podatkowy-siechnice/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rkdp.pl/blog/</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rkdp.pl/blog/ksef-w-malej-firmie/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/wezwanie-do-wyjasnien-z-urzedu-skarbowego/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/wynagrodzenie-wspolnika-art-176-ksh/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/estonski-cit-dla-kogo/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/jdg-czy-spolka-z-o-o/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/jak-zmienic-biuro-rachunkowe/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/sprzedaz-dzialki-pit-vat-pcc/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/przekazanie-firmy-dzieciom/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/ile-czasu-na-odwolanie-od-decyzji/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rkdp.pl/blog/kontrola-podatkowa-prawa-przedsiebiorcy/</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rkdp.pl/aml.html</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://rkdp.pl/polityka-prywatnosci.html</loc><lastmod>2026-10-13</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>

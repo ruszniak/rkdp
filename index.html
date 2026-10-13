@@ -511,31 +511,122 @@ html,body{overflow-x:clip}
   .bg-fx .orb,.hero::before,.specs .specs-glow{animation:none}
   .cursor-glow{display:none}
 }
+
+/* ===== Menu rozwijane, kafelki-linki, księgowość, blog, stopka 4-kolumnowa ===== */
+.nav-links{gap:26px}
+.nav-links>a:not(.btn),.dd>button{color:var(--ink);text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;padding:8px 0;display:inline-flex;align-items:center;gap:6px}
+.dd>button:hover{color:var(--bronze)}
+.dd{position:relative}
+.dd>button svg{transition:transform .2s}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:-20px;min-width:300px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 50px rgba(29,26,22,.14);padding:10px;display:none;flex-direction:column;z-index:60}
+.dd-menu a{display:block;padding:10px 14px;border-radius:10px;color:var(--ink);text-decoration:none;font-size:14.5px;line-height:1.35}
+.dd-menu a small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.dd-menu a:hover{background:var(--panel);color:var(--bronze)}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu,.dd.open .dd-menu{display:flex}
+.dd:hover>button svg,.dd.open>button svg{transform:rotate(180deg)}
+.dd::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
+@media (max-width:1180px){.nav-links{gap:18px}}
+@media (max-width:1024px){
+  .nav-links{max-height:calc(100dvh - 80px);overflow:auto}
+  .dd>button{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;width:100%;justify-content:space-between}
+  .dd-menu{position:static;box-shadow:none;border:0;padding:4px 0 8px 8px;background:transparent;min-width:0}
+  .dd:hover .dd-menu{display:none}.dd.open .dd-menu{display:flex}
+  .dd::after{display:none}
+}
+a.spec{text-decoration:none;color:inherit}
+a.spec h3{color:var(--bg)}
+.spec-more{font-style:normal;font-size:13px;font-weight:600;color:var(--gold);margin-top:auto;opacity:.85;transition:opacity .3s,transform .3s}
+@media (hover:hover){a.spec:hover .spec-more{opacity:1;transform:translateX(4px)}}
+.spec-cta{background:#221E19!important}
+.spec-cta .num{font-size:22px}
+.ksieg{padding-top:clamp(72px,8vw,110px);padding-bottom:clamp(24px,3vw,40px)}
+.ksieg .specs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:40px}
+.ksieg .specs-head>div{display:flex;flex-direction:column;gap:20px;max-width:700px}
+.ksieg .specs-head p{max-width:460px;font-size:17px;line-height:1.7;color:var(--text)}
+.ksieg-grid{grid-template-columns:repeat(4,1fr)!important;background:var(--line)!important;border-color:var(--line)!important}
+.ksieg-grid .spec{background:#fff;min-height:240px;padding:32px}
+.ksieg-grid .spec h3{color:var(--ink);font-size:22px}
+.ksieg-grid .spec p{color:var(--muted)}
+.ksieg-grid .spec .num{color:var(--bronze)}
+.ksieg-grid .spec-more{color:var(--bronze)}
+@media (hover:hover){.ksieg-grid .spec:hover{background:#fff!important;box-shadow:0 26px 50px rgba(122,90,55,.18),inset 0 0 0 1px rgba(122,90,55,.5)}.ksieg-grid .spec:hover h3{color:var(--bronze)}}
+.ksieg-grid .spec::before{background:radial-gradient(360px circle at var(--mx) var(--my),rgba(217,185,142,.22),transparent 55%)}
+@media (min-width:1025px) and (hover:hover){
+  .spec-grid .spec:nth-child(4){border-bottom-left-radius:0}
+  .spec-grid:not(.ksieg-grid) .spec:nth-last-child(3){border-bottom-left-radius:20px}
+  .ksieg-grid .spec:nth-child(3){border-top-right-radius:0}
+  .ksieg-grid .spec:first-child{border-radius:20px 0 0 20px}.ksieg-grid .spec:last-child{border-radius:0 20px 20px 0}
+}
+.home-blog{padding-bottom:clamp(56px,6vw,80px)}
+.blog-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.blog-head>div{display:flex;flex-direction:column;gap:16px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.post{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:20px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.post .tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
+.post b{font-family:var(--serif);font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.01em}
+.post span{color:var(--muted);font-size:14.5px;line-height:1.6}
+.post time{font-size:13px;color:var(--label);margin-top:auto}
+@media (hover:hover){.post:hover{transform:translateY(-4px);border-color:var(--bronze);box-shadow:0 18px 40px rgba(122,90,55,.14);color:var(--ink)}}
+.contact-card .local{font-size:14.5px;color:var(--text);margin-top:4px}
+.footer-grid{grid-template-columns:1.6fr 1fr 1fr 1fr!important;gap:48px!important}
+.footer-brand p a{color:var(--on-dark-strong);text-decoration:none}
+.footer nav{gap:10px!important;font-size:14.5px!important}
+@media (max-width:1024px){
+  .ksieg .specs-head{flex-direction:column;align-items:flex-start;gap:20px}
+  .ksieg-grid{grid-template-columns:1fr 1fr!important}
+  .posts{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr!important}
+}
+@media (max-width:640px){
+  .ksieg-grid{grid-template-columns:1fr!important}
+  .posts{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr!important}
+}
+
+.nav-links>a,.dd>button{white-space:nowrap}
+@media (min-width:1025px){.nav-links{gap:22px}}
+@media (max-width:1380px) and (min-width:1025px){.nav-links .tel{display:none}}
+
+@media (max-width:1200px){
+  .menu-btn{display:inline-flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 24px;background:var(--bg);border-bottom:1px solid var(--line);display:none;max-height:calc(100dvh - 80px);overflow:auto}
+  .nav-links.open{display:flex}
+  .nav-links>a:not(.btn),.dd>button{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;width:100%;justify-content:space-between}
+  .nav-links .tel{display:flex!important}
+  .nav-links .btn{margin-top:16px;justify-content:center;min-height:52px}
+  .dd-menu{position:static;box-shadow:none;border:0;padding:4px 0 8px 8px;background:transparent;min-width:0}
+  .dd:hover .dd-menu{display:none}.dd.open .dd-menu{display:flex}
+  .dd::after{display:none}
+}
+
+.dd-menu a::after{display:none!important}
+@media (max-width:1200px){.dd-menu a{padding:10px 12px!important;border-bottom:0!important;font-size:15px!important;display:block!important}}
+
+.nav-logo{flex-shrink:0}
+@media (min-width:1201px) and (max-width:1380px){.nav-links .tel{display:none!important}}
 </style>
 </head>
 <body>
 <div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grain"></span></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
+<!-- gen:nav -->
 <header class="site-header">
   <div class="wrap nav">
-    <a href="#top" class="nav-logo" aria-label="RKDP spółka doradztwa podatkowego – strona główna">
-      <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="183" height="54">
-    </a>
-    <button class="menu-btn" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+    <a href="/" class="nav-logo" aria-label="RKDP spółka doradztwa podatkowego – strona główna"><img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="183" height="54"></a>
+    <button class="menu-btn" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav id="menu" class="nav-links" aria-label="Menu główne">
-      <a href="#o-kancelarii">O kancelarii</a>
-      <a href="#specjalizacje">Specjalizacje</a>
-      <a href="#kontrole">Kontrole</a>
-      <a href="#faq">FAQ</a>
-      <a href="#kontakt">Kontakt</a>
+      <div class="dd"><button type="button" aria-expanded="false">Doradztwo podatkowe <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/doradztwo-podatkowe/">Doradca podatkowy Wrocław<small>Stałe doradztwo i opinie dla firm</small></a><a href="/interpretacja-indywidualna/">Interpretacja indywidualna i WIS<small>Wnioski do Dyrektora KIS</small></a><a href="/wyplata-pieniedzy-ze-spolki/">Wypłata pieniędzy ze spółki<small>Wynagrodzenie zarządu, art. 176 KSH, dywidenda</small></a><a href="/forma-opodatkowania/">Forma prawna i opodatkowania<small>JDG czy spółka, estoński CIT, ryczałt</small></a><a href="/restrukturyzacje-spolek/">Spółki z o.o. i SKA – reorganizacje<small>Przekształcenia, połączenia, aporty</small></a><a href="/firmy-rodzinne-sukcesja/">Firmy rodzinne i sukcesja<small>Przekazanie firmy, fundacja rodzinna</small></a><a href="/podatki-nieruchomosci/">PCC i sprzedaż nieruchomości<small>PIT, VAT, PCC, podatek od nieruchomości</small></a></div></div>
+      <div class="dd"><button type="button" aria-expanded="false">Kontrole i postępowania <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/kontrola-podatkowa/">Kontrola podatkowa<small>Pełnomocnik w kontroli US i KAS</small></a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego<small>Czynności sprawdzające, wyjaśnienia JPK</small></a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA<small>Postępowania i spory z fiskusem</small></a></div></div>
+      <div class="dd"><button type="button" aria-expanded="false">Księgowość <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.<small>Pełna księgowość pod nadzorem doradcy</small></a><a href="/ksiegowosc-jdg/">Księgowość JDG<small>KPiR, ryczałt, VAT, ZUS</small></a><a href="/kadry-i-place/">Kadry i płace<small>Umowy, listy płac, ZUS, PPK</small></a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego<small>Przejęcie księgowości bez przerwy</small></a></div></div>
+      <a href="/blog/">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
       <a href="tel:+48883643565" class="tel">+48 883 643 565</a>
-      <a href="#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>
+      <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>
     </nav>
   </div>
 </header>
+<!-- /gen:nav -->
 
 <main id="top">
   <section class="wrap hero">
@@ -557,6 +648,25 @@ html,body{overflow-x:clip}
     </div>
   </section>
 
+  <section id="uslugi" class="specs">
+    <span class="specs-glow" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="specs-head">
+        <div>
+          <span class="eyebrow">Doradztwo podatkowe</span>
+          <h2 class="h2">Doradcy podatkowi, nie tylko księgowi</h2>
+        </div>
+        <p>RKDP to spółka doradztwa podatkowego wpisana do rejestru KIDP (nr 855). Doradzamy, przygotowujemy wnioski o interpretacje i reprezentujemy klientów w kontrolach i przed sądami. Dla tych, którzy chcą mieć wszystko w jednym miejscu, prowadzimy też księgowość i kadry – każde rozliczenie nadzoruje doradca podatkowy.</p>
+      </div>
+      <div class="spec-grid">
+<!-- gen:doradztwo -->
+<a class="spec" href="/doradztwo-podatkowe/"><span class="num">01</span><h3>Doradca podatkowy Wrocław</h3><p>Stały doradca dla firmy: pytania bieżące, opinie przed decyzją, przegląd umów i rozliczeń.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/kontrola-podatkowa/"><span class="num">02</span><h3>Kontrola podatkowa</h3><p>Pełnomocnik w kontroli urzędu skarbowego i kontroli celno-skarbowej – od zawiadomienia do protokołu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/czynnosci-sprawdzajace/"><span class="num">03</span><h3>Wezwanie z urzędu skarbowego</h3><p>Odpowiedź na wezwanie do wyjaśnień, korekty lub dokumentów – tak, by sprawa skończyła się na tym etapie.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/interpretacja-indywidualna/"><span class="num">04</span><h3>Interpretacja indywidualna i WIS</h3><p>Wnioski o interpretację indywidualną i WIS – ochrona przed zmianą stanowiska urzędu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/odwolanie-od-decyzji/"><span class="num">05</span><h3>Odwołanie od decyzji i skarga do WSA</h3><p>Postępowanie podatkowe, odwołanie od decyzji, skarga do WSA i skarga kasacyjna do NSA.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/wyplata-pieniedzy-ze-spolki/"><span class="num">06</span><h3>Wypłata pieniędzy ze spółki</h3><p>Najtańsza legalna droga wypłaty: wynagrodzenie zarządu, art. 176 KSH, dywidenda, najem, pożyczka.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/forma-opodatkowania/"><span class="num">07</span><h3>Forma prawna i opodatkowania</h3><p>JDG czy spółka, skala, liniowy, ryczałt czy estoński CIT – symulacja na liczbach Twojej firmy.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/restrukturyzacje-spolek/"><span class="num">08</span><h3>Spółki z o.o. i SKA – reorganizacje</h3><p>Optymalizacja spółek z o.o. i SKA oraz reorganizacje: przekształcenia, połączenia, podziały, aporty.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/firmy-rodzinne-sukcesja/"><span class="num">09</span><h3>Firmy rodzinne i sukcesja</h3><p>Przekazanie firmy dzieciom bez zbędnego podatku: darowizna, zarząd sukcesyjny, fundacja rodzinna.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/podatki-nieruchomosci/"><span class="num">10</span><h3>PCC i sprzedaż nieruchomości</h3><p>Sprzedaż mieszkania i działki przez osoby prywatne: PIT, ulga mieszkaniowa, VAT czy PCC.</p><em class="spec-more">Dowiedz się więcej →</em></a>
+<!-- /gen:doradztwo -->
+<a class="spec spec-cta" href="#ksiegowosc"><span class="num">+</span><h3>Księgowość pod nadzorem doradcy</h3><p>Księgi spółek i JDG, kadry i płace – w tej samej kancelarii, która doradza i reprezentuje.</p><em class="spec-more">Zobacz księgowość →</em></a><a class="spec spec-cta" href="#termin" data-booking-open><span class="num">→</span><h3>Nie wiesz, od czego zacząć?</h3><p>Opowiedz nam o sprawie. Powiemy, czy potrzebujesz interpretacji, pełnomocnika czy stałego doradcy.</p><em class="spec-more">Umów konsultację →</em></a>
+      </div>
+    </div>
+  </section>
+
   <section id="kontrole" class="wrap control">
     <div class="control-box">
       <div>
@@ -567,6 +677,21 @@ html,body{overflow-x:clip}
       <a href="tel:+48883643565" class="btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
         +48 883 643 565</a>
+    </div>
+  </section>
+
+  <section id="ksiegowosc" class="wrap ksieg">
+    <div class="specs-head">
+      <div>
+        <span class="eyebrow">Księgowość</span>
+        <h2 class="h2">Księgowość pod nadzorem doradcy podatkowego</h2>
+      </div>
+      <p>Prowadzimy księgi spółek i jednoosobowych firm oraz kadry i płace. Każde rozliczenie nadzoruje doradca podatkowy – a gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p>
+    </div>
+    <div class="spec-grid ksieg-grid">
+<!-- gen:ksiegowosc -->
+<a class="spec" href="/ksiegowosc-spolki-z-o-o/"><span class="num">01</span><h3>Księgowość spółki z o.o.</h3><p>Księgi handlowe, sprawozdania, CIT i JPK – prowadzone przez zespół pod nadzorem doradcy podatkowego.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/ksiegowosc-jdg/"><span class="num">02</span><h3>Księgowość JDG</h3><p>KPiR i ryczałt dla jednoosobowych firm, VAT, ZUS i zdrowotna – z doradcą pod telefonem.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/kadry-i-place/"><span class="num">03</span><h3>Kadry i płace</h3><p>Listy płac, umowy, ZUS, PIT-11, PPK i akta osobowe – dla firm zatrudniających pracowników.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/zmiana-biura-rachunkowego/"><span class="num">04</span><h3>Zmiana biura rachunkowego</h3><p>Przejmujemy księgowość od poprzedniego biura: pełnomocnictwa, dokumentacja, przegląd rozliczeń.</p><em class="spec-more">Dowiedz się więcej →</em></a>
+<!-- /gen:ksiegowosc -->
     </div>
   </section>
 
@@ -608,27 +733,6 @@ html,body{overflow-x:clip}
     </div>
   </section>
 
-  <section id="specjalizacje" class="specs">
-    <span class="specs-glow" aria-hidden="true"></span>
-    <div class="wrap">
-      <div class="specs-head">
-        <div>
-          <span class="eyebrow">Specjalizacje</span>
-          <h2 class="h2">Doradcy podatkowi, nie tylko księgowi</h2>
-        </div>
-        <p>RKDP to spółka doradztwa podatkowego wpisana do rejestru KIDP (nr 855). Doradzamy, przygotowujemy wnioski o interpretacje i reprezentujemy klientów w kontrolach i przed sądami. Dla tych, którzy chcą mieć wszystko w jednym miejscu, prowadzimy też księgowość i kadry – każde rozliczenie nadzoruje doradca podatkowy.</p>
-      </div>
-      <div class="spec-grid">
-        <article class="spec"><span class="num">01</span><h3>Zakładanie firm i optymalizacja</h3><p>Rejestracja działalności – JDG i spółek prawa handlowego – z od razu dobraną najkorzystniejszą formą opodatkowania.</p></article>
-        <article class="spec"><span class="num">02</span><h3>Reprezentacja i kontrole</h3><p>Pełnomocnictwo zawodowe przed organami podatkowymi (US, KAS) oraz sądami administracyjnymi (WSA, NSA).</p></article>
-        <article class="spec"><span class="num">03</span><h3>Opinie, wnioski i pisma</h3><p>Wnioski o interpretacje (WIS, WIT), opinie zabezpieczające oraz pisma procesowe – odwołania i skargi.</p></article>
-        <article class="spec"><span class="num">04</span><h3>Spółki z o.o. i SKA</h3><p>Optymalizacja podatkowa spółek z o.o. i spółek komandytowo-akcyjnych oraz reorganizacje firm – przekształcenia, połączenia, podziały i aporty.</p></article>
-        <article class="spec"><span class="num">05</span><h3>PCC i sprzedaż nieruchomości</h3><p>Podatek od czynności cywilnoprawnych oraz rozliczenie sprzedaży nieruchomości przez osoby fizyczne – PIT, ulga mieszkaniowa, interpretacje.</p></article>
-        <article class="spec"><span class="num">06</span><h3>Księgowość i kadry</h3><p>Księgi handlowe, KPiR i ryczałt, rozliczenia ZUS i składek zdrowotnych – prowadzone pod okiem doradcy.</p></article>
-      </div>
-    </div>
-  </section>
-
   <section id="faq" class="wrap faq">
     <div class="faq-left">
       <span class="eyebrow">FAQ</span>
@@ -642,6 +746,18 @@ html,body{overflow-x:clip}
       <details><summary>Czy pomagacie we wdrożeniu KSeF w małej firmie?</summary><p>Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania.</p></details>
       <details><summary>Czy estoński CIT opłaca się mojej spółce?</summary><p>To zależy m.in. od tego, czy zyski zostają w spółce, jaka jest struktura wspólników i czy spółka spełnia warunki ustawowe. Przed przejściem na estoński CIT porównujemy obciążenia na liczbach Twojej firmy i wskazujemy ryzyka.</p></details>
       <details><summary>Dostałem pismo z urzędu skarbowego. Co robić?</summary><p>Nie zwlekaj z odpowiedzią i zadzwoń do nas przed upływem terminu. Jako doradcy podatkowi możemy reprezentować Cię w czynnościach sprawdzających, kontroli i postępowaniu podatkowym, a w razie potrzeby przygotować odwołanie lub skargę do sądu administracyjnego.</p></details>
+    </div>
+  </section>
+
+  <section id="blog" class="wrap home-blog">
+    <div class="blog-head">
+      <div><span class="eyebrow">Blog</span><h2 class="h2">Najnowsze artykuły</h2></div>
+      <a class="btn btn-outline" href="/blog/">Wszystkie artykuły</a>
+    </div>
+    <div class="posts">
+<!-- gen:blog -->
+<a class="post" href="/blog/ksef-w-malej-firmie/"><span class="tag">KSeF</span><b>KSeF w małej firmie: co musi zrobić właściciel</b><span>Krajowy System e-Faktur w małej firmie i JDG: od kiedy obowiązuje, jak nadać uprawnienia, jak odbierać faktury i jak ustawić współpracę z księgową.</span><time datetime="2026-10-13">13 października 2026</time></a><a class="post" href="/blog/wezwanie-do-wyjasnien-z-urzedu-skarbowego/"><span class="tag">Pismo z urzędu</span><b>Dostałem wezwanie do wyjaśnień z urzędu skarbowego: co dalej</b><span>Wezwanie do złożenia wyjaśnień, korekty JPK lub przedłożenia dokumentów – co oznacza, ile masz czasu i jak odpowiedzieć, żeby sprawa nie skończyła się kontrolą.</span><time datetime="2026-10-13">13 października 2026</time></a><a class="post" href="/blog/wynagrodzenie-wspolnika-art-176-ksh/"><span class="tag">Spółka z o.o.</span><b>Wynagrodzenie wspólnika z art. 176 KSH: jak to rozliczyć</b><span>Świadczenia niepieniężne wspólnika z art. 176 KSH: jak je zapisać w umowie spółki, jak udokumentować i na co uważać przy rozliczeniu podatkowym.</span><time datetime="2026-10-13">13 października 2026</time></a>
+<!-- /gen:blog -->
     </div>
   </section>
 
@@ -659,6 +775,9 @@ html,body{overflow-x:clip}
         <div><span class="k">Kancelaria stacjonarnie</span><span class="v">ul. Beaty Artemskiej 11/44<br>52-234 Wrocław (Jagodno)</span></div>
         <div><span class="k">Rejestr KIDP</span><span class="v">Podmiot uprawniony<br>nr wpisu 855</span></div>
       </div>
+      <p class="local">Obsługujemy też: <!-- gen:local -->
+<a href="/doradca-podatkowy-jagodno/">Jagodno i Krzyki</a> · <a href="/doradca-podatkowy-siechnice/">Siechnice i okolice</a>
+<!-- /gen:local --></p>
     </div>
     <div class="contact-side">
       <div class="map">
@@ -711,35 +830,26 @@ html,body{overflow-x:clip}
   </dialog>
 </main>
 
+<!-- gen:footer -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="230" height="68" loading="lazy">
-        <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br>Kancelaria: ul. Beaty Artemskiej 11/44, 52-234 Wrocław</p>
+        <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="217" height="64" loading="lazy">
+        <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br>Kancelaria: ul. Beaty Artemskiej 11/44, 52-234 Wrocław (Jagodno)<br><a href="tel:+48883643565">+48 883 643 565</a> · <a href="mailto:kancelaria@rkdp.pl">kancelaria@rkdp.pl</a></p>
         <p>Sprawy sporne z organami podatkowymi prowadzimy także w spółce partnerskiej <a href="https://m2tax.pl" target="_blank" rel="noopener" style="color:var(--gold)">M2 TAX Doradcy Podatkowi</a>.</p>
       </div>
-      <nav aria-label="Szybkie linki">
-        <span class="k">Szybkie linki</span>
-        <a href="#o-kancelarii">O kancelarii</a>
-        <a href="#specjalizacje">Specjalizacje</a>
-        <a href="#faq">FAQ</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <nav aria-label="Informacje">
-        <span class="k">Informacje</span>
-        <a href="polityka-prywatnosci.html">RODO (Polityka prywatności)</a>
-        <a href="aml.html">AML</a>
-        <a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a>
-        <a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a>
-      </nav>
+      <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span><a href="/doradztwo-podatkowe/">Doradca podatkowy Wrocław</a><a href="/kontrola-podatkowa/">Kontrola podatkowa</a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego</a><a href="/interpretacja-indywidualna/">Interpretacja indywidualna i WIS</a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA</a><a href="/wyplata-pieniedzy-ze-spolki/">Wypłata pieniędzy ze spółki</a><a href="/forma-opodatkowania/">Forma prawna i opodatkowania</a><a href="/restrukturyzacje-spolek/">Spółki z o.o. i SKA – reorganizacje</a><a href="/firmy-rodzinne-sukcesja/">Firmy rodzinne i sukcesja</a><a href="/podatki-nieruchomosci/">PCC i sprzedaż nieruchomości</a></nav>
+      <nav aria-label="Księgowość"><span class="k">Księgowość</span><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.</a><a href="/ksiegowosc-jdg/">Księgowość JDG</a><a href="/kadry-i-place/">Kadry i płace</a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego</a><span class="k" style="margin-top:14px">Okolice</span><a href="/doradca-podatkowy-jagodno/">Jagodno i Krzyki</a><a href="/doradca-podatkowy-siechnice/">Siechnice i okolice</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
-      <span>Doradca podatkowy nr 15009 · Podmiot uprawniony nr 855 · Wykonanie: <a href="https://ruszniak.io" target="_blank" rel="noopener" style="color:inherit">druslak</a></span>
+      <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
+      <span>Doradca podatkowy nr 15009 · Podmiot uprawniony nr 855 · Wykonanie: <a href="https://ruszniak.io" target="_blank" rel="noopener">druslak</a></span>
     </div>
   </div>
 </footer>
+<!-- /gen:footer -->
 
 <script>
 (function(){
@@ -841,7 +951,9 @@ html,body{overflow-x:clip}
     window.addEventListener('scroll',function(){ if(ticking) return; ticking=true; requestAnimationFrame(function(){
       var y=window.scrollY; orbs.forEach(function(o,i){ o.style.translate='0 '+(-y*(.06+i*.04)).toFixed(1)+'px'; }); ticking=false; }); },{passive:true});
   }
-  document.getElementById('year').textContent=new Date().getFullYear();
+  document.querySelectorAll('.year,#year').forEach(function(y){y.textContent=new Date().getFullYear();});
+  document.querySelectorAll('.dd>button').forEach(function(b){b.addEventListener('click',function(ev){ev.stopPropagation();var d=b.parentElement,o=!d.classList.contains('open');document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');});if(o){d.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+  document.addEventListener('click',function(){document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');});});
 })();
 </script>
 </body>
