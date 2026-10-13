@@ -1,0 +1,5 @@
+# Blokada dostępu z przeglądarki do konfiguracji, biblioteki i rejestru zgód.
+<FilesMatch "^(config|lib)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

@@ -1,0 +1,6 @@
+# Dane newslettera z serwera (rejestr zgód, znaczniki, tajny klucz) – nigdy do repozytorium
+newsletter/data/*
+!newsletter/data/.htaccess
+
+.DS_Store
+Thumbs.db
