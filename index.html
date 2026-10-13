@@ -105,7 +105,7 @@
   "@type": "Person",
   "@id": "https://rkdp.pl/#michal-ruszniak",
   "name": "Michał Ruszniak",
-  "jobTitle": "Doradca podatkowy",
+  "jobTitle": "Doradca podatkowy, Prezes Zarządu RKDP",
   "image": "https://rkdp.pl/img/michal-ruszniak.jpg",
   "worksFor": {
    "@id": "https://rkdp.pl/#firma"
@@ -645,6 +645,11 @@ a.spec h3{color:var(--bg)}
 .team-kidp{color:var(--gold)!important;margin-top:6px}
 .team-kidp:hover{color:#fff!important}
 @media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
+
+.team{display:flex;flex-direction:column;gap:28px}
+.team-photo-light{object-position:58% 20%;background:#d9dadb}
+.about-right .intro{font-family:var(--serif);font-size:clamp(26px,2.4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--ink)}
+.about-right{padding-top:44px}
 </style>
 </head>
 <body>
@@ -744,19 +749,10 @@ a.spec h3{color:var(--bg)}
         <p>„Przyrzekam, że jako doradca podatkowy będę wykonywać ten zawód kierując się dobrem swoich klientów, z całą sumiennością i rzetelnością, zgodnie z prawem, wiedzą i zasadami etyki zawodowej.”</p>
         <cite>Ślubowanie doradcy podatkowego</cite>
       </blockquote>
-      <a class="kidp-link" href="https://kidp.pl/doradca/15009" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        Sprawdź wpis w rejestrze KIDP</a>
     </div>
     <div class="about-right">
-      <div class="advisor">
-        <span class="advisor-role">Doradca Podatkowy</span>
-        <p class="advisor-name">Michał Ruszniak</p>
-        <span class="advisor-reg">Nr wpisu na listę doradców podatkowych: 15009</span>
-      </div>
-      <p>Doradca podatkowy i przedsiębiorca. Sam założył kilkadziesiąt działalności gospodarczych i spółek, dlatego z klientami rozmawia językiem prowadzenia firmy, a nie tylko przepisów. Najczęściej pracuje z firmami rodzinnymi: przy wyborze formy działalności, zakładaniu i przekształcaniu spółek, wypłacie pieniędzy ze spółki i planowaniu sukcesji.</p>
-      <p>W RKDP łączy doradztwo z księgowością – księgi klientów prowadzi zespół pod jego nadzorem, a gdy pojawia się kontrola lub postępowanie, reprezentuje klienta jako pełnomocnik przed urzędem i sądem administracyjnym.</p>
-      <p>Jest członkiem zarządu Dolnośląskiego Oddziału Krajowej Izby Doradców Podatkowych i wykładowcą Uniwersytetu DSW we Wrocławiu. Występuje na ogólnopolskich konferencjach naukowych o postępowaniach podatkowych i zasiada w jury finałów krajowych konkursów wiedzy o podatkach.</p>
+      <p class="intro">Dwóch doradców podatkowych, jedna kancelaria.</p>
+      <p>RKDP łączy doświadczenie przedsiębiorcy z doświadczeniem z administracji skarbowej. Doradzamy firmom rodzinnym oraz małym i średnim przedsiębiorstwom, reprezentujemy klientów w kontrolach, postępowaniach i przed sądami administracyjnymi, a księgowość prowadzi zespół pod nadzorem doradcy podatkowego.</p>
       <div class="pillars">
         <div class="pillar">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
@@ -775,6 +771,23 @@ a.spec h3{color:var(--bg)}
   </section>
 
   <section id="zespol" class="wrap team">
+    <div class="team-card">
+      <picture><source srcset="/img/michal-ruszniak.webp" type="image/webp"><img class="team-photo team-photo-light" src="/img/michal-ruszniak.jpg" alt="Michał Ruszniak, doradca podatkowy, prezes zarządu RKDP, Wrocław" width="810" height="810" loading="lazy"></picture>
+      <div class="team-body">
+        <span class="advisor-role">Doradca Podatkowy · Prezes Zarządu</span>
+        <h3 class="team-name">Michał Ruszniak</h3>
+        <span class="team-reg">Nr wpisu na listę doradców podatkowych: 15009</span>
+        <p>Doradca podatkowy i przedsiębiorca – zna podatki z przepisów i z codziennego prowadzenia firmy. W RKDP łączy doradztwo z księgowością: księgi klientów prowadzi zespół pod jego nadzorem, a gdy pojawia się kontrola lub postępowanie, reprezentuje klienta przed urzędem i sądem.</p>
+        <ul class="team-list">
+          <li>założyciel kilkudziesięciu działalności gospodarczych i spółek prawa handlowego,</li>
+          <li>specjalizuje się w obsłudze małych i średnich przedsiębiorstw oraz firm rodzinnych: wybór formy działalności, zakładanie i przekształcanie spółek, wypłata pieniędzy ze spółki, sukcesja,</li>
+          <li>pełnomocnik zawodowy w kontrolach, postępowaniach podatkowych i przed sądami administracyjnymi,</li>
+          <li>członek zarządu Dolnośląskiego Oddziału Krajowej Izby Doradców Podatkowych i wykładowca Uniwersytetu DSW we Wrocławiu,</li>
+          <li>prelegent ogólnopolskich konferencji naukowych o postępowaniach podatkowych i juror w finałach krajowych konkursów wiedzy o podatkach.</li>
+        </ul>
+        <a class="kidp-link team-kidp" href="https://kidp.pl/doradca/15009" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Sprawdź wpis w rejestrze KIDP</a>
+      </div>
+    </div>
     <div class="team-card">
       <picture><source srcset="/img/marcin-otreba.webp" type="image/webp"><img class="team-photo" src="/img/marcin-otreba.jpg" alt="Marcin Otręba, doradca podatkowy, Wrocław" width="662" height="900" loading="lazy"></picture>
       <div class="team-body">

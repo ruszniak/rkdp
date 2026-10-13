@@ -267,7 +267,7 @@ def build_post(p):
     ld = [breadcrumb_ld(crumbs), {
         "@context": "https://schema.org", "@type": "Article", "headline": p['title'], "description": p['desc'],
         "datePublished": p['date'], "dateModified": p.get('updated', p['date']), "inLanguage": "pl-PL",
-        "author": {"@type": "Person", "@id": SITE + "/#michal-ruszniak", "name": "Michał Ruszniak", "jobTitle": "Doradca podatkowy", "url": SITE + "/#o-kancelarii"},
+        "author": {"@type": "Person", "@id": SITE + "/#michal-ruszniak", "name": "Michał Ruszniak", "jobTitle": "Doradca podatkowy", "url": SITE + "/#zespol"},
         "publisher": {"@id": SITE + "/#firma", "@type": "Organization", "name": "RKDP spółka doradztwa podatkowego sp. z o.o.", "logo": {"@type": "ImageObject", "url": SITE + "/img/logo-rkdp.png"}},
         "image": SITE + "/img/michal-ruszniak.jpg", "mainEntityOfPage": SITE + path}]
     if p.get('faq'): ld.append(faq_ld(p['faq']))
@@ -282,7 +282,7 @@ def build_post(p):
 </div></section>
 <div class="wrap page-body">
   <article class="prose">
-    <div class="author"><img src="/img/michal-ruszniak.webp" alt="Michał Ruszniak, doradca podatkowy" width="64" height="64" loading="lazy"><div><b>Michał Ruszniak</b><span>Doradca podatkowy nr 15009 · <a href="/#o-kancelarii">o autorze</a></span><br><span class="meta">Opublikowano <time datetime="{p['date']}">{pl_date(p['date'])}</time>{' · aktualizacja <time datetime="' + p['updated'] + '">' + pl_date(p['updated']) + '</time>' if p.get('updated') else ''}</span></div></div>
+    <div class="author"><img src="/img/michal-ruszniak.webp" alt="Michał Ruszniak, doradca podatkowy" width="64" height="64" loading="lazy"><div><b>Michał Ruszniak</b><span>Doradca podatkowy nr 15009 · <a href="/#zespol">o autorze</a></span><br><span class="meta">Opublikowano <time datetime="{p['date']}">{pl_date(p['date'])}</time>{' · aktualizacja <time datetime="' + p['updated'] + '">' + pl_date(p['updated']) + '</time>' if p.get('updated') else ''}</span></div></div>
 {render_blocks(p['body'])}
 {faq_html(p.get('faq'))}
 <div class="note"><p>Artykuł ma charakter informacyjny i opisuje stan prawny na dzień publikacji. Nie zastępuje porady podatkowej w indywidualnej sprawie.</p></div>
