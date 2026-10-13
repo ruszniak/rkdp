@@ -202,35 +202,6 @@ section{scroll-margin-top:96px}
 .modal-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:15px}
 
-/* NEWSLETTER */
-.newsletter{padding-bottom:clamp(56px,6vw,80px)}
-.nl-box{border-radius:24px;background:var(--panel);display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,72px);padding:clamp(28px,5vw,64px);align-items:start}
-.nl-copy{display:flex;flex-direction:column;gap:20px}
-.nl-badge{align-self:flex-start;display:inline-flex;align-items:baseline;gap:8px;padding:10px 18px;border-radius:999px;background:var(--bronze);color:var(--bg);font-weight:600;font-size:14px}
-.nl-badge strong{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:-.02em}
-.nl-copy h2{font-size:clamp(32px,3.4vw,48px);line-height:1.08}
-.nl-copy>p{color:var(--text);line-height:1.7;max-width:480px}
-.nl-list{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
-.nl-list li{display:flex;gap:12px;align-items:flex-start;color:var(--ink);font-weight:500;font-size:15px;line-height:1.5}
-.nl-list svg{flex:none;margin-top:2px}
-.nl-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:16px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:13px;font-weight:600;color:var(--ink)}
-.field label span{font-weight:400;color:var(--muted)}
-.field input{font:inherit;font-size:16px;min-height:52px;padding:0 16px;border:1.5px solid var(--line-2);border-radius:12px;background:var(--bg);color:var(--ink)}
-.field input:focus{outline:none;border-color:var(--bronze);background:#fff}
-.check{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--text);cursor:pointer}
-.check input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--bronze);cursor:pointer}
-.check a{font-weight:600}
-.req{color:var(--bronze);font-weight:700}
-.nl-form .btn-primary{justify-content:center;border:0;cursor:pointer;font-family:var(--sans);min-height:56px;font-size:16px}
-.nl-form .btn-primary[disabled]{opacity:.6;cursor:wait}
-.nl-note{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
-.nl-status{display:none;padding:14px 16px;border-radius:12px;font-size:14px;line-height:1.55;font-weight:500}
-.nl-status.ok{display:block;background:#E8F0E6;color:#24452A}
-.nl-status.err{display:block;background:#F6E3DF;color:#7A2E22}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-
 /* FOOTER */
 .footer{background:var(--dark);color:var(--on-dark);padding:64px 0 36px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:64px}
@@ -250,7 +221,6 @@ section{scroll-margin-top:96px}
   .hero-card{left:-24px}
 }
 @media (max-width:1024px){
-  .nl-box{grid-template-columns:1fr}
   .menu-btn{display:inline-flex}
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--pad) 24px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}
@@ -311,7 +281,6 @@ section{scroll-margin-top:96px}
       <a href="#specjalizacje">Specjalizacje</a>
       <a href="#kontrole">Kontrole</a>
       <a href="#faq">FAQ</a>
-      <a href="#newsletter">Newsletter</a>
       <a href="#kontakt">Kontakt</a>
       <a href="tel:+48883643565" class="tel">+48 883 643 565</a>
       <a href="#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>
@@ -423,41 +392,6 @@ section{scroll-margin-top:96px}
     </div>
   </section>
 
-  <section id="newsletter" class="wrap newsletter">
-    <div class="nl-box">
-      <div class="nl-copy">
-        <span class="nl-badge"><strong>−15%</strong> na kolejną usługę podatkową</span>
-        <span class="eyebrow">Newsletter podatkowy</span>
-        <h2>Bądź na bieżąco z podatkami i odbierz rabat</h2>
-        <p>Zapisz się do newslettera RKDP. Po potwierdzeniu adresu e-mail otrzymasz indywidualny kod rabatowy 15% na kolejną usługę podatkową.</p>
-        <ul class="nl-list">
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Najważniejsze zmiany w przepisach podatkowych</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Praktyka urzędów skarbowych i sądów administracyjnych</li>
-          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Możesz się wypisać w każdej chwili jednym kliknięciem</li>
-        </ul>
-      </div>
-      <form class="nl-form" id="nl-form" action="/api/newsletter/subscribe" method="post" novalidate>
-        <div class="field">
-          <label for="nl-email">Adres e-mail <span class="req" aria-hidden="true">*</span></label>
-          <input id="nl-email" name="email" type="email" autocomplete="email" required placeholder="np. jan@firma.pl">
-        </div>
-        <div class="field">
-          <label for="nl-name">Imię <span>(opcjonalnie)</span></label>
-          <input id="nl-name" name="name" type="text" autocomplete="given-name" maxlength="60">
-        </div>
-        <label class="check"><input type="checkbox" name="consent_newsletter" value="1" required>
-          <span><span class="req" aria-hidden="true">*</span> Wyrażam zgodę na przesyłanie mi przez RKDP spółka doradztwa podatkowego sp. z o.o. z siedzibą w Ozorzycach newslettera podatkowego zawierającego informacje handlowe, na podany adres e-mail (art. 398 ustawy – Prawo komunikacji elektronicznej), oraz na przetwarzanie w tym celu moich danych osobowych (art. 6 ust. 1 lit. a RODO). Zgodę mogę wycofać w każdej chwili.</span></label>
-        <label class="check"><input type="checkbox" name="consent_terms" value="1" required>
-          <span><span class="req" aria-hidden="true">*</span> Zapoznałem/-am się z <a href="regulamin-newslettera.html" target="_blank" rel="noopener">Regulaminem newslettera i promocji</a> oraz <a href="polityka-prywatnosci.html#newsletter" target="_blank" rel="noopener">Polityką prywatności</a> i akceptuję ich treść.</span></label>
-        <div class="hp" aria-hidden="true"><label>Strona www<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <input type="hidden" name="ts" value="">
-        <div class="nl-status" id="nl-status" role="status" aria-live="polite"></div>
-        <button type="submit" class="btn btn-primary">Zapisz się i odbierz rabat</button>
-        <p class="nl-note">Administratorem danych jest RKDP spółka doradztwa podatkowego sp. z o.o. Dane przetwarzamy w celu wysyłki newslettera i obsługi rabatu, do czasu wycofania zgody. Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia, wycofania zgody oraz skargi do Prezesa UODO. Pola oznaczone * są wymagane.</p>
-      </form>
-    </div>
-  </section>
-
   <section id="kontakt" class="wrap contact">
     <div class="contact-card">
       <span class="eyebrow">Kontakt</span>
@@ -544,7 +478,6 @@ section{scroll-margin-top:96px}
         <a href="dokumenty/aml-rkdp.pdf" target="_blank" rel="noopener">AML</a>
         <a href="dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a>
         <a href="dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a>
-        <a href="regulamin-newslettera.html">Regulamin newslettera i promocji</a>
       </nav>
     </div>
     <div class="footer-bottom">
@@ -575,24 +508,6 @@ section{scroll-margin-top:96px}
   document.querySelectorAll('[data-booking-open]').forEach(function(el){el.addEventListener('click',openBooking);});
   modal.querySelector('[data-booking-close]').addEventListener('click',function(){modal.close();});
   modal.addEventListener('click',function(e){if(e.target===modal) modal.close();});
-  // Newsletter
-  var nf=document.getElementById('nl-form'), ns=document.getElementById('nl-status');
-  nf.ts.value=Date.now();
-  function nlMsg(ok,t){ns.className='nl-status '+(ok?'ok':'err');ns.textContent=t;}
-  var q=new URLSearchParams(location.search).get('newsletter');
-  if(q==='wyslano') nlMsg(true,'Sprawdź skrzynkę – wysłaliśmy link potwierdzający. Kod rabatowy otrzymasz po kliknięciu linku.');
-  if(q==='blad') nlMsg(false,'Nie udało się zapisać. Sprawdź adres e-mail i zaznacz wymagane zgody.');
-  nf.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!nf.email.value || !nf.email.checkValidity()){nlMsg(false,'Podaj poprawny adres e-mail.');nf.email.focus();return;}
-    if(!nf.consent_newsletter.checked || !nf.consent_terms.checked){nlMsg(false,'Aby się zapisać, zaznacz obie wymagane zgody.');return;}
-    var b=nf.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Wysyłanie…';
-    fetch(nf.action,{method:'POST',body:new URLSearchParams(new FormData(nf)),headers:{'Accept':'application/json'}})
-      .then(function(r){return r.json();})
-      .then(function(d){nlMsg(d.ok,d.message); if(d.ok){nf.reset(); nf.ts.value=Date.now();}})
-      .catch(function(){nlMsg(false,'Nie udało się wysłać formularza. Spróbuj ponownie lub napisz na kancelaria@rkdp.pl.');})
-      .finally(function(){b.disabled=false; b.textContent='Zapisz się i odbierz rabat';});
-  });
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
 </script>
