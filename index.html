@@ -647,7 +647,7 @@ a.spec h3{color:var(--bg)}
 @media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
 
 .team{display:flex;flex-direction:column;gap:28px}
-.team-photo-light{background:#d9dadb}
+.team-photo-light{background:#d9dadb}@media (min-width:1025px){.team-card-rev{grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr)}.team-card-rev>picture{order:2}}
 .team-card:first-child .team-photo-light{object-position:58% 20%}
 .about-right .intro{font-family:var(--serif);font-size:clamp(26px,2.4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--ink)}
 .about-right{padding-top:44px}
@@ -773,7 +773,7 @@ a.spec h3{color:var(--bg)}
   </section>
 
   <section id="zespol" class="wrap team">
-    <div class="team-card">
+    <div class="team-card team-card-rev">
       <picture><source srcset="/img/michal-toga.webp" type="image/webp"><img class="team-photo" src="/img/michal-toga.jpg" alt="Michał Ruszniak, doradca podatkowy, prezes zarządu RKDP, Wrocław" width="900" height="1205" loading="lazy"></picture>
       <div class="team-body">
         <span class="advisor-role">Doradca Podatkowy · Prezes Zarządu</span>
