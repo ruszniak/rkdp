@@ -1,31 +1,44 @@
 # rkdp.pl – strona RKDP spółka doradztwa podatkowego
 
-Strona internetowa kancelarii RKDP spółka doradztwa podatkowego sp. z o.o. (www.rkdp.pl).
+Strona internetowa kancelarii RKDP spółka doradztwa podatkowego sp. z o.o. (www.rkdp.pl), publikowana na **Vercelu**.
 
 ## Zawartość
 
 | Ścieżka | Opis |
 |---|---|
-| `index.html` | Strona główna (responsywna, z rezerwacją konsultacji przez Kalendarz Google) |
+| `index.html` | Strona główna (responsywna, z rezerwacją konsultacji przez Kalendarz Google i zapisem do newslettera) |
 | `polityka-prywatnosci.html` | Polityka prywatności (RODO) |
 | `regulamin-newslettera.html` | Regulamin newslettera i promocji „15% na kolejną usługę” |
 | `img/` | Logo, zdjęcie, ikona strony |
 | `dokumenty/` | Dokumenty PDF podlinkowane w stopce (AML, procedura dla sygnalistów, regulamin) |
-| `newsletter/` | Zapis do newslettera (PHP): double opt-in, kod rabatowy, powiadomienia na kancelaria@rkdp.pl, rejestr zgód |
+| `api/newsletter/` | Funkcje serverless Vercela: zapis, potwierdzenie (double opt-in), wypisanie |
+| `lib/newsletter.js` | Wspólna logika newslettera: tokeny, kody rabatowe, wysyłka maili, treść zgód |
 
-## Wymagania hostingu
+## Jak działa newsletter
 
-- Statyczne pliki HTML działają na każdym hostingu.
-- Folder `newsletter/` wymaga **PHP 8.0+** z działającą funkcją `mail()` oraz serwera Apache (pliki `.htaccess` blokują dostęp do konfiguracji i rejestru zgód).
-- Katalog `newsletter/data/` musi mieć prawo zapisu dla PHP.
-- Hostingi statyczne (GitHub Pages, Vercel bez dodatkowej konfiguracji, Netlify) **nie uruchomią** PHP – formularz newslettera nie będzie tam działał.
+1. Formularz na stronie wysyła dane do `/api/newsletter/subscribe` – subskrybent dostaje maila z linkiem potwierdzającym.
+2. Link prowadzi do `/api/newsletter/confirm`, gdzie subskrybent klika „Potwierdzam” – dostaje kod rabatowy (na stronie i mailem),
+   a na `kancelaria@rkdp.pl` przychodzi powiadomienie z pełnym zapisem zgody (data, IP, przeglądarka, treść zgód, kod).
+   **Te powiadomienia są rejestrem zgód – nie usuwaj ich.**
+3. Każdy mail do subskrybenta zawiera link do `/api/newsletter/unsubscribe` – po rezygnacji przychodzi powiadomienie na `kancelaria@rkdp.pl`.
 
-## Newsletter – konfiguracja
+Kod rabatowy jest stały dla danego adresu e-mail (wyliczany z adresu i tajnego klucza), więc nie wymaga bazy danych.
 
-Ustawienia są w `newsletter/config.php` (adres powiadomień, nadawca, rabat, treść zgód).
-Tajny klucz **nie jest** w repozytorium: przy pierwszym zapisie skrypt generuje go sam i zapisuje w `newsletter/data/secret.php`
-(albo można go podać w zmiennej środowiskowej `RKDP_NEWSLETTER_SECRET`).
+## Zmienne środowiskowe (Vercel → Project → Settings → Environment Variables)
 
-Rejestr zgód: `newsletter/data/rejestr-zgod.csv` na serwerze (pobierany przez FTP, wyłączony z Gita).
+| Zmienna | Wymagana | Opis |
+|---|---|---|
+| `NEWSLETTER_SECRET` | tak | Długi losowy ciąg (min. 32 znaki). Podpisuje linki i generuje kody. **Nie zmieniaj po uruchomieniu.** |
+| `SMTP_HOST` | tak | Serwer poczty wychodzącej skrzynki kancelaria@rkdp.pl (z panelu hostingu poczty) |
+| `SMTP_PORT` | nie | Domyślnie `465` (SSL). Dla STARTTLS ustaw `587`. |
+| `SMTP_USER` | tak | Login skrzynki, zwykle `kancelaria@rkdp.pl` |
+| `SMTP_PASS` | tak | Hasło skrzynki |
+| `NEWSLETTER_OWNER_EMAIL` | nie | Adres powiadomień, domyślnie `kancelaria@rkdp.pl` |
+| `NEWSLETTER_FROM_EMAIL` | nie | Nadawca maili, domyślnie `kancelaria@rkdp.pl` (musi być zgodny z `SMTP_USER`) |
+| `SITE_URL` | nie | Adres strony w linkach z maili, domyślnie `https://rkdp.pl` |
 
-Jeśli zmienisz treść zgód, zmień ją w **dwóch miejscach**: w `index.html` (formularz) i w `newsletter/config.php`, oraz podnieś `CONSENT_VERSION`.
+Po dodaniu lub zmianie zmiennych trzeba ponownie wdrożyć projekt (Deployments → Redeploy).
+
+## Zmiana treści zgód
+
+Treść zgód jest w **dwóch miejscach**: w formularzu w `index.html` i w `lib/newsletter.js`. Zmień ją w obu i podnieś `CONSENT_VERSION`.

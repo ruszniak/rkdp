@@ -436,7 +436,7 @@ section{scroll-margin-top:96px}
           <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>Możesz się wypisać w każdej chwili jednym kliknięciem</li>
         </ul>
       </div>
-      <form class="nl-form" id="nl-form" action="newsletter/subscribe.php" method="post" novalidate>
+      <form class="nl-form" id="nl-form" action="/api/newsletter/subscribe" method="post" novalidate>
         <div class="field">
           <label for="nl-email">Adres e-mail <span class="req" aria-hidden="true">*</span></label>
           <input id="nl-email" name="email" type="email" autocomplete="email" required placeholder="np. jan@firma.pl">
@@ -587,7 +587,7 @@ section{scroll-margin-top:96px}
     if(!nf.email.value || !nf.email.checkValidity()){nlMsg(false,'Podaj poprawny adres e-mail.');nf.email.focus();return;}
     if(!nf.consent_newsletter.checked || !nf.consent_terms.checked){nlMsg(false,'Aby się zapisać, zaznacz obie wymagane zgody.');return;}
     var b=nf.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Wysyłanie…';
-    fetch(nf.action,{method:'POST',body:new FormData(nf),headers:{'Accept':'application/json'}})
+    fetch(nf.action,{method:'POST',body:new URLSearchParams(new FormData(nf)),headers:{'Accept':'application/json'}})
       .then(function(r){return r.json();})
       .then(function(d){nlMsg(d.ok,d.message); if(d.ok){nf.reset(); nf.ts.value=Date.now();}})
       .catch(function(){nlMsg(false,'Nie udało się wysłać formularza. Spróbuj ponownie lub napisz na kancelaria@rkdp.pl.');})

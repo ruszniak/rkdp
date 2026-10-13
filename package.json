@@ -1,0 +1,12 @@
+{
+  "name": "rkdp",
+  "private": true,
+  "type": "module",
+  "description": "Strona rkdp.pl – RKDP spółka doradztwa podatkowego sp. z o.o.",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
