@@ -82,9 +82,14 @@
   "founder": {
    "@id": "https://rkdp.pl/#michal-ruszniak"
   },
-  "employee": {
-   "@id": "https://rkdp.pl/#michal-ruszniak"
-  },
+  "employee": [
+   {
+    "@id": "https://rkdp.pl/#michal-ruszniak"
+   },
+   {
+    "@id": "https://rkdp.pl/#marcin-otreba"
+   }
+  ],
   "hasCredential": {
    "@type": "EducationalOccupationalCredential",
    "name": "Wpis do rejestru osób prawnych uprawnionych do wykonywania doradztwa podatkowego nr 855",
@@ -120,6 +125,26 @@
   "memberOf": {
    "@type": "Organization",
    "name": "Krajowa Izba Doradców Podatkowych – Dolnośląski Oddział"
+  }
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://rkdp.pl/#marcin-otreba",
+  "name": "Marcin Otręba",
+  "jobTitle": "Doradca podatkowy",
+  "image": "https://rkdp.pl/img/marcin-otreba.jpg",
+  "sameAs": [
+   "https://kidp.pl/doradca/14609"
+  ],
+  "hasCredential": {
+   "@type": "EducationalOccupationalCredential",
+   "name": "Doradca podatkowy – nr wpisu 14609",
+   "url": "https://kidp.pl/doradca/14609",
+   "recognizedBy": {
+    "@type": "Organization",
+    "name": "Krajowa Izba Doradców Podatkowych"
+   }
   }
  },
  {
@@ -604,6 +629,22 @@ a.spec h3{color:var(--bg)}
 
 .nav-logo{flex-shrink:0}
 @media (min-width:1201px) and (max-width:1380px){.nav-links .tel{display:none!important}}
+
+/* Zespół */
+.team{padding-bottom:clamp(56px,7vw,100px)}
+.team-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);border-radius:24px;overflow:hidden;background:#141210;color:var(--bg);box-shadow:0 30px 60px rgba(29,26,22,.18)}
+.team-photo{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:50% 15%}
+.team-body{padding:clamp(28px,4.5vw,64px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.team-body .advisor-role{color:var(--gold)}
+.team-body .advisor-role::before{background:var(--gold)}
+.team-name{font-family:var(--serif);font-size:clamp(36px,3.8vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.02;color:var(--bg);margin:0}
+.team-reg{font-size:15px;color:var(--on-dark)}
+.team-body p{color:var(--on-dark-strong);font-size:16.5px;line-height:1.7;margin-top:8px}
+.team-list{margin:0;padding-left:20px;color:var(--on-dark);font-size:15px;line-height:1.65}
+.team-list li{margin:6px 0}
+.team-kidp{color:var(--gold)!important;margin-top:6px}
+.team-kidp:hover{color:#fff!important}
+@media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
 </style>
 </head>
 <body>
@@ -698,7 +739,7 @@ a.spec h3{color:var(--bg)}
   <section id="o-kancelarii" class="wrap about">
     <div class="about-left">
       <span class="eyebrow">O kancelarii</span>
-      <h2 class="h2">Poznaj swojego doradcę</h2>
+      <h2 class="h2">Poznaj naszych doradców</h2>
       <blockquote class="oath">
         <p>„Przyrzekam, że jako doradca podatkowy będę wykonywać ten zawód kierując się dobrem swoich klientów, z całą sumiennością i rzetelnością, zgodnie z prawem, wiedzą i zasadami etyki zawodowej.”</p>
         <cite>Ślubowanie doradcy podatkowego</cite>
@@ -729,6 +770,25 @@ a.spec h3{color:var(--bg)}
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
           <h3>Optymalizacja</h3><p>Legalne rozwiązania, które realnie obniżają podatki.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="zespol" class="wrap team">
+    <div class="team-card">
+      <picture><source srcset="/img/marcin-otreba.webp" type="image/webp"><img class="team-photo" src="/img/marcin-otreba.jpg" alt="Marcin Otręba, doradca podatkowy, Wrocław" width="662" height="900" loading="lazy"></picture>
+      <div class="team-body">
+        <span class="advisor-role">Doradca Podatkowy</span>
+        <h3 class="team-name">Marcin Otręba</h3>
+        <span class="team-reg">Nr wpisu na listę doradców podatkowych: 14609</span>
+        <p>Zna system podatkowy także od strony administracji: przez lata pracował w Izbie Skarbowej we Wrocławiu i szkolił kadry Ministerstwa Finansów. Specjalizuje się w VAT, CIT i PIT oraz w kontrolach podatkowych, celno-skarbowych i sporach przed sądami administracyjnymi.</p>
+        <ul class="team-list">
+          <li>wieloletni pracownik Izby Skarbowej we Wrocławiu, trener Ministerstwa Finansów i Centrum Edukacji Zawodowej Resortu Finansów,</li>
+          <li>doświadczenie na stanowiskach kierowniczych w międzynarodowych firmach ze specjalnych stref ekonomicznych i w renomowanych kancelariach podatkowych,</li>
+          <li>od 2010 r. wykładowca prawa podatkowego na Uniwersytecie WSB Merito we Wrocławiu, kierownik merytoryczny studiów podyplomowych „Doradca podatkowy”, wykładowca MBA,</li>
+          <li>szkoli administrację skarbową i oddziały Stowarzyszenia Księgowych w Polsce; autor publikacji m.in. dla Biuletynu VAT (INFOR).</li>
+        </ul>
+        <a class="kidp-link team-kidp" href="https://kidp.pl/doradca/14609" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Sprawdź wpis w rejestrze KIDP</a>
       </div>
     </div>
   </section>
