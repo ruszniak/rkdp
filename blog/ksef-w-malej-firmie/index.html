@@ -96,8 +96,35 @@
     </div>
   </div>
 </footer>
+<dialog class="booking-modal" id="booking-modal" aria-labelledby="booking-title">
+  <div class="modal-head">
+    <strong id="booking-title">Wybierz termin konsultacji</strong>
+    <div class="tools">
+      <a href="https://m2taxdoradcypodatkowi.zohobookings.eu/m2taxdoradcypodatkowi" target="_blank" rel="noopener">Otwórz w nowej karcie</a>
+      <button type="button" class="modal-close" data-booking-close aria-label="Zamknij kalendarz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+  </div>
+  <div class="modal-body"><div class="modal-loading">Ładowanie kalendarza…</div><div id="inline-container"></div></div>
+</dialog>
 <script>
 (function(){
+  // Rezerwacja Zoho w okienku na stronie
+  var modal=document.getElementById('booking-modal'), zohoLoaded=false;
+  function loadZoho(){
+    if(zohoLoaded) return; zohoLoaded=true;
+    var sc=document.createElement('script'); sc.src='https://bookings.nimbuspop.com/assets/embed.js';
+    sc.onload=function(){var h=Math.max(600,document.getElementById('inline-container').clientHeight);Bookings.inlineEmbed({url:'https://m2taxdoradcypodatkowi.zohobookings.eu/portal-embed#/m2taxdoradcypodatkowi',parent:'#inline-container',height:h+'px'});};
+    document.head.appendChild(sc);
+  }
+  if(modal && typeof modal.showModal==='function'){
+    document.addEventListener('click',function(e){
+      var a=e.target.closest('[data-booking-open], a[href*="zohobookings.eu"]');
+      if(!a || a.closest('#booking-modal')) return;
+      e.preventDefault(); modal.showModal(); loadZoho();
+    });
+    modal.querySelector('[data-booking-close]').addEventListener('click',function(){modal.close();});
+    modal.addEventListener('click',function(e){if(e.target===modal) modal.close();});
+  }
   var btn=document.querySelector('.menu-btn'), menu=document.getElementById('menu');
   if(btn&&menu){btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Zamknij menu':'Otwórz menu');});}
   document.querySelectorAll('.dd>button').forEach(function(b){b.addEventListener('click',function(ev){ev.stopPropagation();var d=b.parentElement,o=!d.classList.contains('open');document.querySelectorAll('.dd.open').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false');});if(o){d.classList.add('open');b.setAttribute('aria-expanded','true');}});});

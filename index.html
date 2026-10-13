@@ -987,7 +987,7 @@ a.spec h3{color:var(--bg)}
     modal.showModal();
     loadZoho();
   }
-  document.querySelectorAll('[data-booking-open]').forEach(function(el){el.addEventListener('click',openBooking);});
+  document.querySelectorAll('[data-booking-open], a[href*="zohobookings.eu"]').forEach(function(el){if(!el.closest('#booking-modal')) el.addEventListener('click',openBooking);});
   modal.querySelector('[data-booking-close]').addEventListener('click',function(){modal.close();});
   modal.addEventListener('click',function(e){if(e.target===modal) modal.close();});
 

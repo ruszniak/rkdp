@@ -222,3 +222,19 @@ p{margin:0}
 .team-photo-light{background:#d9dadb}@media (min-width:1025px){.team-card-rev{grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr)}.team-card-rev>picture{order:2}}
 .team-card:first-child .team-photo-light{object-position:58% 20%}
 @media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
+
+/* Okienko rezerwacji (Zoho Bookings) */
+.booking-modal{width:min(980px,calc(100vw - 32px));height:min(820px,calc(100dvh - 32px));max-width:none;max-height:none;padding:0;border:0;border-radius:20px;background:var(--bg);box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden}
+.booking-modal::backdrop{background:rgba(29,26,22,.72);backdrop-filter:blur(3px)}
+.booking-modal[open]{display:flex;flex-direction:column}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px 14px 28px;border-bottom:1px solid var(--line)}
+.modal-head strong{font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:-.01em}
+.modal-head .tools{display:flex;align-items:center;gap:8px}
+.modal-head .tools a{font-size:14px;font-weight:600;padding:10px 12px}
+.modal-close{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.modal-close:hover{background:var(--panel)}
+.modal-body{flex:1;position:relative;background:#fff}
+#inline-container{position:absolute;inset:0;overflow:auto}
+#inline-container iframe{width:100%!important;border:0}
+.modal-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:15px}
+@media (max-width:640px){.booking-modal{width:100vw;height:100dvh;border-radius:0}.modal-head{padding-left:20px}.modal-head .tools a{display:none}}
