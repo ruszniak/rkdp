@@ -22,7 +22,7 @@ TODAY = '2026-10-13'
 PHONE = '+48 883 643 565'
 PHONE_HREF = 'tel:+48883643565'
 EMAIL = 'kancelaria@rkdp.pl'
-BOOK = 'https://calendar.google.com/calendar/appointments/AcZssZ0uEPepRDJwSciAoSOGczuX5R0-3M4haiDKeKk='
+BOOK = 'https://m2taxdoradcypodatkowi.zohobookings.eu/m2taxdoradcypodatkowi'
 
 ALL_PAGES = P_DOR + P_KSI + P_LOK
 for _p in ALL_PAGES:
