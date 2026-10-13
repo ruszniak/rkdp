@@ -335,9 +335,52 @@ section{scroll-margin-top:96px}
   .hero h1 em{animation:none}
   .btn::after{display:none}
 }
+
+/* ===== TŁO: świetliste kule, siatka 3D, reflektor za kursorem ===== */
+html,body{overflow-x:clip}
+.bg-fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg-fx .orb{position:absolute;border-radius:50%;will-change:transform}
+.bg-fx .o1{width:62vmax;height:62vmax;left:-18vmax;top:-22vmax;background:radial-gradient(circle,rgba(217,185,142,.42),rgba(217,185,142,0) 62%);animation:drift1 26s ease-in-out infinite alternate}
+.bg-fx .o2{width:54vmax;height:54vmax;right:-20vmax;top:18vh;background:radial-gradient(circle,rgba(176,141,102,.30),rgba(176,141,102,0) 62%);animation:drift2 32s ease-in-out infinite alternate}
+.bg-fx .o3{width:46vmax;height:46vmax;left:30vw;bottom:-26vmax;background:radial-gradient(circle,rgba(226,196,154,.32),rgba(226,196,154,0) 62%);animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate3d(14vw,10vh,0) scale(1.12)}}
+@keyframes drift2{to{transform:translate3d(-12vw,-8vh,0) scale(.9)}}
+@keyframes drift3{to{transform:translate3d(-10vw,-12vh,0) scale(1.15)}}
+.bg-fx .grain{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(122,90,55,.10) 1px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+
+.cursor-glow{position:fixed;left:0;top:0;width:680px;height:680px;margin:-340px 0 0 -340px;border-radius:50%;pointer-events:none;z-index:40;background:radial-gradient(circle,rgba(217,185,142,.16),rgba(217,185,142,.06) 35%,transparent 65%);transform:translate3d(-999px,-999px,0);opacity:0;transition:opacity .4s ease;mix-blend-mode:normal}
+.cursor-glow.on{opacity:1}
+
+/* Siatka 3D („podłoga”) w nagłówku */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;left:50%;bottom:-10%;width:200vw;height:85%;transform:translateX(-50%) perspective(700px) rotateX(64deg);transform-origin:50% 100%;
+  background-image:linear-gradient(rgba(122,90,55,.30) 1px,transparent 1px),linear-gradient(90deg,rgba(122,90,55,.30) 1px,transparent 1px);background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 60% 85% at 50% 100%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 60% 85% at 50% 100%,#000 30%,transparent 80%);
+  animation:gridmove 7s linear infinite;pointer-events:none}
+@keyframes gridmove{to{background-position:0 64px,0 0}}
+
+/* Sekcja specjalizacji: siatka punktów odsłaniana reflektorem */
+.specs{position:relative;isolation:isolate;overflow:hidden}
+.specs::before,.specs::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.specs::before{background-image:radial-gradient(rgba(217,185,142,.14) 1px,transparent 1.4px);background-size:26px 26px}
+.specs::after{background:radial-gradient(520px circle at var(--sx,70%) var(--sy,30%),rgba(217,185,142,.13),transparent 60%),
+  radial-gradient(rgba(217,185,142,.55) 1.2px,transparent 1.6px) 0 0/26px 26px;
+  mask-image:radial-gradient(300px circle at var(--sx,70%) var(--sy,30%),#000,transparent 75%);-webkit-mask-image:radial-gradient(300px circle at var(--sx,70%) var(--sy,30%),#000,transparent 75%);transition:opacity .4s ease}
+.specs .specs-glow{position:absolute;z-index:-1;width:60vmax;height:60vmax;right:-20vmax;top:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(176,141,102,.22),transparent 60%);animation:drift2 24s ease-in-out infinite alternate;pointer-events:none}
+
+/* Stopka – delikatna poświata */
+.footer{position:relative;isolation:isolate;overflow:hidden}
+.footer::before{content:"";position:absolute;z-index:-1;left:-10%;top:-60%;width:60%;height:160%;background:radial-gradient(circle,rgba(217,185,142,.10),transparent 60%);pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  .bg-fx .orb,.hero::before,.specs .specs-glow{animation:none}
+  .cursor-glow{display:none}
+}
 </style>
 </head>
 <body>
+<div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grain"></span></div>
+<div class="cursor-glow" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap nav">
@@ -430,6 +473,7 @@ section{scroll-margin-top:96px}
   </section>
 
   <section id="specjalizacje" class="specs">
+    <span class="specs-glow" aria-hidden="true"></span>
     <div class="wrap">
       <div class="specs-head">
         <div>
@@ -640,6 +684,23 @@ section{scroll-margin-top:96px}
         if(hcard){ hcard.style.setProperty('--ctx','0px'); hcard.style.setProperty('--cty','0px'); }
       });
     }
+  }
+
+  // ===== Tło: reflektor za kursorem, parallax kul, punkty w specjalizacjach =====
+  if(fine && !reduce){
+    var glow=document.querySelector('.cursor-glow'), gx=-999, gy=-999, tx=-999, ty=-999, running=false;
+    function loop(){ gx+=(tx-gx)*.12; gy+=(ty-gy)*.12; glow.style.transform='translate3d('+gx.toFixed(1)+'px,'+gy.toFixed(1)+'px,0)';
+      if(Math.abs(tx-gx)>.5||Math.abs(ty-gy)>.5){requestAnimationFrame(loop);} else {running=false;} }
+    window.addEventListener('mousemove',function(e){ tx=e.clientX; ty=e.clientY; if(gx<-900){gx=tx;gy=ty;} glow.classList.add('on'); if(!running){running=true;requestAnimationFrame(loop);} },{passive:true});
+    document.addEventListener('mouseleave',function(){ glow.classList.remove('on'); });
+
+    var specs=document.querySelector('.specs');
+    if(specs) specs.addEventListener('mousemove',function(e){ var r=specs.getBoundingClientRect();
+      specs.style.setProperty('--sx',(e.clientX-r.left)+'px'); specs.style.setProperty('--sy',(e.clientY-r.top)+'px'); });
+
+    var orbs=document.querySelectorAll('.bg-fx .orb'), ticking=false;
+    window.addEventListener('scroll',function(){ if(ticking) return; ticking=true; requestAnimationFrame(function(){
+      var y=window.scrollY; orbs.forEach(function(o,i){ o.style.translate='0 '+(-y*(.06+i*.04)).toFixed(1)+'px'; }); ticking=false; }); },{passive:true});
   }
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
