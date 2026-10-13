@@ -343,7 +343,7 @@ def build_team_page():
     crumbs = [('Strona główna', '/'), ('Zespół', path)]
     people = [
         {"@context": "https://schema.org", "@type": "Person", "@id": SITE + "/#michal-ruszniak", "name": "Michał Ruszniak", "jobTitle": "Doradca podatkowy, Prezes Zarządu RKDP", "image": SITE + "/img/michal-ruszniak.jpg", "sameAs": ["https://kidp.pl/doradca/15009"], "worksFor": {"@id": SITE + "/#firma"}},
-        {"@context": "https://schema.org", "@type": "Person", "@id": SITE + "/#marcin-otreba", "name": "Marcin Otręba", "jobTitle": "Doradca podatkowy", "image": SITE + "/img/marcin-otreba.jpg", "sameAs": ["https://kidp.pl/doradca/14609"]},
+        {"@context": "https://schema.org", "@type": "Person", "@id": SITE + "/#marcin-otreba", "name": "Marcin Otręba", "jobTitle": "Doradca podatkowy, Partner Zarządzający", "image": SITE + "/img/marcin-otreba.jpg", "sameAs": ["https://kidp.pl/doradca/14609"]},
     ]
     ld = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "AboutPage", "name": "Zespół RKDP", "url": SITE + path}] + people
     body = head('Zespół – doradcy podatkowi Michał Ruszniak i Marcin Otręba | RKDP Wrocław', 'Poznaj doradców podatkowych RKDP: Michał Ruszniak (nr wpisu 15009, prezes zarządu) i Marcin Otręba (nr wpisu 14609). Doradztwo, kontrole, spory i księgowość we Wrocławiu.', path, extra_ld=ld)
