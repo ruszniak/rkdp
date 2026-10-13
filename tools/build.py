@@ -263,13 +263,19 @@ def pl_date(d):
     y, m, dd_ = d.split('-'); return f'{int(dd_)} {MONTHS[int(m) - 1]} {y}'
 
 
+AUTHORS = {
+    'michal': {'id': 'michal-ruszniak', 'name': 'Michał Ruszniak', 'nr': '15009', 'img': 'michal-ruszniak'},
+    'marcin': {'id': 'marcin-otreba', 'name': 'Marcin Otręba', 'nr': '14609', 'img': 'marcin-otreba'},
+}
+
 def build_post(p):
+    a = AUTHORS[p.get('author', 'michal')]
     path = f'/blog/{p["slug"]}/'
     crumbs = [('Strona główna', '/'), ('Blog', '/blog/'), (p['title'], path)]
     ld = [breadcrumb_ld(crumbs), {
         "@context": "https://schema.org", "@type": "Article", "headline": p['title'], "description": p['desc'],
         "datePublished": p['date'], "dateModified": p.get('updated', p['date']), "inLanguage": "pl-PL",
-        "author": {"@type": "Person", "@id": SITE + "/#michal-ruszniak", "name": "Michał Ruszniak", "jobTitle": "Doradca podatkowy", "url": SITE + "/#zespol"},
+        "author": {"@type": "Person", "@id": SITE + "/#" + a['id'], "name": a['name'], "jobTitle": "Doradca podatkowy", "url": SITE + "/zespol/"},
         "publisher": {"@id": SITE + "/#firma", "@type": "Organization", "name": "RKDP spółka doradztwa podatkowego sp. z o.o.", "logo": {"@type": "ImageObject", "url": SITE + "/img/logo-rkdp.png"}},
         "image": SITE + "/img/michal-ruszniak.jpg", "mainEntityOfPage": SITE + path}]
     if p.get('faq'): ld.append(faq_ld(p['faq']))
@@ -284,7 +290,7 @@ def build_post(p):
 </div></section>
 <div class="wrap page-body">
   <article class="prose">
-    <div class="author"><img src="/img/michal-ruszniak.webp" alt="Michał Ruszniak, doradca podatkowy" width="64" height="64" loading="lazy"><div><b>Michał Ruszniak</b><span>Doradca podatkowy nr 15009 · <a href="/#zespol">o autorze</a></span><br><span class="meta">Opublikowano <time datetime="{p['date']}">{pl_date(p['date'])}</time>{' · aktualizacja <time datetime="' + p['updated'] + '">' + pl_date(p['updated']) + '</time>' if p.get('updated') else ''}</span></div></div>
+    <div class="author"><img src="/img/{a['img']}.webp" alt="{a['name']}, doradca podatkowy" width="64" height="64" loading="lazy"><div><b>{a['name']}</b><span>Doradca podatkowy nr {a['nr']} · <a href="/zespol/">o autorze</a></span><br><span class="meta">Opublikowano <time datetime="{p['date']}">{pl_date(p['date'])}</time>{' · aktualizacja <time datetime="' + p['updated'] + '">' + pl_date(p['updated']) + '</time>' if p.get('updated') else ''}</span></div></div>
 {render_blocks(p['body'])}
 {faq_html(p.get('faq'))}
 <div class="note"><p>Artykuł ma charakter informacyjny i opisuje stan prawny na dzień publikacji. Nie zastępuje porady podatkowej w indywidualnej sprawie.</p></div>
@@ -307,7 +313,7 @@ def build_blog_index():
     path = '/blog/'
     crumbs = [('Strona główna', '/'), ('Blog', path)]
     posts = sorted(POSTS, key=lambda x: x['date'], reverse=True)
-    cards = ''.join(f'<a class="post" href="/blog/{p["slug"]}/"><span class="tag">{e(p["tag"])}</span><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><time datetime="{p["date"]}">{pl_date(p["date"])}</time></a>' for p in posts)
+    cards = ''.join(f'<a class="post" href="/blog/{p["slug"]}/"><span class="tag">{e(p["tag"])}</span><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><time datetime="{p["date"]}">{pl_date(p["date"])} · {AUTHORS[p.get("author","michal")]["name"]}</time></a>' for p in posts)
     ld = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "Blog", "name": "Blog podatkowy RKDP", "url": SITE + path,
           "blogPost": [{"@type": "BlogPosting", "headline": p['title'], "url": f'{SITE}/blog/{p["slug"]}/', "datePublished": p['date']} for p in posts]}]
     body = head('Blog podatkowy – doradca podatkowy Wrocław | RKDP', 'Artykuły doradcy podatkowego z Wrocławia: KSeF, wezwania z urzędu skarbowego, estoński CIT, sprzedaż nieruchomości, sukcesja w firmie rodzinnej i zmiana biura rachunkowego.', path, extra_ld=ld)
@@ -389,7 +395,7 @@ def update_index():
     put('doradztwo', ''.join(tile(i + 1, p) for i, p in enumerate(P_DOR)))
     put('ksiegowosc', ''.join(tile(i + 1, p) for i, p in enumerate(P_KSI)))
     posts = sorted(POSTS, key=lambda x: x['date'], reverse=True)[:3]
-    put('blog', ''.join(f'<a class="post" href="/blog/{p["slug"]}/"><span class="tag">{e(p["tag"])}</span><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><time datetime="{p["date"]}">{pl_date(p["date"])}</time></a>' for p in posts))
+    put('blog', ''.join(f'<a class="post" href="/blog/{p["slug"]}/"><span class="tag">{e(p["tag"])}</span><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><time datetime="{p["date"]}">{pl_date(p["date"])} · {AUTHORS[p.get("author","michal")]["name"]}</time></a>' for p in posts))
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
