@@ -285,11 +285,16 @@ p{margin:0}
 .team-banner{margin-bottom:clamp(28px,4vw,48px)}
 .team-banner img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover;object-position:50% 30%;border-radius:24px;box-shadow:0 30px 60px rgba(29,26,22,.18)}
 
-/* Pływające przyciski: WhatsApp i telefon */
-.fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column;gap:12px}
-.fab-btn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 24px rgba(29,26,22,.28);transition:transform .25s ease,box-shadow .25s ease}
-.fab-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 30px rgba(29,26,22,.34)}
-.fab-wa{background:#25D366}
-.fab-tel{background:var(--bronze,#7A5A37)}
-@media (max-width:640px){.fab{right:14px;bottom:14px;gap:10px}.fab-btn{width:52px;height:52px}}
-@media print{.fab{display:none}}
+/* Pływające przyciski: telefon i WhatsApp (rozwijają się po najechaniu) */
+.fab-stack{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;flex-direction:column-reverse;align-items:flex-end;gap:12px}
+.fab{display:flex;align-items:center;gap:10px;height:56px;padding:0 14px;border-radius:999px;color:#fff;text-decoration:none;font-family:var(--serif);font-weight:700;font-size:15px;box-shadow:0 10px 28px -8px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06);transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.fab svg{flex:none;width:28px}
+.fab .wa-label{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .3s ease}
+.fab:hover .wa-label,.fab:focus-visible .wa-label{max-width:240px;padding-right:4px}
+.fab:hover{transform:translateY(-2px);box-shadow:0 14px 34px -8px rgba(0,0,0,.5)}
+.fab:focus-visible{outline:3px solid #D9B98E;outline-offset:3px}.fab,.fab:hover,.fab:visited{color:#fff!important}
+.wa-fab{background:#25D366}.wa-fab:hover{background:#1ebe5b}
+.tel-fab{background:var(--bronze,#7A5A37);box-shadow:0 10px 28px -8px rgba(0,0,0,.45),0 0 0 2px rgba(217,185,142,.35)}
+.tel-fab:hover{background:var(--bronze-dark,#5C4228)}
+@media (max-width:560px){.fab-stack{right:14px;bottom:14px;gap:10px}.fab{height:52px;padding:0 12px}}
+@media print{.fab-stack{display:none}}
