@@ -719,6 +719,10 @@ a.spec h3{color:var(--bg)}
 .price-grid-2 .price-card h3{min-height:0}
 @media (max-width:1100px){.price-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.price-grid-2,.price-grid-3{grid-template-columns:1fr}}
+
+.about-photo{margin:8px 0 0;position:relative;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(29,26,22,.18)}
+.about-photo img{display:block;width:100%;height:auto;aspect-ratio:900/1080;object-fit:cover}
+.about-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 18px;font-size:14px;font-weight:600;color:#EDE6DB;background:linear-gradient(transparent,rgba(20,18,16,.85))}
 </style>
 </head>
 <body>
@@ -827,6 +831,7 @@ a.spec h3{color:var(--bg)}
         <p>„Przyrzekam, że jako doradca podatkowy będę wykonywać ten zawód kierując się dobrem swoich klientów, z całą sumiennością i rzetelnością, zgodnie z prawem, wiedzą i zasadami etyki zawodowej.”</p>
         <cite>Ślubowanie doradcy podatkowego</cite>
       </blockquote>
+      <figure class="about-photo"><picture><source srcset="/img/doradcy-rkdp.webp" type="image/webp"><img src="/img/doradcy-rkdp.jpg" alt="Doradcy podatkowi RKDP: Michał Ruszniak i Marcin Otręba w togach doradców podatkowych" width="900" height="1080" loading="lazy"></picture><figcaption>Michał Ruszniak i Marcin Otręba – doradcy podatkowi</figcaption></figure>
     </div>
     <div class="about-right">
       <p class="intro">Dwóch doradców podatkowych, jedna kancelaria.</p>
