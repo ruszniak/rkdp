@@ -381,7 +381,6 @@ def build_team_page():
   <h1>Nasi doradcy podatkowi</h1>
   <p class="lead">Dwóch doradców podatkowych, jedna kancelaria. Łączymy doświadczenie przedsiębiorcy z doświadczeniem z administracji skarbowej – Twoją sprawą zajmuje się doradca podatkowy wpisany na listę Krajowej Izby Doradców Podatkowych.</p>
 </div></section>
-<section class="wrap team-banner"><picture><source srcset="/img/doradcy-rkdp-baner.webp" type="image/webp"><img src="/img/doradcy-rkdp-baner.jpg" alt="Doradcy podatkowi RKDP: Michał Ruszniak i Marcin Otręba w togach doradców podatkowych" width="1000" height="560" fetchpriority="high"></picture></section>
 {cards}
 {cta_band('Porozmawiaj z doradcą', 'Umów konsultację w kancelarii na Jagodnie albo online.')}
 </main>
