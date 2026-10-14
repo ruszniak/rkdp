@@ -206,7 +206,7 @@ p{margin:0}
 .advisor-role{display:flex;align-items:center;gap:14px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--bronze)}
 .advisor-role::before{content:"";width:40px;height:2px;background:var(--bronze)}
 .team{padding-bottom:clamp(56px,7vw,100px)}
-.team-card{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);border-radius:24px;overflow:hidden;background:#141210;color:var(--bg);box-shadow:0 30px 60px rgba(29,26,22,.18)}
+.team-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);border-radius:24px;overflow:hidden;background:#141210;color:var(--bg);box-shadow:0 30px 60px rgba(29,26,22,.18)}
 .team-photo{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:50% 15%}
 .team-body{padding:clamp(28px,4.5vw,64px);display:flex;flex-direction:column;gap:14px;justify-content:center}
 .team-body .advisor-role{color:var(--gold)}
@@ -219,7 +219,7 @@ p{margin:0}
 .team-kidp{color:var(--gold)!important;margin-top:6px}
 .team-kidp:hover{color:#fff!important}
 .team{display:flex;flex-direction:column;gap:28px}
-.team-photo-light{background:#d9dadb}@media (min-width:1025px){.team-card-rev{grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr)}.team-card-rev>picture{order:2}}
+.team-photo-light{background:#d9dadb}@media (min-width:1025px){.team-card-rev{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.team-card-rev>picture{order:2}}
 .team-card:first-child .team-photo-light{object-position:58% 20%}
 @media (max-width:1024px){.team-card{grid-template-columns:1fr}.team-photo{min-height:0;max-height:520px;aspect-ratio:4/5}}
 
