@@ -732,6 +732,9 @@ a.spec h3{color:var(--bg)}
 .fab-tel{background:var(--bronze,#7A5A37)}
 @media (max-width:640px){.fab{right:14px;bottom:14px;gap:10px}.fab-btn{width:52px;height:52px}}
 @media print{.fab{display:none}}
+
+/* Hero na cały pierwszy ekran – ciemna sekcja dopiero po przewinięciu */
+@media (min-width:1025px){.hero{min-height:calc(100vh - 89px);min-height:calc(100svh - 89px);align-content:center}}
 </style>
 </head>
 <body>
