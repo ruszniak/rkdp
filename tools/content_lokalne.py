@@ -69,7 +69,7 @@ PAGES = [
    'jak rozliczyć sprzedaż działki, która była gruntem rolnym, a stała się budowlaną,',
    'czy przychód można przeznaczyć na budowę własnego domu w ramach ulgi mieszkaniowej.',
  ]),
- ('p', 'Przy większych transakcjach rekomendujemy interpretację indywidualną – najlepiej wspólną dla sprzedającego i kupującego. Zobacz: <a href="/podatki-nieruchomosci/">sprzedaż nieruchomości – PIT, VAT i PCC</a> oraz artykuł <a href="/blog/sprzedaz-dzialki-pit-vat-pcc/">sprzedaż działki: PIT, VAT czy PCC</a>.'),
+ ('p', 'Przy większych transakcjach rekomendujemy interpretację indywidualną – najlepiej wspólną dla sprzedającego i kupującego. Zobacz: <a href="/podatki-nieruchomosci/">sprzedaż nieruchomości – PIT, VAT i PCC</a>.'),
  ('h2', 'Podatek od nieruchomości w gminie'),
  ('p', 'Podatek od nieruchomości ustala burmistrz lub wójt gminy. W gminach podmiejskich częste są spory o to, czy budynek albo grunt jest związany z działalnością gospodarczą (co oznacza wyższą stawkę), jak liczyć powierzchnię użytkową domu z poddaszem, kiedy powstaje obowiązek podatkowy dla nowego budynku i jak opodatkować grunty pod budowlami. Od decyzji przysługuje odwołanie do samorządowego kolegium odwoławczego w terminie 14 dni. Przygotowujemy odwołania i reprezentujemy podatników w sporach z gminą.'),
  ('h2', 'Firmy rodzinne spod Wrocławia'),

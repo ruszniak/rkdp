@@ -61,7 +61,6 @@ def nav_html():
             f'      {dd("Księgowość", P_KSI)}\n'
             '      <a href="/zespol/">Zespół</a>\n'
             '      <a href="/cennik/">Cennik</a>\n'
-            '      <a href="/blog/">Blog</a>\n'
             '      <a href="/#kontakt">Kontakt</a>\n'
             '      <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>\n'
             '    </nav>\n  </div>\n</header>')
@@ -79,7 +78,7 @@ def footer_html():
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span>{col(P_DOR)}</nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span>{col(P_KSI)}<span class="k" style="margin-top:14px">Okolice</span>{col(P_LOK)}</nav>
-      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
@@ -223,8 +222,6 @@ def related_html(slugs, title='Zobacz też'):
     for s in slugs:
         if s in BY_SLUG:
             p = BY_SLUG[s]; cards.append(f'<a class="card" href="{url(s)}"><b>{e(p["menu"])}</b><span>{e(p["menu_sub"])}</span><em>Czytaj więcej →</em></a>')
-        elif s in POST_BY_SLUG:
-            p = POST_BY_SLUG[s]; cards.append(f'<a class="card" href="/blog/{s}/"><b>{e(p["title"])}</b><span>Artykuł na blogu</span><em>Czytaj →</em></a>')
     if not cards: return ''
     return f'<section class="related"><h2>{title}</h2><div class="cards">{"".join(cards)}</div></section>'
 
@@ -373,9 +370,7 @@ def build_blog_index():
 
 
 def build_team_page():
-    s = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
-    a = s.index('<section id="zespol"'); z = s.index('</section>', a) + len('</section>')
-    cards = s[a:z].replace('<section id="zespol" class="wrap team">', '<section class="wrap team" aria-label="Doradcy podatkowi">')
+    cards = open(os.path.join(ROOT, 'tools', 'partials', 'zespol.html'), encoding='utf-8').read().strip().replace('<section id="zespol" class="wrap team">', '<section class="wrap team" aria-label="Doradcy podatkowi">')
     path = '/zespol/'
     crumbs = [('Strona główna', '/'), ('Zespół', path)]
     people = [
@@ -403,9 +398,7 @@ def build_team_page():
 
 
 def build_pricing_page():
-    s = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
-    a = s.index('<!-- pricing:start -->'); z = s.index('<!-- pricing:end -->')
-    grid = s[a + len('<!-- pricing:start -->'):z]
+    grid = open(os.path.join(ROOT, 'tools', 'partials', 'cennik.html'), encoding='utf-8').read()
     path = '/cennik/'
     crumbs = [('Strona główna', '/'), ('Cennik', path)]
     def offer(name, price, unit=None):
@@ -438,8 +431,7 @@ def build_sitemap():
     urls = [('/', '1.0', 'monthly')]
     urls += [(url(p['slug']), '0.8', 'monthly') for p in P_DOR + P_KSI]
     urls += [(url(p['slug']), '0.7', 'monthly') for p in P_LOK]
-    urls += [('/cennik/', '0.7', 'monthly'), ('/zespol/', '0.6', 'monthly'), ('/blog/', '0.7', 'weekly')]
-    urls += [(f'/blog/{p["slug"]}/', '0.6', 'yearly') for p in POSTS]
+    urls += [('/cennik/', '0.7', 'monthly'), ('/zespol/', '0.6', 'monthly')]
     urls += [('/aml.html', '0.3', 'yearly'), ('/polityka-prywatnosci.html', '0.2', 'yearly')]
     x = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     x += ''.join(f'  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><changefreq>{c}</changefreq><priority>{pr}</priority></url>\n' for u, pr, c in urls)
@@ -461,10 +453,8 @@ def update_index():
     put('nav', nav_html())
     put('footer', footer_html())
     tile = lambda i, p: f'<a class="spec" href="{url(p["slug"])}"><span class="num">{i:02d}</span><h3>{e(p["menu"])}</h3><p>{e(p["tile"])}</p><em class="spec-more">Dowiedz się więcej →</em></a>'
-    put('doradztwo', ''.join(tile(i + 1, p) for i, p in enumerate(P_DOR)))
-    put('ksiegowosc', ''.join(tile(i + 1, p) for i, p in enumerate(P_KSI)))
-    posts = sorted(POSTS, key=lambda x: x['date'], reverse=True)[:3]
-    put('blog', ''.join(f'<a class="post" href="/blog/{p["slug"]}/"><span class="tag">{e(p["tag"])}</span><b>{e(p["title"])}</b><span>{e(p["desc"])}</span><time datetime="{p["date"]}">{pl_date(p["date"])} · {AUTHORS[p.get("author","michal")]["name"]}</time></a>' for p in posts))
+    home = ['doradztwo-podatkowe', 'kontrola-podatkowa', 'czynnosci-sprawdzajace', 'interpretacja-indywidualna', 'wyplata-pieniedzy-ze-spolki']
+    put('doradztwo', ''.join(tile(i + 1, BY_SLUG[sl]) for i, sl in enumerate(home)))
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
@@ -474,8 +464,6 @@ if __name__ == '__main__':
     for p in P_DOR: counts[p['slug']] = build_page(p, 'Doradztwo podatkowe')
     for p in P_KSI: counts[p['slug']] = build_page(p, 'Księgowość')
     for p in P_LOK: counts[p['slug']] = build_page(p, 'Doradca podatkowy w okolicy')
-    for p in POSTS: counts['blog/' + p['slug']] = build_post(p)
-    build_blog_index()
     build_team_page()
     build_pricing_page()
     n = build_sitemap()

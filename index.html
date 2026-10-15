@@ -169,26 +169,10 @@
    },
    {
     "@type": "Question",
-    "name": "Od czego zależy cena księgowości spółki z o.o.?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "Wynagrodzenie ustalamy indywidualnie. Zależy przede wszystkim od liczby dokumentów w miesiącu, liczby pracowników i zleceniobiorców, rejestracji do VAT i transakcji zagranicznych oraz od tego, czy spółka korzysta z estońskiego CIT. Wycenę przygotowujemy po krótkiej rozmowie."
-    }
-   },
-   {
-    "@type": "Question",
     "name": "Czy pomagacie we wdrożeniu KSeF w małej firmie?",
     "acceptedAnswer": {
      "@type": "Answer",
      "text": "Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania."
-    }
-   },
-   {
-    "@type": "Question",
-    "name": "Czy estoński CIT opłaca się mojej spółce?",
-    "acceptedAnswer": {
-     "@type": "Answer",
-     "text": "To zależy m.in. od tego, czy zyski zostają w spółce, jaka jest struktura wspólników i czy spółka spełnia warunki ustawowe. Przed przejściem na estoński CIT porównujemy obciążenia na liczbach Twojej firmy i wskazujemy ryzyka."
     }
    },
    {
@@ -740,6 +724,32 @@ a.spec h3{color:var(--bg)}
 
 /* Hero na cały pierwszy ekran – ciemna sekcja dopiero po przewinięciu */
 @media (min-width:1025px){.hero{min-height:calc(100vh - 89px);min-height:calc(100svh - 89px);align-content:center}}
+
+/* Zespół w skrócie */
+.mini-team{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mini-card{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;background:#141210;color:#F6EEE2;text-decoration:none;box-shadow:0 20px 40px rgba(29,26,22,.14);transition:transform .3s ease,box-shadow .3s ease}
+.mini-card:hover{transform:translateY(-4px);box-shadow:0 28px 50px rgba(29,26,22,.2)}
+.mini-card img{display:block;width:100%;height:auto;aspect-ratio:4/4.2;object-fit:cover;object-position:50% 15%}
+.mini-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px}
+.mini-body b{font-family:var(--serif);font-size:19px;letter-spacing:-.01em}
+.mini-body small{font-size:13px;color:#CFC6B9;line-height:1.4}
+.link-more{align-self:flex-start;font-weight:700;font-size:15px;color:var(--bronze);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px}
+.link-more:hover{color:var(--bronze-dark)}
+/* Cennik w skrócie */
+.pricing-mini{display:flex;flex-direction:column;gap:28px;padding-bottom:clamp(56px,6vw,90px)}
+.pm-head{display:flex;flex-direction:column;gap:12px}
+.pm-head h2 em{font-style:normal;color:var(--bronze)}
+.pm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.pm{display:flex;flex-direction:column;gap:6px;padding:22px 22px 20px;border-radius:18px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.pm:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(29,26,22,.1);border-color:#D6C4A8}
+.pm small{font-size:13.5px;font-weight:600;color:var(--muted)}
+.pm b{font-family:var(--serif);font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.pm b i{font-style:normal;font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+.pm span{font-size:13.5px;color:var(--muted)}
+.pm-dark{background:linear-gradient(165deg,#25201B,#141210);border-color:#3A342D;color:#F6EEE2}
+.pm-dark small,.pm-dark span,.pm-dark b i{color:#CFC6B9}
+@media (max-width:1024px){.pm-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.mini-team{gap:12px}.mini-body{padding:12px}.mini-body b{font-size:16px}.mini-body small{font-size:12px}.pm-grid{gap:12px}.pm{padding:16px}.pm b{font-size:24px}}
 </style>
 </head>
 <body>
@@ -757,7 +767,6 @@ a.spec h3{color:var(--bg)}
       <div class="dd"><button type="button" aria-expanded="false">Księgowość <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="dd-menu"><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.<small>Pełna księgowość pod nadzorem doradcy</small></a><a href="/ksiegowosc-jdg/">Księgowość JDG<small>KPiR, ryczałt, VAT, ZUS</small></a><a href="/kadry-i-place/">Kadry i płace<small>Umowy, listy płac, ZUS, PPK</small></a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego<small>Przejęcie księgowości bez przerwy</small></a></div></div>
       <a href="/zespol/">Zespół</a>
       <a href="/cennik/">Cennik</a>
-      <a href="/blog/">Blog</a>
       <a href="/#kontakt">Kontakt</a>
       <a href="/#termin" class="btn btn-primary" data-booking-open>Umów konsultację</a>
     </nav>
@@ -774,7 +783,7 @@ a.spec h3{color:var(--bg)}
       <div class="hero-ctas">
         <a href="#termin" class="btn btn-primary" data-booking-open>Umów konsultację podatkową
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#kontrole" class="btn btn-outline">Mam kontrolę z US</a>
+        <a href="/kontrola-podatkowa/" class="btn btn-outline">Mam kontrolę z US</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -805,38 +814,10 @@ a.spec h3{color:var(--bg)}
       </div>
       <div class="spec-grid">
 <!-- gen:doradztwo -->
-<a class="spec" href="/doradztwo-podatkowe/"><span class="num">01</span><h3>Doradca podatkowy Wrocław</h3><p>Stały doradca dla firmy: pytania bieżące, opinie przed decyzją, przegląd umów i rozliczeń.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/kontrola-podatkowa/"><span class="num">02</span><h3>Kontrola podatkowa</h3><p>Pełnomocnik w kontroli urzędu skarbowego i kontroli celno-skarbowej – od zawiadomienia do protokołu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/czynnosci-sprawdzajace/"><span class="num">03</span><h3>Wezwanie z urzędu skarbowego</h3><p>Odpowiedź na wezwanie do wyjaśnień, korekty lub dokumentów – tak, by sprawa skończyła się na tym etapie.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/interpretacja-indywidualna/"><span class="num">04</span><h3>Interpretacja indywidualna i WIS</h3><p>Wnioski o interpretację indywidualną i WIS – ochrona przed zmianą stanowiska urzędu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/odwolanie-od-decyzji/"><span class="num">05</span><h3>Odwołanie od decyzji i skarga do WSA</h3><p>Postępowanie podatkowe, odwołanie od decyzji, skarga do WSA i skarga kasacyjna do NSA.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/wyplata-pieniedzy-ze-spolki/"><span class="num">06</span><h3>Wypłata pieniędzy ze spółki</h3><p>Najtańsza legalna droga wypłaty: wynagrodzenie zarządu, art. 176 KSH, dywidenda, najem, pożyczka.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/forma-opodatkowania/"><span class="num">07</span><h3>Forma prawna i opodatkowania</h3><p>JDG czy spółka, skala, liniowy, ryczałt czy estoński CIT – symulacja na liczbach Twojej firmy.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/restrukturyzacje-spolek/"><span class="num">08</span><h3>Spółki z o.o. i SKA – reorganizacje</h3><p>Optymalizacja spółek z o.o. i SKA oraz reorganizacje: przekształcenia, połączenia, podziały, aporty.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/firmy-rodzinne-sukcesja/"><span class="num">09</span><h3>Firmy rodzinne i sukcesja</h3><p>Przekazanie firmy dzieciom bez zbędnego podatku: darowizna, zarząd sukcesyjny, fundacja rodzinna.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/podatki-nieruchomosci/"><span class="num">10</span><h3>PCC i sprzedaż nieruchomości</h3><p>Sprzedaż mieszkania i działki przez osoby prywatne: PIT, ulga mieszkaniowa, VAT czy PCC.</p><em class="spec-more">Dowiedz się więcej →</em></a>
+<a class="spec" href="/doradztwo-podatkowe/"><span class="num">01</span><h3>Doradca podatkowy Wrocław</h3><p>Stały doradca dla firmy: pytania bieżące, opinie przed decyzją, przegląd umów i rozliczeń.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/kontrola-podatkowa/"><span class="num">02</span><h3>Kontrola podatkowa</h3><p>Pełnomocnik w kontroli urzędu skarbowego i kontroli celno-skarbowej – od zawiadomienia do protokołu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/czynnosci-sprawdzajace/"><span class="num">03</span><h3>Wezwanie z urzędu skarbowego</h3><p>Odpowiedź na wezwanie do wyjaśnień, korekty lub dokumentów – tak, by sprawa skończyła się na tym etapie.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/interpretacja-indywidualna/"><span class="num">04</span><h3>Interpretacja indywidualna i WIS</h3><p>Wnioski o interpretację indywidualną i WIS – ochrona przed zmianą stanowiska urzędu.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/wyplata-pieniedzy-ze-spolki/"><span class="num">05</span><h3>Wypłata pieniędzy ze spółki</h3><p>Najtańsza legalna droga wypłaty: wynagrodzenie zarządu, art. 176 KSH, dywidenda, najem, pożyczka.</p><em class="spec-more">Dowiedz się więcej →</em></a>
 <!-- /gen:doradztwo -->
-<a class="spec spec-cta" href="#ksiegowosc"><span class="num">+</span><h3>Księgowość pod nadzorem doradcy</h3><p>Księgi spółek i JDG, kadry i płace – w tej samej kancelarii, która doradza i reprezentuje.</p><em class="spec-more">Zobacz księgowość →</em></a><a class="spec spec-cta" href="#termin" data-booking-open><span class="num">→</span><h3>Nie wiesz, od czego zacząć?</h3><p>Opowiedz nam o sprawie. Powiemy, czy potrzebujesz interpretacji, pełnomocnika czy stałego doradcy.</p><em class="spec-more">Umów konsultację →</em></a>
+<a class="spec spec-cta" href="/ksiegowosc-spolki-z-o-o/"><span class="num">+</span><h3>Księgowość pod nadzorem doradcy</h3><p>Księgi spółek i JDG, kadry i płace – w tej samej kancelarii, która doradza i reprezentuje.</p><em class="spec-more">Zobacz księgowość →</em></a>
       </div>
-    </div>
-  </section>
-
-  <section id="kontrole" class="wrap control">
-    <div class="control-box">
-      <div>
-        <span class="eyebrow">Kontrola lub postępowanie podatkowe</span>
-        <h2>Dostałeś wezwanie z urzędu? Zachowaj spokój i zadzwoń.</h2>
-        <p>Reprezentujemy przed US, KAS i ZUS – w czynnościach sprawdzających, kontroli, postępowaniu podatkowym i przed sądem.</p>
-      </div>
-      <a href="tel:+48883643565" class="btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-        +48 883 643 565</a>
-    </div>
-  </section>
-
-  <section id="ksiegowosc" class="wrap ksieg">
-    <div class="specs-head">
-      <div>
-        <span class="eyebrow">Księgowość</span>
-        <h2 class="h2">Księgowość pod nadzorem doradcy podatkowego</h2>
-      </div>
-      <p>Prowadzimy księgi spółek i jednoosobowych firm oraz kadry i płace. Każde rozliczenie nadzoruje doradca podatkowy – a gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p>
-    </div>
-    <div class="spec-grid ksieg-grid">
-<!-- gen:ksiegowosc -->
-<a class="spec" href="/ksiegowosc-spolki-z-o-o/"><span class="num">01</span><h3>Księgowość spółki z o.o.</h3><p>Księgi handlowe, sprawozdania, CIT i JPK – prowadzone przez zespół pod nadzorem doradcy podatkowego.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/ksiegowosc-jdg/"><span class="num">02</span><h3>Księgowość JDG</h3><p>KPiR i ryczałt dla jednoosobowych firm, VAT, ZUS i zdrowotna – z doradcą pod telefonem.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/kadry-i-place/"><span class="num">03</span><h3>Kadry i płace</h3><p>Listy płac, umowy, ZUS, PIT-11, PPK i akta osobowe – dla firm zatrudniających pracowników.</p><em class="spec-more">Dowiedz się więcej →</em></a><a class="spec" href="/zmiana-biura-rachunkowego/"><span class="num">04</span><h3>Zmiana biura rachunkowego</h3><p>Przejmujemy księgowość od poprzedniego biura: pełnomocnictwa, dokumentacja, przegląd rozliczeń.</p><em class="spec-more">Dowiedz się więcej →</em></a>
-<!-- /gen:ksiegowosc -->
     </div>
   </section>
 
@@ -851,111 +832,23 @@ a.spec h3{color:var(--bg)}
     </div>
     <div class="about-right">
       <p class="intro">Dwóch doradców podatkowych, jedna kancelaria.</p>
-      <p>RKDP łączy doświadczenie przedsiębiorcy z doświadczeniem z administracji skarbowej. Doradzamy firmom rodzinnym oraz małym i średnim przedsiębiorstwom, reprezentujemy klientów w kontrolach, postępowaniach i przed sądami administracyjnymi, a księgowość prowadzi zespół pod nadzorem doradcy podatkowego.</p>
-      <div class="pillars">
-        <div class="pillar">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
-          <h3>Jedno miejsce</h3><p>Doradztwo, księgowość i reprezentacja przed urzędem.</p>
-        </div>
-        <div class="pillar">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
-          <h3>Bezpieczeństwo</h3><p>Tajemnica zawodowa i obowiązkowe ubezpieczenie OC doradcy podatkowego.</p>
-        </div>
-        <div class="pillar">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A5A37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
-          <h3>Optymalizacja</h3><p>Legalne rozwiązania, które realnie obniżają podatki.</p>
-        </div>
+      <div class="mini-team">
+        <a class="mini-card" href="/zespol/"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="Michał Ruszniak, doradca podatkowy" width="952" height="1245" loading="lazy" style="object-position:57% 18%"></picture><span class="mini-body"><b>Michał Ruszniak</b><small>Doradca podatkowy nr 15009 · Prezes Zarządu</small></span></a>
+        <a class="mini-card" href="/zespol/"><picture><source srcset="/img/marcin-zespol.webp" type="image/webp"><img src="/img/marcin-zespol.jpg" alt="Marcin Otręba, doradca podatkowy" width="900" height="1205" loading="lazy"></picture><span class="mini-body"><b>Marcin Otręba</b><small>Doradca podatkowy nr 14609 · Partner Zarządzający</small></span></a>
       </div>
+      <a class="link-more" href="/zespol/">Poznaj nasz zespół →</a>
     </div>
   </section>
 
-  <section id="zespol" class="wrap team">
-    <div class="team-card">
-      <picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img class="team-photo" style="object-position:57% 20%" src="/img/michal-zespol.jpg" alt="Michał Ruszniak, doradca podatkowy, prezes zarządu RKDP, Wrocław" width="952" height="1245" loading="lazy"></picture>
-      <div class="team-body">
-        <span class="advisor-role">Doradca Podatkowy · Prezes Zarządu</span>
-        <h3 class="team-name">Michał Ruszniak</h3>
-        <span class="team-reg">Nr wpisu na listę doradców podatkowych: 15009</span>
-        <p>Doradca podatkowy, ekonomista i praktyk gospodarczy – zna podatki z przepisów i z codziennego prowadzenia firmy. Ma doświadczenie w zarządzaniu i optymalizacji podatkowej, absolwent Uniwersytetu Wrocławskiego. Założyciel kilkudziesięciu działalności i spółek prawa handlowego. Specjalizuje się w obsłudze małych i średnich przedsiębiorstw, wspierając firmy rodzinne w kwestiach podatkowych. Jako pełnomocnik zawodowy reprezentuje klientów przed organami podatkowymi, w szczególności podczas kontroli, oraz przed sądami administracyjnymi.</p>
-        <ul class="team-list">
-          <li>założyciel kilkudziesięciu działalności gospodarczych i spółek prawa handlowego,</li>
-          <li>specjalizuje się w obsłudze małych i średnich przedsiębiorstw oraz firm rodzinnych: wybór formy działalności, zakładanie i przekształcanie spółek, wypłata pieniędzy ze spółki,</li>
-          <li>pełnomocnik zawodowy w kontrolach, postępowaniach podatkowych i przed sądami administracyjnymi,</li>
-          <li>członek zarządu Dolnośląskiego Oddziału Krajowej Izby Doradców Podatkowych,</li>
-          <li>prelegent ogólnopolskich konferencji naukowych o postępowaniach podatkowych i juror w finałach krajowych konkursów wiedzy o podatkach.</li>
-        </ul>
-        <a class="kidp-link team-kidp" href="https://kidp.pl/doradca/15009" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Sprawdź wpis w rejestrze KIDP</a>
-      </div>
+  <section id="cennik" class="wrap pricing-mini">
+    <div class="pm-head"><span class="eyebrow">Cennik</span><h2 class="h2">Jasne ceny, <em>bez niespodzianek</em></h2></div>
+    <div class="pm-grid">
+      <a class="pm" href="/cennik/"><small>Konsultacja wstępna</small><b>0 zł</b><span>do 20 minut</span></a>
+      <a class="pm" href="/cennik/"><small>Konsultacja podatkowa</small><b><i>od</i> 400 zł</b><span>za godzinę</span></a>
+      <a class="pm" href="/cennik/"><small>Abonament Doradca Podatkowy</small><b><i>od</i> 369 zł</b><span>miesięcznie</span></a>
+      <a class="pm pm-dark" href="/cennik/"><small>Księgowość + Doradca Podatkowy</small><b><i>od</i> 419 zł</b><span>miesięcznie</span></a>
     </div>
-    <div class="team-card team-card-rev">
-      <picture><source srcset="/img/marcin-zespol.webp" type="image/webp"><img class="team-photo" src="/img/marcin-zespol.jpg" alt="Marcin Otręba, doradca podatkowy, Wrocław" width="900" height="1205" loading="lazy"></picture>
-      <div class="team-body">
-        <span class="advisor-role">Doradca Podatkowy · Partner Zarządzający</span>
-        <h3 class="team-name">Marcin Otręba</h3>
-        <span class="team-reg">Nr wpisu na listę doradców podatkowych: 14609</span>
-        <p>Zna system podatkowy także od strony administracji: przez lata pracował w Izbie Skarbowej we Wrocławiu i szkolił kadry Ministerstwa Finansów. Specjalizuje się w VAT, CIT i PIT oraz w kontrolach podatkowych, celno-skarbowych i sporach przed sądami administracyjnymi.</p>
-        <ul class="team-list">
-          <li>zastępca rzecznika dyscyplinarnego Krajowej Izby Doradców Podatkowych,</li>
-          <li>wieloletni pracownik Izby Skarbowej we Wrocławiu, trener Ministerstwa Finansów i Centrum Edukacji Zawodowej Resortu Finansów,</li>
-          <li>doświadczenie na stanowiskach kierowniczych w międzynarodowych firmach ze specjalnych stref ekonomicznych i w renomowanych kancelariach podatkowych,</li>
-          <li>od 2010 r. wykładowca prawa podatkowego na Uniwersytecie WSB Merito we Wrocławiu, kierownik merytoryczny studiów podyplomowych „Doradca podatkowy”, wykładowca MBA,</li>
-          <li>szkoli administrację skarbową i oddziały Stowarzyszenia Księgowych w Polsce; autor publikacji m.in. dla Biuletynu VAT (INFOR).</li>
-        </ul>
-        <a class="kidp-link team-kidp" href="https://kidp.pl/doradca/14609" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Sprawdź wpis w rejestrze KIDP</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="cennik" class="wrap pricing">
-    <div class="pricing-head">
-      <span class="eyebrow">Cennik</span>
-      <h2 class="h2">Jasne ceny, <em>bez niespodzianek</em></h2>
-      <p>Zacznij od bezpłatnej rozmowy – a potem wybierz jednorazową konsultację albo stałą opiekę doradcy podatkowego.</p>
-    </div>
-    <!-- pricing:start -->
-    <h3 class="price-group">Konsultacje</h3>
-    <div class="price-grid price-grid-2">
-      <article class="price-card price-free">
-        <span class="price-badge">Bezpłatnie</span><h3>Konsultacja wstępna</h3>
-        <p class="price-amount"><span class="from"></span><b>0 zł</b><span class="unit">do 20 minut</span></p>
-        <p class="price-desc">Krótka rozmowa z doradcą podatkowym: ocenimy Twoją sprawę i powiemy, jak możemy pomóc.</p>
-        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>telefonicznie, online lub w kancelarii</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>bez zobowiązań</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>dobry start przed wyceną abonamentu</span></li></ul>
-        <a href="#termin" class="btn btn-outline" data-booking-open>Umów rozmowę 0 zł</a>
-      </article>
-      <article class="price-card">
-        <h3>Konsultacja podatkowa</h3>
-        <p class="price-amount"><span class="from">od</span><b>400 zł</b><span class="unit">za godzinę</span></p>
-        <p class="price-desc">Szczegółowa analiza Twojej sytuacji – umów, transakcji, pism z urzędu – i konkretne rekomendacje.</p>
-        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>analiza dokumentów przed spotkaniem</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>rekomendacja rozwiązania</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>w kancelarii na Jagodnie lub online</span></li></ul>
-        <a href="#termin" class="btn btn-outline" data-booking-open>Umów konsultację</a>
-      </article>
-    </div>
-    <h3 class="price-group">Abonamenty miesięczne</h3>
-    <div class="price-grid price-grid-3">
-      <article class="price-card">
-        <h3>Abonament Doradca Podatkowy</h3>
-        <p class="price-amount"><span class="from">od</span><b>369 zł</b><span class="unit">miesięcznie</span></p>
-        <p class="price-desc">Stały doradca podatkowy dla firmy, która ma własną księgowość. Pytasz przed decyzją, a nie po fakcie.</p>
-        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>bieżące konsultacje telefoniczne i mailowe</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>opinia przed ważnymi transakcjami</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>pomoc przy wezwaniach i pismach z urzędu</span></li></ul>
-        <a href="#termin" class="btn btn-outline" data-booking-open>Zapytaj o abonament</a>
-      </article>
-      <article class="price-card">
-        <span class="price-badge">Dla JDG</span><h3>Księgowość JDG + Doradca Podatkowy</h3>
-        <p class="price-amount"><span class="from">od</span><b>419 zł</b><span class="unit">miesięcznie</span></p>
-        <p class="price-desc">Jednoosobowa działalność z księgowością i stałym dostępem do doradcy podatkowego w jednym abonamencie.</p>
-        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>KPiR lub ryczałt</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>VAT, JPK, PIT i ZUS</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>konsultacje z doradcą podatkowym</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>przegląd formy opodatkowania</span></li></ul>
-        <a href="#termin" class="btn btn-outline" data-booking-open>Zapytaj o wycenę</a>
-      </article>
-      <article class="price-card price-featured">
-        <span class="price-badge">Pełna obsługa</span><h3>Księgowość + Doradca Podatkowy</h3>
-        <p class="price-amount"><span class="from">od</span><b>790 zł</b><span class="unit">miesięcznie</span></p>
-        <p class="price-desc">Księgowość i doradztwo w jednej kancelarii. Księgi prowadzimy pod nadzorem doradcy podatkowego.</p>
-        <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>pełna księgowość spółek i firm</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>VAT, JPK, CIT/PIT i ZUS</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>konsultacje z doradcą podatkowym</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>wsparcie przy wezwaniach i kontrolach</span></li></ul>
-        <a href="#termin" class="btn btn-primary" data-booking-open>Zapytaj o wycenę</a>
-      </article>
-    </div>
-    <p class="price-note">Ceny abonamentów zależą od formy prawnej, liczby dokumentów, rozliczeń VAT i zatrudnienia – dokładną wycenę przygotujemy po bezpłatnej rozmowie. Reprezentacja w kontrolach, postępowaniach podatkowych i przed sądami administracyjnymi jest wyceniana indywidualnie.</p>
-<!-- pricing:end -->
+    <a class="link-more" href="/cennik/">Zobacz pełny cennik →</a>
   </section>
 
   <section id="faq" class="wrap faq">
@@ -967,22 +860,8 @@ a.spec h3{color:var(--bg)}
     <div class="faq-list">
       <details open><summary>Czym różni się doradca podatkowy od księgowej?</summary><p>Księgowa lub biuro rachunkowe prowadzi księgi i rozliczenia, ale nie może udzielać porad podatkowych ani reprezentować klienta przed urzędem skarbowym i sądem. Doradca podatkowy może robić to wszystko. W RKDP księgowość prowadzi zespół pod nadzorem doradcy podatkowego, więc gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p></details>
       <details open><summary>Jak przenieść księgowość z innego biura rachunkowego?</summary><p>Najwygodniej od początku miesiąca lub roku podatkowego. Ustalamy termin, przygotowujemy pełnomocnictwa (m.in. do urzędu skarbowego i ZUS), odbieramy dokumentację od poprzedniego biura i sprawdzamy ostatnie rozliczenia. Zajmujemy się formalnościami tak, by rozliczenia nie miały przerwy.</p></details>
-      <details><summary>Od czego zależy cena księgowości spółki z o.o.?</summary><p>Wynagrodzenie ustalamy indywidualnie. Zależy przede wszystkim od liczby dokumentów w miesiącu, liczby pracowników i zleceniobiorców, rejestracji do VAT i transakcji zagranicznych oraz od tego, czy spółka korzysta z estońskiego CIT. Wycenę przygotowujemy po krótkiej rozmowie.</p></details>
       <details><summary>Czy pomagacie we wdrożeniu KSeF w małej firmie?</summary><p>Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania.</p></details>
-      <details><summary>Czy estoński CIT opłaca się mojej spółce?</summary><p>To zależy m.in. od tego, czy zyski zostają w spółce, jaka jest struktura wspólników i czy spółka spełnia warunki ustawowe. Przed przejściem na estoński CIT porównujemy obciążenia na liczbach Twojej firmy i wskazujemy ryzyka.</p></details>
       <details><summary>Dostałem pismo z urzędu skarbowego. Co robić?</summary><p>Nie zwlekaj z odpowiedzią i zadzwoń do nas przed upływem terminu. Jako doradcy podatkowi możemy reprezentować Cię w czynnościach sprawdzających, kontroli i postępowaniu podatkowym, a w razie potrzeby przygotować odwołanie lub skargę do sądu administracyjnego.</p></details>
-    </div>
-  </section>
-
-  <section id="blog" class="wrap home-blog">
-    <div class="blog-head">
-      <div><span class="eyebrow">Blog</span><h2 class="h2">Najnowsze artykuły</h2></div>
-      <a class="btn btn-outline" href="/blog/">Wszystkie artykuły</a>
-    </div>
-    <div class="posts">
-<!-- gen:blog -->
-<a class="post" href="/blog/ksef-w-malej-firmie/"><span class="tag">KSeF</span><b>KSeF w małej firmie: co musi zrobić właściciel</b><span>Krajowy System e-Faktur w małej firmie i JDG: od kiedy obowiązuje, jak nadać uprawnienia, jak odbierać faktury i jak ustawić współpracę z księgową.</span><time datetime="2026-10-08">8 października 2026 · Michał Ruszniak</time></a><a class="post" href="/blog/wezwanie-do-wyjasnien-z-urzedu-skarbowego/"><span class="tag">Pismo z urzędu</span><b>Dostałem wezwanie do wyjaśnień z urzędu skarbowego: co dalej</b><span>Wezwanie do złożenia wyjaśnień, korekty JPK lub przedłożenia dokumentów – co oznacza, ile masz czasu i jak odpowiedzieć, żeby sprawa nie skończyła się kontrolą.</span><time datetime="2026-09-23">23 września 2026 · Marcin Otręba</time></a><a class="post" href="/blog/wynagrodzenie-wspolnika-art-176-ksh/"><span class="tag">Spółka z o.o.</span><b>Wynagrodzenie wspólnika z art. 176 KSH: jak to rozliczyć</b><span>Świadczenia niepieniężne wspólnika z art. 176 KSH: jak je zapisać w umowie spółki, jak udokumentować i na co uważać przy rozliczeniu podatkowym.</span><time datetime="2026-09-10">10 września 2026 · Michał Ruszniak</time></a>
-<!-- /gen:blog -->
     </div>
   </section>
 
@@ -1066,7 +945,7 @@ a.spec h3{color:var(--bg)}
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span><a href="/doradztwo-podatkowe/">Doradca podatkowy Wrocław</a><a href="/kontrola-podatkowa/">Kontrola podatkowa</a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego</a><a href="/interpretacja-indywidualna/">Interpretacja indywidualna i WIS</a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA</a><a href="/wyplata-pieniedzy-ze-spolki/">Wypłata pieniędzy ze spółki</a><a href="/forma-opodatkowania/">Forma prawna i opodatkowania</a><a href="/restrukturyzacje-spolek/">Spółki z o.o. i SKA – reorganizacje</a><a href="/firmy-rodzinne-sukcesja/">Firmy rodzinne i sukcesja</a><a href="/podatki-nieruchomosci/">PCC i sprzedaż nieruchomości</a></nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.</a><a href="/ksiegowosc-jdg/">Księgowość JDG</a><a href="/kadry-i-place/">Kadry i płace</a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego</a><span class="k" style="margin-top:14px">Okolice</span><a href="/doradca-podatkowy-jagodno/">Jagodno i Krzyki</a><a href="/doradca-podatkowy-siechnice/">Siechnice i okolice</a></nav>
-      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/blog/">Blog</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
+      <nav aria-label="Informacje"><span class="k">Informacje</span><a href="/zespol/">Zespół</a><a href="/cennik/">Cennik</a><a href="/polityka-prywatnosci.html">RODO (Polityka prywatności)</a><a href="/aml.html">AML</a><a href="/dokumenty/procedura-sygnalisci-rkdp.pdf" target="_blank" rel="noopener">Sygnaliści</a><a href="/dokumenty/regulamin-umowy-do-31-12-2025.pdf" target="_blank" rel="noopener">Regulamin (umowy do 31.12.2025)</a></nav>
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>

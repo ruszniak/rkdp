@@ -78,7 +78,7 @@ PAGES = [
  ('h2', 'Skala, liniowy czy ryczałt'),
  ('p', 'Forma opodatkowania wpływa nie tylko na podatek, ale też na składkę zdrowotną i dostęp do ulg. Przed początkiem roku przeglądamy wyniki i sprawdzamy, czy dotychczasowa forma nadal jest najkorzystniejsza – a jeśli nie, przygotowujemy zmianę w terminie. Przy większych dochodach porównujemy też przejście do spółki. Więcej: <a href="/forma-opodatkowania/">forma prawna i opodatkowania</a>.'),
  ('h2', 'KSeF w jednoosobowej firmie'),
- ('p', 'Krajowy System e-Faktur zmienił sposób wystawiania i odbierania faktur. Pomagamy nadać uprawnienia, wybrać program do fakturowania i ustawić obieg tak, żeby faktury zakupowe trafiały do nas bez przesyłania skanów. Sprawdzamy też, czy i od kiedy Twoja firma może korzystać z rozwiązań przejściowych. Zobacz artykuł: <a href="/blog/ksef-w-malej-firmie/">KSeF w małej firmie</a>.'),
+ ('p', 'Krajowy System e-Faktur zmienił sposób wystawiania i odbierania faktur. Pomagamy nadać uprawnienia, wybrać program do fakturowania i ustawić obieg tak, żeby faktury zakupowe trafiały do nas bez przesyłania skanów. Sprawdzamy też, czy i od kiedy Twoja firma może korzystać z rozwiązań przejściowych.'),
  ('h2', 'Doradca podatkowy zamiast samej księgowej'),
  ('p', 'W jednoosobowej firmie właściciel odpowiada za podatki całym majątkiem. Dlatego nad rozliczeniami w RKDP czuwa doradca podatkowy: odpowiada na pytania przed transakcją, sprawdza nietypowe koszty, a w razie wezwania lub kontroli reprezentuje Cię przed urzędem. Nie musisz szukać pomocy gdzie indziej.'),
  ('h2', 'Jak zaczynamy'),
