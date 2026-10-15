@@ -406,9 +406,9 @@ def build_pricing_page():
         if unit: ps["unitText"] = unit
         return {"@type": "Offer", "itemOffered": {"@type": "Service", "name": name}, "priceSpecification": ps}
     ld = [breadcrumb_ld(crumbs), {"@context": "https://schema.org", "@type": "OfferCatalog", "name": "Cennik RKDP – doradztwo podatkowe i księgowość", "url": SITE + path, "itemListElement": [
-        offer("Konsultacja wstępna (do 20 minut)", 0), offer("Konsultacja podatkowa", 400, "godzina"),
+        offer("Konsultacja wstępna (do 20 minut)", 0), offer("Konsultacja podatkowa", 300, "godzina"),
         offer("Abonament Doradca Podatkowy", 369, "miesiąc"), offer("Abonament Księgowość JDG + Doradca Podatkowy", 419, "miesiąc"), offer("Abonament Księgowość + Doradca Podatkowy", 790, "miesiąc")]}]
-    body = head('Cennik – doradca podatkowy i księgowość Wrocław | RKDP', 'Cennik RKDP: pierwsza konsultacja do 20 minut bezpłatnie, konsultacja podatkowa od 400 zł/h, abonament doradcy od 369 zł, księgowość JDG z doradcą od 419 zł, księgowość z doradcą od 790 zł miesięcznie.', path, extra_ld=ld)
+    body = head('Cennik – doradca podatkowy i księgowość Wrocław | RKDP', 'Cennik RKDP: pierwsza konsultacja do 20 minut bezpłatnie, konsultacja podatkowa od 300 zł/h, abonament doradcy od 369 zł, księgowość JDG z doradcą od 419 zł, księgowość z doradcą od 790 zł miesięcznie.', path, extra_ld=ld)
     body += f'''<main>
 <section class="wrap page-hero"><div class="inner">
   {crumbs_html(crumbs)}
