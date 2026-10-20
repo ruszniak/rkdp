@@ -764,6 +764,11 @@ a.spec h3{color:var(--bg)}
 @media (max-width:1024px){.hv-duo{justify-self:center}}
 @media (max-width:640px){.hv-duo{max-width:100%}.hd-names{font-size:13px;padding:10px 14px}}
 @media (prefers-reduced-motion:reduce){.hd-glow,.hd-ring,.hd-people{transition:none}}
+
+.hv-solo{max-width:460px;aspect-ratio:760/1000}
+.hv-solo picture{left:7%;right:7%}
+.hv-solo .hd-glow{width:108%;top:42%}.hv-solo .hd-ring{width:94%;top:40%}.hv-solo .hd-ring2{width:116%}
+@media (max-width:640px){.hv-solo{max-width:340px}}
 </style>
 </head>
 <body>
@@ -800,10 +805,9 @@ a.spec h3{color:var(--bg)}
         <a href="/kontrola-podatkowa/" class="btn btn-outline">Mam kontrolę z US</a>
       </div>
     </div>
-    <div class="hero-visual hv-duo" id="hv-duo">
+    <div class="hero-visual hv-duo hv-solo" id="hv-duo">
       <span class="hd-glow" aria-hidden="true"></span><span class="hd-dots" aria-hidden="true"></span><span class="hd-ring" aria-hidden="true"></span><span class="hd-ring hd-ring2" aria-hidden="true"></span>
-      <picture><source srcset="/img/doradcy-hero.webp" type="image/webp"><img class="hd-people" src="/img/doradcy-hero.png" alt="Doradcy podatkowi RKDP: Michał Ruszniak i Marcin Otręba" width="820" height="910" fetchpriority="high"></picture>
-      <div class="hd-names">Michał Ruszniak · Marcin Otręba<span>doradcy podatkowi nr 15009 i 14609</span></div>
+      <picture><source srcset="/img/michal-hero.webp" type="image/webp"><img class="hd-people" src="/img/michal-hero.png" alt="Michał Ruszniak, doradca podatkowy, Wrocław" width="760" height="1126" fetchpriority="high"></picture>
     </div>
   </section>
 
