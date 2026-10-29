@@ -2,5 +2,21 @@
   "redirects": [
     { "source": "/blog", "destination": "/", "permanent": true },
     { "source": "/blog/:path*", "destination": "/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/stopki/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    },
+    {
+      "source": "/stopki",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    }
   ]
 }
