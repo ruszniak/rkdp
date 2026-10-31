@@ -453,8 +453,7 @@ def update_index():
     put('nav', nav_html())
     put('footer', footer_html())
     tile = lambda i, p: f'<a class="spec" href="{url(p["slug"])}"><span class="num">{i:02d}</span><h3>{e(p["menu"])}</h3><p>{e(p["tile"])}</p><em class="spec-more">Dowiedz się więcej →</em></a>'
-    home = ['doradztwo-podatkowe', 'kontrola-podatkowa', 'czynnosci-sprawdzajace', 'interpretacja-indywidualna', 'wyplata-pieniedzy-ze-spolki']
-    put('doradztwo', ''.join(tile(i + 1, BY_SLUG[sl]) for i, sl in enumerate(home)))
+    put('doradztwo', ''.join(tile(i + 1, p) for i, p in enumerate(P_DOR + P_KSI)))
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
