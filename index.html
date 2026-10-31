@@ -929,27 +929,58 @@ a.spec h3{color:var(--bg)}
 @media (max-width:640px){.n-q summary{grid-template-columns:minmax(0,1fr) 36px;padding:18px}.n-qn{display:none}.n-qi{width:36px;height:36px}.n-qa p{padding:0 18px 20px}.n-q,.n-q summary{border-radius:16px}}
 
 /* ZESPÓŁ */
-.n-team{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,80px);align-items:center;padding-top:clamp(72px,8vw,120px);padding-bottom:clamp(56px,6vw,96px)}
-.n-team-head{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-.n-team-head h2 em{font-style:normal;color:var(--bronze)}
-.n-people{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.n-person{position:relative;display:block;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:#141210;text-decoration:none;opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
-.n-person.in{opacity:1;transform:none}
-.n-person:nth-child(2){transition-delay:.15s;margin-top:48px}
-.n-person img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.n-person:hover img{transform:scale(1.05)}
-.n-person>span{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(15,13,11,.9));display:flex;flex-direction:column;gap:4px}
-.n-person b{font:700 20px var(--serif);color:#F6EEE2}
-.n-person small{font-size:13px;color:#CFC6B9}
-@media (max-width:900px){.n-team{grid-template-columns:1fr}.n-person:nth-child(2){margin-top:24px}}
-@media (max-width:480px){.n-people{gap:12px}.n-person b{font-size:16px}.n-person small{font-size:11.5px}.n-person>span{padding:40px 14px 14px}}
-
-.n-solo{position:relative;max-width:460px;width:100%;justify-self:center}
-.n-solo::before{content:"";position:absolute;inset:-18px -18px 18px 18px;border:1px solid var(--gold);border-radius:28px;z-index:-1;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
-.n-solo:hover::before{transform:translate(-8px,8px)}
-.n-team-head p{color:var(--text);font-size:17px;line-height:1.7;max-width:540px}
-.n-team-head .n-role{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
-@media (max-width:900px){.n-solo{max-width:360px}}
+.n-team{position:relative;padding:clamp(80px,9vw,130px) 0 clamp(56px,6vw,96px);overflow:hidden}
+.n-team-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,110px);align-items:center}
+.n-pic{position:relative;max-width:480px;width:100%;justify-self:center;aspect-ratio:952/1245}
+.n-frame{position:absolute;left:22px;top:-22px;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:-1}
+.n-frame rect{fill:none;stroke:var(--gold);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2s cubic-bezier(.6,.05,.2,1) .5s}
+.n-pic-in{position:absolute;inset:0;display:block;border-radius:28px;overflow:hidden;background:#141210;clip-path:inset(100% 0 0 0 round 28px);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1)}
+.n-pic-in img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;transform:scale(1.25) translateY(var(--py,0px));transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.n-pic.in .n-pic-in{clip-path:inset(0 0 0 0 round 28px)}
+.n-pic.in .n-pic-in img{transform:scale(1.08) translateY(var(--py,0px))}
+.n-pic.in .n-frame rect{stroke-dashoffset:0}
+.n-pic.done .n-pic-in img{transition:transform .3s linear}
+.n-pic-in:hover img{transform:scale(1.12) translateY(var(--py,0px))}
+.n-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:13px 18px;border-radius:16px;background:rgba(255,253,249,.82);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.9);box-shadow:0 20px 40px rgba(29,26,22,.16);font:600 14px/1.35 var(--sans);color:var(--ink);opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.n-chip b{font-weight:700;color:var(--bronze)}
+.n-chip-1{left:-34px;bottom:12%;transition-delay:1.1s}
+.n-chip-2{right:-44px;top:58%;display:block;font-size:13px;font-weight:500;color:var(--muted);transition-delay:1.3s}
+.n-chip-1 i{width:10px;height:10px;border-radius:50%;background:#3BA55C;box-shadow:0 0 0 0 rgba(59,165,92,.5);animation:nPulse 2.2s infinite}
+@keyframes nPulse{70%{box-shadow:0 0 0 10px rgba(59,165,92,0)}100%{box-shadow:0 0 0 0 rgba(59,165,92,0)}}
+.n-pic.in .n-chip{opacity:1;transform:none}
+.n-pic.done .n-chip-1{animation:nFloat 6s ease-in-out infinite}.n-pic.done .n-chip-2{animation:nFloat 7s ease-in-out -2s infinite}
+@keyframes nFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.n-bio h2{font:700 clamp(40px,4.8vw,72px)/1.02 var(--serif);letter-spacing:-.04em;margin:14px 0 18px;color:var(--ink)}
+.n-ml{display:block;overflow:hidden;padding-bottom:.08em}
+.n-ml>*{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.n-ml:nth-child(2)>*{transition-delay:.12s}
+.n-ml em{font-style:normal;background:linear-gradient(100deg,#7A5A37,#C59A62 40%,#E9CFA3 50%,#C59A62 60%,#7A5A37);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nGold 7s ease-in-out infinite}
+.n-bio.in .n-ml>*{transform:none}
+.n-role{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin:0 0 16px}
+.n-bio>p:not(.n-role){font-size:17px;line-height:1.75;color:var(--text);max-width:560px;margin:0}
+.n-cred{list-style:none;padding:0;margin:30px 0 34px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.n-cred li{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:18px;background:#FFFDF9;border:1px solid var(--line);font-size:13.5px;line-height:1.45;color:var(--muted);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,border-color .4s}
+.n-cred li:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(29,26,22,.08);border-color:var(--line-2)}
+.n-cred b{display:block;font:700 16px var(--serif);color:var(--ink);margin-bottom:2px}
+.n-cr-ic{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#F3EBDF;color:var(--bronze)}
+.n-bio-btns{display:flex;flex-wrap:wrap;gap:12px}
+.n-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.n-bio.in .n-up{opacity:1;transform:none}
+.n-bio.in .n-up:nth-of-type(1){transition-delay:0s}
+.n-bio.in .n-role{transition-delay:.25s}.n-bio.in>p.n-up:not(.n-role){transition-delay:.35s}
+.n-bio.in .n-cred li:nth-child(1){transition-delay:.45s}.n-bio.in .n-cred li:nth-child(2){transition-delay:.55s}.n-bio.in .n-cred li:nth-child(3){transition-delay:.65s}
+.n-bio.in .n-bio-btns{transition-delay:.75s}
+.n-bio.in .n-cred li:hover{transition-delay:0s}
+.n-marq{margin-top:clamp(70px,8vw,110px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.n-marq-t{display:flex;width:max-content;align-items:center;gap:34px;animation:nMarq 60s linear infinite}
+.n-marq-t span{font:700 clamp(26px,3vw,44px)/1 var(--serif);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(122,90,55,.55);white-space:nowrap;transition:color .4s}
+.n-marq-t span:nth-of-type(3n+2){color:var(--bronze);-webkit-text-stroke:0}
+.n-marq-t i{font-style:normal;color:var(--gold);font-size:18px}
+.n-marq:hover .n-marq-t{animation-play-state:paused}
+@keyframes nMarq{to{transform:translateX(-50%)}}
+.n-lite .n-pic-in{clip-path:none!important}.n-lite .n-pic-in img{transform:none!important}.n-lite .n-frame rect{stroke-dashoffset:0!important}.n-lite .n-chip,.n-lite .n-up{opacity:1!important;transform:none!important;animation:none!important}.n-lite .n-ml>*{transform:none!important}.n-lite .n-marq-t{animation:none}
+@media (max-width:1024px){.n-team-in{grid-template-columns:minmax(0,1fr)}.n-pic{max-width:380px}.n-cred{grid-template-columns:minmax(0,1fr)}.n-cred li{flex-direction:row;align-items:center}}
+@media (max-width:560px){.n-pic{max-width:300px}.n-chip-1{left:-12px;bottom:64px}.n-chip-2{right:-12px;top:auto;bottom:-18px;font-size:12px}.n-frame{left:14px;top:-14px}.n-bio-btns .btn{width:100%;justify-content:center}}
 /* KONTAKT */
 .n-contact{background:#0F0D0B;color:#F6EEE2;padding:clamp(80px,9vw,130px) 0;position:relative;overflow:hidden}
 .n-contact::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.4px);background-size:7px 7px}
@@ -1062,17 +1093,28 @@ a.spec h3{color:var(--bg)}
     </div>
   </section>
 
-  <section class="n-team wrap" id="o-kancelarii">
-    <div class="n-solo">
-      <a class="n-person" href="/zespol/"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="Michał Ruszniak, doradca podatkowy, prezes zarządu RKDP" loading="lazy" width="952" height="1245"></picture></a>
+  <section class="n-team" id="o-kancelarii">
+    <div class="wrap n-team-in">
+      <div class="n-pic" id="n-pic">
+        <svg class="n-frame" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><rect x=".5" y=".5" width="99" height="124" rx="6" ry="5" pathLength="1"/></svg>
+        <a class="n-pic-in" href="/zespol/"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="Michał Ruszniak, doradca podatkowy, prezes zarządu RKDP" loading="lazy" width="952" height="1245"></picture></a>
+        <span class="n-chip n-chip-1"><i></i>Doradca podatkowy nr 15009</span>
+        <span class="n-chip n-chip-2">Członek zarządu<br><b>Dolnośląskiego Oddziału KIDP</b></span>
+      </div>
+      <div class="n-bio" id="n-bio">
+        <span class="eyebrow n-up">O kancelarii</span>
+        <h2><span class="n-ml"><span>Michał Ruszniak</span></span><span class="n-ml"><em>Doradca podatkowy</em></span></h2>
+        <p class="n-role n-up">Prezes Zarządu RKDP · nr wpisu 15009</p>
+        <p class="n-up">Doradca podatkowy, ekonomista i praktyk gospodarczy – zna podatki z przepisów i z codziennego prowadzenia firmy. Specjalizuje się w obsłudze małych i średnich przedsiębiorstw oraz firm rodzinnych, a jako pełnomocnik zawodowy reprezentuje klientów przed organami podatkowymi i sądami administracyjnymi.</p>
+        <ul class="n-cred">
+          <li class="n-up"><span class="n-cr-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h3a1 1 0 0 1 1 1v11M2 21h20M8 7h4M8 11h4M8 15h4"/></svg></span><span><b>Kilkadziesiąt</b>założonych działalności i spółek</span></li>
+          <li class="n-up"><span class="n-cr-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span><b>Pełnomocnik</b>w kontrolach, przed US i WSA</span></li>
+          <li class="n-up"><span class="n-cr-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-7 10 7z"/></svg></span><span><b>Prelegent</b>konferencji o postępowaniach podatkowych</span></li>
+        </ul>
+        <div class="n-bio-btns n-up"><a href="/zespol/" class="btn btn-primary n-shine">Poznaj nasz zespół <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="/#termin" class="btn btn-outline" data-booking-open>Umów konsultację</a></div>
+      </div>
     </div>
-    <div class="n-team-head">
-      <span class="eyebrow">O kancelarii</span>
-      <h2 class="h2">Michał Ruszniak<br><em>Doradca podatkowy</em></h2>
-      <p class="n-role">Prezes Zarządu RKDP · nr wpisu 15009</p>
-      <p>Doradca podatkowy, ekonomista i praktyk gospodarczy. Specjalizuje się w obsłudze małych i średnich przedsiębiorstw oraz firm rodzinnych, a jako pełnomocnik zawodowy reprezentuje klientów przed organami podatkowymi i sądami administracyjnymi.</p>
-      <a class="link-more" href="/zespol/">Poznaj nasz zespół →</a>
-    </div>
+    <div class="n-marq" aria-hidden="true"><div class="n-marq-t"><span>Doradztwo podatkowe</span><i>✦</i><span>Kontrole podatkowe</span><i>✦</i><span>Firmy rodzinne</span><i>✦</i><span>Spółki z o.o.</span><i>✦</i><span>Postępowania przed WSA i NSA</span><i>✦</i><span>Interpretacje indywidualne</span><i>✦</i><span>Wypłata pieniędzy ze spółki</span><i>✦</i><span>Doradztwo podatkowe</span><i>✦</i><span>Kontrole podatkowe</span><i>✦</i><span>Firmy rodzinne</span><i>✦</i><span>Spółki z o.o.</span><i>✦</i><span>Postępowania przed WSA i NSA</span><i>✦</i><span>Interpretacje indywidualne</span><i>✦</i><span>Wypłata pieniędzy ze spółki</span><i>✦</i></div></div>
   </section>
 
   <section id="cennik" class="wrap pricing-mini">
@@ -1356,6 +1398,13 @@ a.spec h3{color:var(--bg)}
         clearTimeout(d._t);d._t=setTimeout(function(){if(!open){d.open=false;d.classList.remove('closing')}a.style.height='';a.style.transition='';a.style.opacity=''},460)}
       [].forEach.call(qs,function(d,k){d.style.setProperty('--k',k);d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();var o=d.open&&!d.classList.contains('closing');[].forEach.call(qs,function(x){if(x!==d&&x.open&&!x.classList.contains('closing'))anim(x,false)});anim(d,!o)})});
       if(!lite&&'IntersectionObserver' in window){document.documentElement.classList.add('n-js');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});[].forEach.call(qs,function(d){io.observe(d)})}
+    })();
+
+    // O kancelarii – odsłonięcie zdjęcia, ramka, parallax
+    (function(){var pic=document.getElementById('n-pic'),bio=document.getElementById('n-bio');if(!pic)return;
+      if(lite||!('IntersectionObserver' in window)){pic.classList.add('in','done');bio.classList.add('in');return}
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);if(e.target===pic)setTimeout(function(){pic.classList.add('done')},1700)})},{threshold:.25});io.observe(pic);io.observe(bio);
+      var img=pic.querySelector('img'),tk=false;addEventListener('scroll',function(){if(tk)return;tk=true;requestAnimationFrame(function(){tk=false;if(!pic.classList.contains('done'))return;var r=pic.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var c=(r.top+r.height/2-innerHeight/2)/innerHeight;img.style.setProperty('--py',(c*-28).toFixed(1)+'px')})},{passive:true});
     })();
 
     // przewijanie: głębia w nagłówku + indeks usług
