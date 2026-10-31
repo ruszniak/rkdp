@@ -888,6 +888,46 @@ a.spec h3{color:var(--bg)}
 @media (max-width:1024px){.n-svc-hd{grid-template-columns:minmax(0,1fr)}.n-panel{grid-template-columns:repeat(2,minmax(0,1fr))}.n-cta{grid-column:span 2}}
 @media (max-width:640px){.n-panel{grid-template-columns:minmax(0,1fr)}.n-big,.n-cta{grid-column:auto}.n-bc{min-height:0;padding:22px}.n-big{padding:26px 22px}.n-top{padding-bottom:20px}.n-ic{width:44px;height:44px;border-radius:13px}.n-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;box-sizing:border-box;border-radius:18px;overflow:visible}.n-tabs button{white-space:normal;justify-content:center;text-align:center;padding:10px 6px;font-size:13px;line-height:1.25;border-radius:13px}.n-tabs button small{display:none}.n-pill{border-radius:13px}.n-gl{width:320px;height:320px;right:-140px;margin-top:-160px}}
 
+/* FAQ */
+.n-faq{position:relative;z-index:1;background:var(--bg);padding:clamp(80px,9vw,130px) 0}
+.n-faq-in{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:clamp(40px,6vw,100px);align-items:start}
+.n-faq-side{position:sticky;top:130px}
+.n-faq-side h2{font:700 clamp(36px,4.2vw,60px)/1.04 var(--serif);letter-spacing:-.04em;margin:14px 0 18px;color:var(--ink)}
+.n-faq-side h2 em{font-style:normal;background:linear-gradient(100deg,#7A5A37,#C59A62 50%,#7A5A37);-webkit-background-clip:text;background-clip:text;color:transparent}
+.n-faq-side>p{margin:0 0 32px;font-size:16.5px;line-height:1.7;color:var(--text);max-width:420px}
+.n-ask{position:relative;overflow:hidden;border-radius:24px;padding:28px;background:var(--ink);color:#F6EEE2;display:flex;flex-direction:column;gap:8px;max-width:440px}
+.n-ask::before{content:"";position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(217,185,142,.35),transparent 65%);pointer-events:none}
+.n-ask b{font:700 20px/1.3 var(--serif);letter-spacing:-.01em}
+.n-ask span{font-size:14.5px;line-height:1.6;color:#CFC6B9}
+.n-ask-btns{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:14px}
+.n-ask .btn-primary{background:var(--gold);color:var(--ink)}
+.n-ask-tel{color:#F6EEE2;text-decoration:none;font-weight:600;font-size:15px;border-bottom:1px solid rgba(217,185,142,.6);padding-bottom:2px}
+.n-ask-tel:hover{color:var(--gold)}
+.n-faq-list{display:flex;flex-direction:column;gap:12px}
+.n-q{border-radius:20px;background:#FFFDF9;border:1px solid var(--line);transition:background .4s,border-color .4s,box-shadow .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.n-q:hover{border-color:var(--line-2);box-shadow:0 14px 30px rgba(29,26,22,.06)}
+.n-q[open]{background:#fff;border-color:rgba(122,90,55,.35);box-shadow:0 24px 50px rgba(29,26,22,.09)}
+.n-q summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) 40px;gap:14px;align-items:center;padding:22px 24px;border-radius:20px}
+.n-q summary::-webkit-details-marker{display:none}
+.n-q summary:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+.n-qn{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#F3EBDF;color:var(--bronze);font:700 13px var(--sans);letter-spacing:.04em;transition:background .4s,color .4s}
+.n-q[open] .n-qn{background:var(--ink);color:var(--gold)}
+.n-qt{font:700 clamp(17px,1.4vw,20px)/1.35 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.n-qi{position:relative;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);transition:background .4s,border-color .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.n-qi::before,.n-qi::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.6px;margin:-.8px 0 0 -7px;background:var(--ink);border-radius:2px;transition:background .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.n-qi::after{transform:rotate(90deg)}
+.n-q[open] .n-qi{background:var(--bronze);border-color:var(--bronze);transform:rotate(180deg)}
+.n-q[open] .n-qi::before,.n-q[open] .n-qi::after{background:#fff}
+.n-q[open] .n-qi::after{transform:rotate(0deg)}
+.n-q summary:hover .n-qi{border-color:var(--bronze)}
+.n-qa{overflow:hidden}
+.n-qa p{margin:0;padding:0 72px 26px 82px;font-size:15.5px;line-height:1.75;color:var(--text)}
+.n-js .n-q{opacity:0;transform:translateY(18px)}
+.n-js .n-q.in{opacity:1;transform:none;transition:opacity .7s ease calc(var(--k)*80ms),transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--k)*80ms),background .4s,border-color .4s,box-shadow .5s}
+.n-lite .n-q{opacity:1!important;transform:none!important}
+@media (max-width:1024px){.n-faq-in{grid-template-columns:minmax(0,1fr)}.n-faq-side{position:static}.n-ask{display:none}}
+@media (max-width:640px){.n-q summary{grid-template-columns:minmax(0,1fr) 36px;padding:18px}.n-qn{display:none}.n-qi{width:36px;height:36px}.n-qa p{padding:0 18px 20px}.n-q,.n-q summary{border-radius:16px}}
+
 /* ZESPÓŁ */
 .n-team{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,5vw,80px);align-items:center;padding-top:clamp(72px,8vw,120px);padding-bottom:clamp(56px,6vw,96px)}
 .n-team-head{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
@@ -1007,7 +1047,7 @@ a.spec h3{color:var(--bg)}
     <div class="n-stat"><b data-to="10" data-suf="+">10+</b><span>lat praktyki w doradztwie podatkowym</span></div>
     <div class="n-stat"><b data-to="300" data-suf="+">300+</b><span>zadowolonych klientów – firm i osób prywatnych</span></div>
     <div class="n-stat"><b data-to="100" data-suf="+">100+</b><span>przeprowadzonych kontroli i czynności sprawdzających</span></div>
-    <div class="n-stat"><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google (11 opinii)</span></div>
+    <div class="n-stat"><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google</span></div>
   </div></section>
 
   <section class="n-svc" id="uslugi">
@@ -1046,17 +1086,19 @@ a.spec h3{color:var(--bg)}
     <a class="link-more" href="/cennik/">Zobacz pełny cennik →</a>
   </section>
 
-  <section id="faq" class="wrap faq">
-    <div class="faq-left">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="h2">Najczęściej zadawane pytania</h2>
-      <p>O księgowości z doradcą, zmianie biura i sprawach z urzędem skarbowym.</p>
-    </div>
-    <div class="faq-list">
-      <details open><summary>Czym różni się doradca podatkowy od księgowej?</summary><p>Księgowa lub biuro rachunkowe prowadzi księgi i rozliczenia, ale nie może udzielać porad podatkowych ani reprezentować klienta przed urzędem skarbowym i sądem. Doradca podatkowy może robić to wszystko. W RKDP księgowość prowadzi zespół pod nadzorem doradcy podatkowego, więc gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p></details>
-      <details open><summary>Jak przenieść księgowość z innego biura rachunkowego?</summary><p>Najwygodniej od początku miesiąca lub roku podatkowego. Ustalamy termin, przygotowujemy pełnomocnictwa (m.in. do urzędu skarbowego i ZUS), odbieramy dokumentację od poprzedniego biura i sprawdzamy ostatnie rozliczenia. Zajmujemy się formalnościami tak, by rozliczenia nie miały przerwy.</p></details>
-      <details><summary>Czy pomagacie we wdrożeniu KSeF w małej firmie?</summary><p>Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania.</p></details>
-      <details><summary>Dostałem pismo z urzędu skarbowego. Co robić?</summary><p>Nie zwlekaj z odpowiedzią i zadzwoń do nas przed upływem terminu. Jako doradcy podatkowi możemy reprezentować Cię w czynnościach sprawdzających, kontroli i postępowaniu podatkowym, a w razie potrzeby przygotować odwołanie lub skargę do sądu administracyjnego.</p></details>
+  <section id="faq" class="n-faq">
+    <div class="wrap n-faq-in">
+      <div class="n-faq-side">
+        <span class="eyebrow">FAQ</span>
+        <h2>Najczęściej zadawane <em>pytania</em></h2>
+        <p>O księgowości z doradcą, zmianie biura i sprawach z urzędem skarbowym.</p>
+        <div class="n-ask">
+          <b>Nie ma tu Twojego pytania?</b>
+          <span>Zapytaj doradcę – krótka konsultacja do 20 minut jest bezpłatna.</span>
+          <div class="n-ask-btns"><a href="/#termin" class="btn btn-primary n-shine" data-booking-open>Umów konsultację</a><a class="n-ask-tel" href="tel:+48883643565">+48 883 643 565</a></div>
+        </div>
+      </div>
+      <div class="n-faq-list" id="n-faq"><details class="n-q" open><summary><span class="n-qn">01</span><span class="n-qt">Czym różni się doradca podatkowy od księgowej?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Księgowa lub biuro rachunkowe prowadzi księgi i rozliczenia, ale nie może udzielać porad podatkowych ani reprezentować klienta przed urzędem skarbowym i sądem. Doradca podatkowy może robić to wszystko. W RKDP księgowość prowadzi zespół pod nadzorem doradcy podatkowego, więc gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p></div></details><details class="n-q"><summary><span class="n-qn">02</span><span class="n-qt">Jak przenieść księgowość z innego biura rachunkowego?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Najwygodniej od początku miesiąca lub roku podatkowego. Ustalamy termin, przygotowujemy pełnomocnictwa (m.in. do urzędu skarbowego i ZUS), odbieramy dokumentację od poprzedniego biura i sprawdzamy ostatnie rozliczenia. Zajmujemy się formalnościami tak, by rozliczenia nie miały przerwy.</p></div></details><details class="n-q"><summary><span class="n-qn">03</span><span class="n-qt">Czy pomagacie we wdrożeniu KSeF w małej firmie?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania.</p></div></details><details class="n-q"><summary><span class="n-qn">04</span><span class="n-qt">Dostałem pismo z urzędu skarbowego. Co robić?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Nie zwlekaj z odpowiedzią i zadzwoń do nas przed upływem terminu. Jako doradcy podatkowi możemy reprezentować Cię w czynnościach sprawdzających, kontroli i postępowaniu podatkowym, a w razie potrzeby przygotować odwołanie lub skargę do sądu administracyjnego.</p></div></details></div>
     </div>
   </section>
 
@@ -1304,6 +1346,16 @@ a.spec h3{color:var(--bg)}
       place();addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);
       var first=panels[0];if(lite||!('IntersectionObserver' in window))first.classList.add('in');else{var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){first.classList.add('in');o.disconnect()}},{threshold:.15});o.observe(first)}
       [].forEach.call(document.querySelectorAll('.n-bc'),function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+    })();
+
+    // FAQ – płynne rozwijanie, jedno otwarte naraz
+    (function(){var list=document.getElementById('n-faq');if(!list)return;var qs=list.querySelectorAll('.n-q');
+      function anim(d,open){var a=d.querySelector('.n-qa');if(lite){d.open=open;return}
+        if(open){d.open=true;var h=a.scrollHeight;a.style.height='0px';a.style.opacity='0';void a.offsetHeight;a.style.transition='height .45s cubic-bezier(.2,.8,.2,1),opacity .4s ease .08s';a.style.height=h+'px';a.style.opacity='1'}
+        else{a.style.height=a.scrollHeight+'px';void a.offsetHeight;a.style.transition='height .4s cubic-bezier(.4,0,.2,1),opacity .25s ease';a.style.height='0px';a.style.opacity='0';d.classList.add('closing')}
+        clearTimeout(d._t);d._t=setTimeout(function(){if(!open){d.open=false;d.classList.remove('closing')}a.style.height='';a.style.transition='';a.style.opacity=''},460)}
+      [].forEach.call(qs,function(d,k){d.style.setProperty('--k',k);d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();var o=d.open&&!d.classList.contains('closing');[].forEach.call(qs,function(x){if(x!==d&&x.open&&!x.classList.contains('closing'))anim(x,false)});anim(d,!o)})});
+      if(!lite&&'IntersectionObserver' in window){document.documentElement.classList.add('n-js');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});[].forEach.call(qs,function(d){io.observe(d)})}
     })();
 
     // przewijanie: głębia w nagłówku + indeks usług
