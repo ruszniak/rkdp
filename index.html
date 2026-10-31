@@ -920,37 +920,30 @@ a.spec h3{color:var(--bg)}
 
 /* ZESPÓŁ */
 .n-team{position:relative;padding:clamp(80px,9vw,130px) 0 clamp(56px,6vw,96px);overflow:hidden}
-.n-pan{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);min-height:clamp(480px,46vw,620px);border-radius:32px;background:var(--ink);color:#F6EEE2;box-shadow:0 40px 80px rgba(29,26,22,.18);clip-path:inset(8% 6% round 32px);opacity:0;transition:clip-path 1.2s cubic-bezier(.7,0,.2,1),opacity .6s}
-.n-pan::before{content:"";position:absolute;z-index:-1;right:-180px;top:50%;width:620px;height:620px;margin-top:-310px;border-radius:50%;background:repeating-radial-gradient(circle,rgba(217,185,142,.0) 0 22px,rgba(217,185,142,.14) 22px 23px);-webkit-mask-image:radial-gradient(circle,#000 30%,transparent 70%);mask-image:radial-gradient(circle,#000 30%,transparent 70%);animation:nRot 120s linear infinite}
-.n-pan::after{content:"";position:absolute;z-index:-1;left:62%;top:-40%;width:50%;height:90%;background:radial-gradient(circle,rgba(217,185,142,.16),transparent 65%);pointer-events:none}
-.n-pan.in{clip-path:inset(0 0 round 32px);opacity:1}
-.n-pan-ph{position:relative;display:block;overflow:hidden}
-.n-pan-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 45%,var(--ink) 99%),linear-gradient(0deg,rgba(29,26,22,.55),transparent 35%);pointer-events:none}
-.n-pan-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:grayscale(1) brightness(.7);transform:scale(1.18);transition:filter 1.6s ease .5s,transform 2s cubic-bezier(.2,.8,.2,1) .2s}
-.n-pan.in .n-pan-ph img{filter:none;transform:scale(1.02)}
-.n-pan.done .n-pan-ph img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.n-pan.done:hover .n-pan-ph img{transform:scale(1.07)}
-.n-pan-tx{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(36px,5vw,72px) clamp(28px,5vw,80px) clamp(36px,5vw,72px) clamp(8px,2vw,24px)}
-.n-pan-tx .eyebrow{color:var(--gold)}
-.n-pan-tx h2{font:700 clamp(36px,4.2vw,64px)/1.02 var(--serif);letter-spacing:-.04em;margin:14px 0 14px;color:#F6EEE2;white-space:nowrap}
-.n-pan-role{margin:0;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(100deg,#C59A62,#F0D6A8 50%,#C59A62);-webkit-background-clip:text;background-clip:text;color:transparent}
-.n-pan-lead{margin:22px 0 26px;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#E6DDD0;max-width:520px}
-.n-tags{list-style:none;padding:0;margin:0 0 34px;display:flex;flex-wrap:wrap;gap:8px;max-width:560px}
-.n-tags li{padding:9px 16px;border-radius:999px;border:1px solid rgba(217,185,142,.32);background:rgba(217,185,142,.06);font:600 13.5px var(--sans);color:#E9DCC8;transition:background .35s,border-color .35s,color .35s,opacity .6s,transform .6s cubic-bezier(.3,1.3,.5,1)}
-.n-tags li:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-.n-pan-btns{display:flex;flex-wrap:wrap;gap:12px}
-.n-pan-b1{background:var(--gold);color:var(--ink)}.n-pan-b1:hover{background:#E9CFA3;color:var(--ink)}
-.n-pan-b2{border:1.5px solid rgba(246,238,226,.45);color:#F6EEE2}.n-pan-b2:hover{background:#F6EEE2;color:var(--ink)}
-.n-up{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
-.n-ml{display:block;overflow:hidden;padding-bottom:.08em}
-.n-ml>*{display:inline-block;transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.8,.2,1) .55s}
-.n-pan.in .n-ml>*{transform:none}
-.n-pan.in .n-up{opacity:1;transform:none}
-.n-pan.in .eyebrow{transition-delay:.45s}.n-pan.in .n-pan-role{transition-delay:.75s}.n-pan.in .n-pan-lead{transition-delay:.85s}.n-pan.in .n-pan-btns{transition-delay:1.3s}
-.n-tags li{opacity:0;transform:translateY(10px) scale(.92)}
-.n-pan.in .n-tags li{opacity:1;transform:none}
-.n-pan.in .n-tags li:nth-child(1){transition-delay:.95s}.n-pan.in .n-tags li:nth-child(2){transition-delay:1.02s}.n-pan.in .n-tags li:nth-child(3){transition-delay:1.09s}.n-pan.in .n-tags li:nth-child(4){transition-delay:1.16s}.n-pan.in .n-tags li:nth-child(5){transition-delay:1.23s}
-.n-pan.done .n-tags li{transition-delay:0s!important}
+.n-ab-hd{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:clamp(28px,3vw,40px)}
+.n-ab-hd::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.65,0,.25,1)}
+.n-ab-hd.in::after{transform:scaleX(1)}
+.n-ab-hd h2{font:700 clamp(38px,4.6vw,68px)/1 var(--serif);letter-spacing:-.045em;margin:14px 0 0;color:var(--ink)}
+.n-ab{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,100px);align-items:start;padding-top:clamp(36px,4vw,56px)}
+.n-ab-ph{position:relative;display:block;overflow:hidden;border-radius:18px;aspect-ratio:4/5;background:#E9E1D5;clip-path:inset(100% 0 0 0 round 18px);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1)}
+.n-ab-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.15);transition:transform 1.8s cubic-bezier(.2,.8,.2,1)}
+.n-ab.in .n-ab-ph{clip-path:inset(0 0 0 0 round 18px)}
+.n-ab.in .n-ab-ph img{transform:scale(1)}
+.n-ab.done .n-ab-ph img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.n-ab.done .n-ab-ph:hover img{transform:scale(1.04)}
+.n-ab-tx{padding-top:clamp(0px,1vw,12px)}
+.n-ab-tx h3{font:700 clamp(34px,3.6vw,54px)/1.02 var(--serif);letter-spacing:-.04em;color:var(--ink);margin:0}
+.n-ab-role{margin:14px 0 0;font:600 12.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--bronze)}
+.n-ab-lead{margin:22px 0 0;font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--text);max-width:560px}
+.n-ab-dl{margin:clamp(28px,3vw,40px) 0 clamp(30px,3vw,40px);border-top:1px solid var(--line-2)}
+.n-ab-dl>div{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.n-ab-dl dt{font:600 12.5px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.n-ab-dl dd{margin:0;font:600 17px/1.45 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.n-ab-up{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.n-ab.in .n-ab-up{opacity:1;transform:none}
+.n-ab.in h3.n-ab-up{transition-delay:.35s}.n-ab.in .n-ab-role{transition-delay:.45s}.n-ab.in .n-ab-lead{transition-delay:.55s}
+.n-ab.in .n-ab-dl>div:nth-child(1){transition-delay:.65s}.n-ab.in .n-ab-dl>div:nth-child(2){transition-delay:.72s}.n-ab.in .n-ab-dl>div:nth-child(3){transition-delay:.79s}.n-ab.in .n-ab-dl>div:nth-child(4){transition-delay:.86s}
+.n-ab.in .n-ab-btns{transition-delay:.95s}
 .n-marq{margin-top:clamp(70px,8vw,110px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .n-marq-t{display:flex;width:max-content;align-items:center;gap:34px;animation:nMarq 60s linear infinite}
 .n-marq-t span{font:700 clamp(26px,3vw,44px)/1 var(--serif);letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(122,90,55,.55);white-space:nowrap;transition:color .4s}
@@ -958,9 +951,9 @@ a.spec h3{color:var(--bg)}
 .n-marq-t i{font-style:normal;color:var(--gold);font-size:18px}
 .n-marq:hover .n-marq-t{animation-play-state:paused}
 @keyframes nMarq{to{transform:translateX(-50%)}}
-.n-lite .n-pan{clip-path:none!important;opacity:1!important}.n-lite .n-pan-ph img{filter:none!important;transform:none!important}.n-lite .n-up,.n-lite .n-tags li{opacity:1!important;transform:none!important}.n-lite .n-ml>*{transform:none!important}.n-lite .n-pan::before,.n-lite .n-marq-t{animation:none}
-@media (max-width:900px){.n-pan{grid-template-columns:minmax(0,1fr);min-height:0}.n-pan-ph{aspect-ratio:4/3.4}.n-pan-ph::after{background:linear-gradient(0deg,var(--ink) 3%,transparent 55%)}.n-pan-tx{padding:8px 26px 34px}.n-pan-tx h2{white-space:normal}}
-@media (max-width:560px){.n-pan{border-radius:24px}.n-pan-btns .btn{width:100%;justify-content:center}.n-tags li{font-size:12.5px;padding:7px 12px}}
+.n-lite .n-ab-ph{clip-path:none!important}.n-lite .n-ab-ph img{transform:none!important}.n-lite .n-ab-up{opacity:1!important;transform:none!important}.n-lite .n-ab-hd::after{transform:none!important}.n-lite .n-marq-t{animation:none}
+@media (max-width:900px){.n-ab{grid-template-columns:minmax(0,1fr)}.n-ab-ph{max-width:420px}}
+@media (max-width:560px){.n-ab-dl>div{grid-template-columns:minmax(0,1fr);gap:4px}.n-ab-btns .btn{width:100%;justify-content:center}}
 /* KONTAKT */
 .n-contact{background:#0F0D0B;color:#F6EEE2;padding:clamp(80px,9vw,130px) 0;position:relative;overflow:hidden}
 .n-contact::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1.4px);background-size:7px 7px}
@@ -1076,15 +1069,20 @@ a.spec h3{color:var(--bg)}
 
   <section class="n-team" id="o-kancelarii">
     <div class="wrap">
-      <div class="n-pan" id="n-pan">
-        <a class="n-pan-ph" href="/zespol/" tabindex="-1" aria-hidden="true"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="" loading="lazy" width="952" height="1245"></picture></a>
-        <div class="n-pan-tx">
-          <span class="eyebrow n-up">O kancelarii</span>
-          <h2><span class="n-ml"><span>Michał Ruszniak</span></span></h2>
-          <p class="n-pan-role n-up">Doradca podatkowy nr 15009 · Prezes Zarządu RKDP</p>
-          <p class="n-pan-lead n-up">Reprezentuje firmy w kontrolach, przed urzędami skarbowymi i sądami administracyjnymi.</p>
-          <ul class="n-tags"><li>Firmy rodzinne</li><li>Spółki z o.o.</li><li>Kontrole podatkowe</li><li>Postępowania przed WSA i NSA</li><li>Optymalizacja podatkowa</li></ul>
-          <div class="n-pan-btns n-up"><a href="/zespol/" class="btn n-pan-b1">Poznaj zespół <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="/#termin" class="btn n-pan-b2" data-booking-open>Umów konsultację</a></div>
+      <div class="n-ab-hd n-ab-r"><div><span class="eyebrow">O kancelarii</span><h2>Kto prowadzi Twoją sprawę</h2></div><a class="n-svc-more" href="/zespol/">Poznaj cały zespół <span aria-hidden="true">→</span></a></div>
+      <div class="n-ab" id="n-ab">
+        <a class="n-ab-ph" href="/zespol/" tabindex="-1" aria-hidden="true"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="" loading="lazy" width="952" height="1245"></picture></a>
+        <div class="n-ab-tx">
+          <h3 class="n-ab-up">Michał Ruszniak</h3>
+          <p class="n-ab-role n-ab-up">Doradca podatkowy · Prezes Zarządu RKDP</p>
+          <p class="n-ab-lead n-ab-up">Reprezentuje firmy w kontrolach, przed urzędami skarbowymi i sądami administracyjnymi.</p>
+          <dl class="n-ab-dl">
+            <div class="n-ab-up"><dt>Nr wpisu</dt><dd>15009 na liście doradców podatkowych</dd></div>
+            <div class="n-ab-up"><dt>Specjalizacja</dt><dd>Firmy rodzinne, spółki z o.o., optymalizacja podatkowa</dd></div>
+            <div class="n-ab-up"><dt>Reprezentacja</dt><dd>Kontrole, postępowania podatkowe, WSA i NSA</dd></div>
+            <div class="n-ab-up"><dt>Samorząd</dt><dd>Członek zarządu Dolnośląskiego Oddziału KIDP</dd></div>
+          </dl>
+          <div class="n-ab-btns n-ab-up"><a href="/#termin" class="btn btn-primary n-shine" data-booking-open>Umów konsultację <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -1121,7 +1119,7 @@ a.spec h3{color:var(--bg)}
   <section class="n-contact" id="kontakt"><span id="termin"></span>
     <div class="wrap">
       <div class="n-c-head">
-        <span class="eyebrow">Kontakt</span>
+        
         <h2>Porozmawiajmy o <em>Twoich podatkach</em></h2>
       </div>
       <div class="n-tiles" id="n-tiles">
@@ -1369,10 +1367,10 @@ a.spec h3{color:var(--bg)}
       if(!lite&&'IntersectionObserver' in window){document.documentElement.classList.add('n-js');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});[].forEach.call(qs,function(d){io.observe(d)})}
     })();
 
-    // O kancelarii – panel
-    (function(){var pan=document.getElementById('n-pan');if(!pan)return;
-      if(lite||!('IntersectionObserver' in window)){pan.classList.add('in','done');return}
-      var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){pan.classList.add('in');io.disconnect();setTimeout(function(){pan.classList.add('done')},2400)}},{threshold:.2});io.observe(pan);
+    // O kancelarii
+    (function(){var ab=document.getElementById('n-ab'),hd=document.querySelector('.n-ab-r');if(!ab)return;
+      if(lite||!('IntersectionObserver' in window)){ab.classList.add('in','done');hd.classList.add('in');return}
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);if(e.target===ab)setTimeout(function(){ab.classList.add('done')},1900)})},{threshold:.2});io.observe(ab);io.observe(hd);
     })();
 
     // przewijanie: głębia w nagłówku + indeks usług
