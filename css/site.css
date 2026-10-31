@@ -37,8 +37,8 @@ p{margin:0}
 @media (hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(122,90,55,.25)}}
 
 /* Nagłówek i menu */
-.site-header{position:sticky;top:0;z-index:50; background:rgba(248,245,240,.55);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(220,207,188,.55);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
-.site-header.n-dark{background:rgba(22,19,16,.5);border-bottom-color:rgba(255,255,255,.08)}
+.site-header{position:sticky;top:0;z-index:50; background:rgba(248,245,240,.42);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:0;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
+.site-header.n-dark{background:rgba(22,19,16,.42)}
 .site-header.n-dark .menu-btn{color:#F6EEE2;border-color:rgba(255,255,255,.22)}
 @media (min-width:1025px){.site-header.n-dark .nav-links>a:not(.btn),.site-header.n-dark .dd>button{color:#F6EEE2}.site-header.n-dark .dd>button:hover,.site-header.n-dark .nav-links>a:not(.btn):hover{color:var(--gold)}}
 .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
