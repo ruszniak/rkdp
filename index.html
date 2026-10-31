@@ -218,7 +218,10 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
 
 /* NAV */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(248,245,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:0;z-index:50; background:rgba(248,245,240,.55);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid rgba(220,207,188,.55);transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
+.site-header.n-dark{background:rgba(22,19,16,.5);border-bottom-color:rgba(255,255,255,.08)}
+.site-header.n-dark .menu-btn{color:#F6EEE2;border-color:rgba(255,255,255,.22)}
+@media (min-width:1025px){.site-header.n-dark .nav-links>a:not(.btn),.site-header.n-dark .dd>button{color:#F6EEE2}.site-header.n-dark .dd>button:hover,.site-header.n-dark .nav-links>a:not(.btn):hover{color:var(--gold)}}
 .nav{display:flex;align-items:center;justify-content:space-between;height:88px;gap:24px}
 .nav-logo img{height:54px;width:auto}
 .nav-links{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:500}
@@ -826,10 +829,9 @@ a.spec h3{color:var(--bg)}
 @media (max-width:640px){.n-hero{min-height:calc(100svh - 72px)}.n-ros{width:112vh}.n-hero .n-kin{font-size:clamp(34px,10vw,52px)!important}.n-btns .btn{width:100%;justify-content:center;padding:16px 18px;font-size:15.5px;white-space:nowrap}.n-copy{padding-bottom:70px}}
 
 /* PRZEZROCZYSTY NAGŁÓWEK */
-.n-home .site-header{transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
 .n-home .site-header.n-clear{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .n-home .site-header.n-clear:has(.nav-links.open){background:var(--bg)}
-.n-home .site-header:not(.n-clear){box-shadow:0 10px 30px rgba(29,26,22,.06)}
+.n-home .site-header:not(.n-clear){box-shadow:0 10px 30px rgba(29,26,22,.05)}
 .n-home .n-hero{margin-top:-89px;padding-top:89px;min-height:100svh}
 @media (max-width:640px){.n-home .n-hero{margin-top:-73px;padding-top:73px}}
 /* LICZNIKI */
@@ -1315,7 +1317,7 @@ a.spec h3{color:var(--bg)}
 }
 
     // przezroczysty nagłówek nad hasłem
-    (function(){var h=document.querySelector('.site-header');if(!h)return;function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'))}u();addEventListener('scroll',u,{passive:true});
+    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-stats,.n-contact,footer,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
       var mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){setTimeout(function(){h.classList.toggle('n-clear',scrollY<40&&mb.getAttribute('aria-expanded')!=='true')},0)})})();
 
     // gilosz w tle nagłówka
