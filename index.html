@@ -862,12 +862,13 @@ a.spec h3{color:var(--bg)}
 }
 .n-dial-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;overflow:hidden;padding-top:88px;box-sizing:border-box}
 .n-dial-l{position:relative;height:100%}
+.n-arc{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%);mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%)}
 .n-arc{position:absolute;top:50%;right:62%;width:min(150vh,1300px);height:min(150vh,1300px);transform:translate(0,-50%);overflow:visible}
 .n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-dial.in .n-arc path{stroke-dashoffset:0}
 .n-arc g{transform-origin:0 0;transition:transform .15s linear}
-.n-dnum{position:absolute;top:50%;left:clamp(20px,3vw,56px);transform:translateY(-50%);display:flex;align-items:baseline;gap:.12em;font:400 clamp(76px,8vw,128px)/1 Georgia,'Times New Roman',serif;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
-.n-dnum i{font-style:normal;font-size:.55em;color:var(--bronze)}
+.n-dnum{position:absolute;top:50%;left:clamp(20px,3vw,56px);transform:translateY(-50%);display:flex;align-items:baseline;gap:.12em;font:300 clamp(80px,8.4vw,136px)/1 var(--serif);letter-spacing:-.05em;color:var(--ink);font-variant-numeric:tabular-nums}
+.n-dnum i{font-style:normal;font-weight:400;font-size:.42em;letter-spacing:0;color:var(--bronze);margin-right:.08em}
 .n-dlabels{position:absolute;inset:0}
 .n-dlab{position:absolute;left:0;top:0;max-width:220px;font:500 15px/1.25 var(--sans);color:#A39684;cursor:pointer;white-space:normal;transform-origin:left center;will-change:transform,opacity;transition:color .3s}
 .n-dlab.on{color:var(--ink);font-weight:700;font-size:16.5px}
