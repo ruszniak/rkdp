@@ -487,7 +487,9 @@ def update_index():
     for k, (name, pages) in enumerate(groups):
         items = ''.join(f'<li><a class="n-lk" href="{url(p["slug"])}"><b>{short.get(p["slug"], e(p["menu"]))}</b><i aria-hidden="true">→</i></a></li>' for p in pages)
         cols.append(f'<div class="n-col"><h3 class="n-colh">{name}<span>{len(pages):02d}</span></h3><ul>{items}</ul></div>')
-    put('doradztwo', '<div class="n-cols">' + ''.join(cols) + '</div>')
+    import json as _json
+    data = [[name, p['menu'], short.get(p['slug'], p['menu']), p['tile'], url(p['slug'])] for name, pages in groups for p in pages]
+    put('doradztwo', '<div class="n-cols">' + ''.join(cols) + '</div><script type="application/json" id="n-svc-data">' + _json.dumps(data, ensure_ascii=False).replace('</', '<\\/') + '</script>')
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
