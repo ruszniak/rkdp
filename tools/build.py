@@ -483,11 +483,11 @@ def update_index():
       'ksiegowosc-spolki-z-o-o': 'Księgowość spółek', 'ksiegowosc-jdg': 'Księgowość JDG',
       'kadry-i-place': 'Kadry i płace', 'zmiana-biura-rachunkowego': 'Zmiana biura'}
     arr = '<svg class="n-pa" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>'
-    rows = []
+    cols = []
     for k, (name, pages) in enumerate(groups):
-        pills = ''.join(f'<a class="n-pl" href="{url(p["slug"])}" title="{e(p["menu"])}">{svg(p["slug"])}<span class="n-pt">{short.get(p["slug"], e(p["menu"]))}</span>{arr}</a>' for p in pages)
-        rows.append(f'<div class="n-crow"><span class="n-clab"><i>0{k+1}</i>{name}</span><div class="n-cpills">{pills}</div></div>')
-    put('doradztwo', '<div class="n-cloud" id="n-cloud">' + ''.join(rows) + '</div>')
+        items = ''.join(f'<li><a class="n-lk" href="{url(p["slug"])}"><b>{short.get(p["slug"], e(p["menu"]))}</b><i aria-hidden="true">→</i></a></li>' for p in pages)
+        cols.append(f'<div class="n-col"><h3 class="n-colh">{name}<span>{len(pages):02d}</span></h3><ul>{items}</ul></div>')
+    put('doradztwo', '<div class="n-cols">' + ''.join(cols) + '</div>')
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
