@@ -866,8 +866,11 @@ a.spec h3{color:var(--bg)}
 .n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-dial.in .n-arc path{stroke-dashoffset:0}
 .n-arc g{transform-origin:0 0;transition:transform .15s linear}
-.n-dnum{position:absolute;top:50%;left:clamp(20px,3vw,56px);transform:translateY(-50%);display:flex;align-items:baseline;gap:.12em;font:400 clamp(76px,8vw,128px)/1 Georgia,'Times New Roman',serif;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
-.n-dnum i{font-style:normal;font-size:.55em;color:var(--bronze)}
+.n-gnome{position:absolute;top:50%;left:clamp(0px,1.5vw,36px);height:min(56vh,520px);aspect-ratio:520/1045;transform:translateY(-46%);z-index:1;filter:drop-shadow(0 26px 30px rgba(29,26,22,.22));opacity:0;transition:opacity 1.2s ease .3s}
+.n-gnome img{display:block;width:100%;height:100%;object-fit:contain;transform-origin:50% 100%;transform:rotate(var(--gr,0deg)) translateY(var(--gy,0px));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.n-dial.in .n-gnome{opacity:1}
+.n-gnome::after{content:"";position:absolute;left:12%;right:12%;bottom:-10px;height:22px;border-radius:50%;background:radial-gradient(closest-side,rgba(29,26,22,.18),transparent);z-index:-1}
+.n-lite .n-gnome{opacity:1;transition:none}
 .n-dlabels{position:absolute;inset:0}
 .n-dlab{position:absolute;left:0;top:0;max-width:220px;font:500 15px/1.25 var(--sans);color:#A39684;cursor:pointer;white-space:normal;transform-origin:left center;will-change:transform,opacity;transition:color .3s}
 .n-dlab.on{color:var(--ink);font-weight:700;font-size:16.5px}
@@ -1096,7 +1099,7 @@ a.spec h3{color:var(--bg)}
       <div class="n-dial-pin">
         <div class="n-dial-l">
           <svg class="n-arc" id="n-arc" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid meet"></svg>
-          <span class="n-dnum"><i>§</i><span id="n-dnum">1</span></span>
+          <picture class="n-gnome" id="n-gnome"><source srcset="/img/krasnal-doradca.webp" type="image/webp"><img src="/img/krasnal-doradca.png" alt="" width="520" height="1045" loading="lazy"></picture>
           <div class="n-dlabels" id="n-dlabels"></div>
         </div>
         <div class="n-dial-r">
@@ -1404,12 +1407,12 @@ a.spec h3{color:var(--bg)}
       S.forEach(function(d,i){if(d[0]!==last){var h=document.createElement('span');h.className='n-dgh';h.textContent=d[0];box.appendChild(h);items.push({el:h,s:sl++});last=d[0]}
         var el=document.createElement('span');el.className='n-dlab';el.textContent=d[2];el.onclick=function(){go(i)};box.appendChild(el);items.push({el:el,s:sl});labs.push(el);slot.push(sl++)});
       function pad(n){return (n<10?'0':'')+n}
-      var G;function geo(){var a=arc.getBoundingClientRect(),l=box.getBoundingClientRect();return {cx:a.left+a.width/2-l.left,cy:box.offsetHeight/2,R:a.width/2*0.92+70}}
+      var G;function geo(){var a=arc.getBoundingClientRect(),l=box.getBoundingClientRect();var cx=a.left+a.width/2-l.left,R=a.width/2*0.92+70,gn=document.getElementById('n-gnome');if(gn){var gr=gn.getBoundingClientRect().right-l.left+36;if(cx+R<gr)R=gr-cx}return {cx:cx,cy:box.offsetHeight/2,R:R}}
       function place(){if(!G)G=geo();var i0=Math.floor(f),i1=Math.min(N-1,i0+1),fr=f-i0,cs=slot[i0]+(slot[i1]-slot[i0])*fr,step=0.12;
         for(var k=0;k<items.length;k++){var it=items[k],t=(it.s-cs)*step,x=G.cx+G.R*Math.cos(t),y=G.cy+G.R*Math.sin(t),o=Math.max(0,1-Math.abs(it.s-cs)/8);it.el.style.transform='translate('+x.toFixed(1)+'px,'+(y-it.el.offsetHeight/2).toFixed(1)+'px)';it.el.style.opacity=o.toFixed(2);it.el.style.visibility=o<.03?'hidden':'visible'}
-        if(!lite)for(var r=0;r<rings.length;r++)rings[r].style.transform='rotate('+(cs*(r?-2.2:1.6))+'deg)'}
+        if(!lite){for(var r=0;r<rings.length;r++)rings[r].style.transform='rotate('+(cs*(r?-2.2:1.6))+'deg)';var gi=document.querySelector('#n-gnome img');if(gi){var fr2=f-Math.round(f);gi.style.setProperty('--gr',(fr2*-5).toFixed(2)+'deg');gi.style.setProperty('--gy',(Math.abs(fr2)*-10).toFixed(1)+'px')}}}
       function show(i){if(i===cur)return;var first=cur<0;cur=i;var d=S[i];for(var k=0;k<N;k++)labs[k].classList.toggle('on',k===i);
-        document.getElementById('n-dnum').textContent=i+1;document.getElementById('n-dpos').textContent=pad(i+1)+' / '+N;document.getElementById('n-dbar').style.width=((i+1)/N*100)+'%';
+        document.getElementById('n-dpos').textContent=pad(i+1)+' / '+N;document.getElementById('n-dbar').style.width=((i+1)/N*100)+'%';
         function fill(){document.getElementById('n-dgrp').textContent=d[0];document.getElementById('n-dt').textContent=d[1];document.getElementById('n-dd').textContent=d[3];document.getElementById('n-dl').href=d[4];card.classList.remove('out')}
         if(first||lite){fill()}else{card.classList.add('out');clearTimeout(tt);tt=setTimeout(fill,200)}}
       function go(i){i=Math.max(0,Math.min(N-1,i));var r=dial.getBoundingClientRect(),span=dial.offsetHeight-innerHeight;window.scrollTo({top:scrollY+r.top+span*(i+.5)/N,behavior:lite?'auto':'smooth'})}
