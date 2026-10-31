@@ -834,16 +834,24 @@ a.spec h3{color:var(--bg)}
 
 .n-home .n-hero{margin-top:-89px;padding-top:89px;min-height:100svh}
 @media (max-width:640px){.n-home .n-hero{margin-top:-73px;padding-top:73px}}
+.n-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,22vh,220px);background:linear-gradient(rgba(248,245,240,0),var(--bg) 92%);z-index:0;pointer-events:none}
 /* LICZNIKI */
-.n-stats{background:var(--ink);color:#F6EEE2;position:relative;overflow:hidden}
-.n-stats::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(217,185,142,.12) 1px,transparent 1.5px);background-size:22px 22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
-.n-stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
-.n-stat{padding:64px 24px;border-left:1px solid #3A342D;opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
-.n-stat:first-child{border-left:0}
+.n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(40px,5vw,72px) 0 0}
+.n-stats .wrap{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.n-stats .wrap::before,.n-stats .wrap::after{content:"";position:absolute;left:var(--pad,24px);right:var(--pad,24px);height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.65,0,.25,1)}
+.n-stats .wrap::before{top:0}.n-stats .wrap::after{bottom:0;background:var(--line-2);transition-delay:.2s}
+.n-stats.in .wrap::before,.n-stats.in .wrap::after{transform:scaleX(1)}
+.n-stat{position:relative;padding:clamp(28px,3vw,44px) clamp(16px,2vw,32px) clamp(30px,3.4vw,48px);opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.n-stat:first-child{padding-left:0}
+.n-stat+.n-stat::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line-2);transform:scaleY(0);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1) .5s}
 .n-stat.in{opacity:1;transform:none}
-.n-stat b{display:block;font:800 clamp(48px,5.4vw,76px)/1 var(--serif);letter-spacing:-.04em;background:linear-gradient(180deg,#F3DFC0,#C59A62);-webkit-background-clip:text;background-clip:text;color:transparent}
-.n-stat span{display:block;margin-top:14px;font-size:15px;line-height:1.5;color:#CFC6B9;max-width:230px}
-@media (max-width:900px){.n-stats .wrap{grid-template-columns:1fr 1fr}.n-stat{padding:40px 16px}.n-stat:nth-child(3){border-left:0}.n-stat:nth-child(n+3){border-top:1px solid #3A342D}}
+.n-stat.in::before{transform:scaleY(1)}
+.n-stat em{display:block;font:500 13px Georgia,'Times New Roman',serif;font-style:normal;color:var(--bronze);letter-spacing:.06em;margin-bottom:18px}
+.n-stat b{display:block;font:800 clamp(52px,6vw,92px)/.95 var(--serif);letter-spacing:-.05em;color:var(--ink);font-variant-numeric:tabular-nums}
+.n-stat b i{font-style:normal;color:var(--bronze);margin-left:.02em}
+.n-stat span{display:block;margin-top:16px;font-size:15px;line-height:1.5;color:var(--muted);max-width:240px}
+.n-lite .n-stats .wrap::before,.n-lite .n-stats .wrap::after,.n-lite .n-stat::before{transform:none!important}
+@media (max-width:900px){.n-stats .wrap{grid-template-columns:1fr 1fr}.n-stat:nth-child(odd){padding-left:0}.n-stat:nth-child(3)::before{display:none}.n-stat:nth-child(n+3){border-top:1px solid var(--line)}}
 
 /* INDEKS USŁUG */
 .n-svc{position:relative;z-index:1;background:var(--bg);padding:clamp(80px,10vw,140px) 0}
@@ -1046,11 +1054,11 @@ a.spec h3{color:var(--bg)}
     <div class="n-cue" aria-hidden="true"><i></i>Przewiń</div>
   </section>
 
-  <section class="n-stats" aria-label="RKDP w liczbach"><div class="wrap">
-    <div class="n-stat"><b data-to="10" data-suf="+">10+</b><span>lat praktyki w doradztwie podatkowym</span></div>
-    <div class="n-stat"><b data-to="300" data-suf="+">300+</b><span>zadowolonych klientów – firm i osób prywatnych</span></div>
-    <div class="n-stat"><b data-to="100" data-suf="+">100+</b><span>przeprowadzonych kontroli i czynności sprawdzających</span></div>
-    <div class="n-stat"><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google</span></div>
+  <section class="n-stats" id="n-stats" aria-label="RKDP w liczbach"><div class="wrap">
+    <div class="n-stat"><em>01</em><b data-to="10" data-suf="+">10<i>+</i></b><span>lat praktyki w doradztwie podatkowym</span></div>
+    <div class="n-stat"><em>02</em><b data-to="300" data-suf="+">300<i>+</i></b><span>zadowolonych klientów – firm i osób prywatnych</span></div>
+    <div class="n-stat"><em>03</em><b data-to="100" data-suf="+">100<i>+</i></b><span>przeprowadzonych kontroli i czynności sprawdzających</span></div>
+    <div class="n-stat"><em>04</em><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google</span></div>
   </div></section>
 
   <section class="n-svc" id="uslugi">
@@ -1316,7 +1324,7 @@ a.spec h3{color:var(--bg)}
 }
 
     // przezroczysty nagłówek nad hasłem
-    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-stats,.n-contact,footer,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
+    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-contact,footer,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
       var mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){setTimeout(function(){h.classList.toggle('n-clear',scrollY<40&&mb.getAttribute('aria-expanded')!=='true')},0)})})();
 
     // gilosz w tle nagłówka
@@ -1333,10 +1341,11 @@ a.spec h3{color:var(--bg)}
       addEventListener('scroll',function(){var y=scrollY,h=innerHeight;if(y>h*1.2)return;copy.style.opacity=Math.max(0,1-y/h*1.2)},{passive:true});
     })();
 
+    (function(){var st=document.getElementById('n-stats');if(!st)return;if(lite||!('IntersectionObserver' in window)){st.classList.add('in');return}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){st.classList.add('in');o.disconnect()}},{threshold:.3});o.observe(st)})();
     // pojawianie się + liczniki
     function fmt(v,d){return d?v.toFixed(1).replace('.',','):Math.round(v).toLocaleString('pl-PL')}
     function count(b){var to=+b.dataset.to,d=+(b.dataset.dec||0),suf=b.dataset.suf||'';if(lite){return}
-      var t0=null;b.textContent=fmt(0,d);function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-p,3);b.textContent=fmt(to*e,d)+(p===1?suf:'');if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+      var t0=null;b.innerHTML=fmt(0,d)+(suf?'<i>'+suf+'</i>':'');function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-p,3);b.innerHTML=fmt(to*e,d)+(suf?'<i>'+suf+'</i>':'');if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target;el.classList.add('in');io.unobserve(el);var b=el.querySelector('b[data-to]');if(b)count(b)})},{threshold:.3});
       [].forEach.call(document.querySelectorAll('.n-stat,.n-person,.n-tile'),function(el,i){if(el.classList.contains('n-stat')||el.classList.contains('n-tile'))el.style.transitionDelay=((i%4)*.1)+'s';io.observe(el)});
