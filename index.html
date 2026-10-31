@@ -862,16 +862,14 @@ a.spec h3{color:var(--bg)}
 }
 .n-dial-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;overflow:hidden;padding-top:88px;box-sizing:border-box}
 .n-dial-l{position:relative;height:100%}
-.n-arc{position:absolute;top:50%;right:62%;width:min(150vh,1300px);height:min(150vh,1300px);transform:translate(0,-50%);overflow:visible}
-.n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
-.n-dial.in .n-arc path{stroke-dashoffset:0}
-.n-arc g{transform-origin:0 0;transition:transform .15s linear}
-.n-dnum{position:absolute;top:50%;left:clamp(20px,3vw,56px);transform:translateY(-50%);display:flex;align-items:baseline;gap:.12em;font:400 clamp(76px,8vw,128px)/1 Georgia,'Times New Roman',serif;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
-.n-dnum i{font-style:normal;font-size:.55em;color:var(--bronze)}
-.n-dlabels{position:absolute;inset:0}
-.n-dlab{position:absolute;left:0;top:0;max-width:220px;font:500 15px/1.25 var(--sans);color:#A39684;cursor:pointer;white-space:normal;transform-origin:left center;will-change:transform,opacity;transition:color .3s}
+.n-float{position:absolute;left:0;top:0;height:52px;border-radius:999px;background:#FFFDF9;border:1px solid var(--line-2);box-shadow:0 18px 40px rgba(29,26,22,.10),inset 0 0 0 4px rgba(217,185,142,.12);z-index:0;transition:width .25s cubic-bezier(.2,.8,.2,1)}
+.n-float::before{content:"";position:absolute;left:16px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--bronze);box-shadow:0 0 0 5px rgba(122,90,55,.12)}
+.n-rail{position:absolute;left:clamp(40px,4vw,72px);top:18%;bottom:18%;width:2px;background:var(--line);border-radius:2px}
+.n-rail i{position:absolute;left:50%;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--bronze);box-shadow:0 0 0 6px rgba(122,90,55,.14)}
+.n-dlabels{position:absolute;inset:0;z-index:1}
+.n-dlab{position:absolute;left:0;top:0;padding-left:18px;max-width:260px;white-space:nowrap;font:500 16px/1.25 var(--sans);color:#9A8D7B;cursor:pointer;white-space:normal;transform-origin:left center;will-change:transform,opacity;transition:color .3s,font-size .2s}
 .n-dlab.on{color:var(--ink);font-weight:700;font-size:16.5px}
-.n-dgh{position:absolute;left:0;top:0;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);white-space:nowrap;pointer-events:none;will-change:transform,opacity}
+.n-dgh{position:absolute;left:0;top:0;padding-left:18px;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);white-space:nowrap;pointer-events:none;will-change:transform,opacity}
 .n-dlab:hover{color:var(--bronze)}
 .n-dial-r{padding:0 clamp(40px,6vw,110px) 0 clamp(16px,2vw,40px)}
 .n-dial-h{font:700 clamp(36px,3.8vw,58px)/1.02 var(--serif);letter-spacing:-.04em;color:var(--ink);margin:12px 0 clamp(24px,3vh,40px)}
@@ -888,8 +886,7 @@ a.spec h3{color:var(--bg)}
 .n-dprog{display:flex;align-items:center;gap:16px;margin-top:26px;font:600 13px var(--sans);letter-spacing:.08em;color:var(--muted)}
 .n-dprog i{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
 .n-dprog b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--bronze);transition:width .3s}
-.n-lite .n-arc path{stroke-dashoffset:0;transition:none}
-
+.n-lite 
 /* INDEKS USŁUG */
 
 .n-svc-hd{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:clamp(28px,3vw,40px);border-bottom:2px solid var(--ink)}
@@ -1095,8 +1092,8 @@ a.spec h3{color:var(--bg)}
     <div class="n-dial" id="n-dial" aria-hidden="true">
       <div class="n-dial-pin">
         <div class="n-dial-l">
-          <svg class="n-arc" id="n-arc" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid meet"></svg>
-          <span class="n-dnum"><i>§</i><span id="n-dnum">1</span></span>
+          
+          <span class="n-float" id="n-float" aria-hidden="true"></span><span class="n-rail" aria-hidden="true"><i id="n-rail-dot"></i></span>
           <div class="n-dlabels" id="n-dlabels"></div>
         </div>
         <div class="n-dial-r">
@@ -1394,21 +1391,22 @@ a.spec h3{color:var(--bg)}
     (function(){var dial=document.getElementById('n-dial'),src=document.getElementById('n-svc-data');if(!dial||!src)return;
       var S=JSON.parse(src.textContent),N=S.length,mq=matchMedia('(min-width:1025px) and (min-height:620px)'),NS='http://www.w3.org/2000/svg';
       document.documentElement.classList.add('n-js-dial');
-      // gilosz zamiast łuku
-      var arc=document.getElementById('n-arc'),rings=[];[[455,9,40,22],[418,6,64,16]].forEach(function(c,gi){var g=document.createElementNS(NS,'g');arc.appendChild(g);rings.push(g);
-        for(var n=0;n<c[3];n++){var ph=n*Math.PI*2/c[3]/c[2],d='';for(var t=0;t<=720;t++){var a=t/720*Math.PI*2,r=c[0]+c[1]*Math.sin(c[2]*a+ph*c[2]);d+=(t?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1)}
-          var e=document.createElementNS(NS,'path');e.setAttribute('d',d+'Z');e.setAttribute('pathLength','1');e.style.transitionDelay=(gi*.3+n*.03)+'s';g.appendChild(e)}});
+      var rings=[];
       // pozycje: nagłówki działów zajmują własne miejsca na tarczy
       var box=document.getElementById('n-dlabels'),items=[],slot=[],cur=-1,f=0,card=document.getElementById('n-dcard'),tt,sl=0,last=null,labs=[];
       S.forEach(function(d,i){if(d[0]!==last){var h=document.createElement('span');h.className='n-dgh';h.textContent=d[0];box.appendChild(h);items.push({el:h,s:sl++});last=d[0]}
         var el=document.createElement('span');el.className='n-dlab';el.textContent=d[2];el.onclick=function(){go(i)};box.appendChild(el);items.push({el:el,s:sl});labs.push(el);slot.push(sl++)});
       function pad(n){return (n<10?'0':'')+n}
-      var G;function geo(){var a=arc.getBoundingClientRect(),l=box.getBoundingClientRect();var cx=a.left+a.width/2-l.left,R=a.width/2*0.92+70,gn=document.getElementById('n-gnome');if(gn){var gr=gn.getBoundingClientRect().right-l.left+36;if(cx+R<gr)R=gr-cx}return {cx:cx,cy:box.offsetHeight/2,R:R}}
-      function place(){if(!G)G=geo();var i0=Math.floor(f),i1=Math.min(N-1,i0+1),fr=f-i0,cs=slot[i0]+(slot[i1]-slot[i0])*fr,step=0.12;
-        for(var k=0;k<items.length;k++){var it=items[k],t=(it.s-cs)*step,x=G.cx+G.R*Math.cos(t),y=G.cy+G.R*Math.sin(t),o=Math.max(0,1-Math.abs(it.s-cs)/8);it.el.style.transform='translate('+x.toFixed(1)+'px,'+(y-it.el.offsetHeight/2).toFixed(1)+'px)';it.el.style.opacity=o.toFixed(2);it.el.style.visibility=o<.03?'hidden':'visible'}
-        if(!lite){for(var r=0;r<rings.length;r++)rings[r].style.transform='rotate('+(cs*(r?-2.2:1.6))+'deg)';}}
+      var G;function geo(){return {x:Math.min(150,box.offsetWidth*.28),cy:box.offsetHeight/2,gap:Math.max(46,Math.min(64,box.offsetHeight/13))}}
+      var flt=document.getElementById('n-float'),dot=document.getElementById('n-rail-dot');
+      function place(){if(!G)G=geo();var i0=Math.floor(f),i1=Math.min(N-1,i0+1),fr=f-i0;fr=Math.min(1,Math.max(0,(fr-.3)/.4));fr=fr*fr*(3-2*fr);var cs=slot[i0]+(slot[i1]-slot[i0])*fr;
+        for(var k=0;k<items.length;k++){var it=items[k],d=it.s-cs,ad=Math.abs(d),y=G.cy+d*G.gap,sc=Math.max(.9,1-ad*.03),o=Math.max(0,1-ad/7.5);
+          it.el.style.transform='translate('+G.x+'px,'+(y-it.el.offsetHeight/2).toFixed(1)+'px) scale('+sc.toFixed(3)+')';it.el.style.opacity=o.toFixed(2);it.el.style.visibility=o<.03?'hidden':'visible'}
+        var a=labs[i0],b=labs[i1],wa=a.offsetWidth,wb=b.offsetWidth,w=wa+(wb-wa)*fr;
+        flt.style.transform='translate('+(G.x-22)+'px,'+(G.cy-32)+'px)';flt.style.width=(w+44)+'px';
+        dot.style.top=(f/(N-1)*100)+'%'}
       function show(i){if(i===cur)return;var first=cur<0;cur=i;var d=S[i];for(var k=0;k<N;k++)labs[k].classList.toggle('on',k===i);
-        document.getElementById('n-dnum').textContent=i+1;document.getElementById('n-dpos').textContent=pad(i+1)+' / '+N;document.getElementById('n-dbar').style.width=((i+1)/N*100)+'%';
+        document.getElementById('n-dpos').textContent=pad(i+1)+' / '+N;document.getElementById('n-dbar').style.width=((i+1)/N*100)+'%';
         function fill(){document.getElementById('n-dgrp').textContent=d[0];document.getElementById('n-dt').textContent=d[1];document.getElementById('n-dd').textContent=d[3];document.getElementById('n-dl').href=d[4];card.classList.remove('out')}
         if(first||lite){fill()}else{card.classList.add('out');clearTimeout(tt);tt=setTimeout(fill,200)}}
       function go(i){i=Math.max(0,Math.min(N-1,i));var r=dial.getBoundingClientRect(),span=dial.offsetHeight-innerHeight;window.scrollTo({top:scrollY+r.top+span*(i+.5)/N,behavior:lite?'auto':'smooth'})}
