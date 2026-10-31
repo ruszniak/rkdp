@@ -452,8 +452,19 @@ def update_index():
         s = s[:i] + '\n' + content + '\n' + s[j:]
     put('nav', nav_html())
     put('footer', footer_html())
-    tile = lambda i, p: f'<a class="spec" href="{url(p["slug"])}"><span class="num">{i:02d}</span><h3>{e(p["menu"])}</h3><p>{e(p["tile"])}</p><em class="spec-more">Dowiedz się więcej →</em></a>'
-    put('doradztwo', ''.join(tile(i + 1, p) for i, p in enumerate(P_DOR + P_KSI)))
+    kon_slugs = ('kontrola-podatkowa', 'czynnosci-sprawdzajace', 'odwolanie-od-decyzji')
+    groups = [('I', 'Doradztwo podatkowe', [p for p in P_DOR if p['slug'] not in kon_slugs]),
+              ('II', 'Kontrole i postępowania', [p for p in P_DOR if p['slug'] in kon_slugs]),
+              ('III', 'Księgowość', P_KSI)]
+    arr = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+    out, n = [], 0
+    for k, (rom, name, pages) in enumerate(groups, 1):
+        rows = []
+        for p in pages:
+            n += 1
+            rows.append(f'<a class="n-row" href="{url(p["slug"])}"><span class="np">§ {n}</span><span><b>{e(p["menu"])}</b><small>{e(p["tile"])}</small></span><span class="na">{arr}</span></a>')
+        out.append(f'<div class="n-grp" id="dzial-{k}"><div class="n-gh"><span>Dział {rom}</span><h3>{name}</h3><small>{len(pages):02d} usług{"i" if 2 <= len(pages) <= 4 else ""}</small></div>{"".join(rows)}</div>')
+    put('doradztwo', '\n'.join(out))
     put('local', ' · '.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in P_LOK))
     open(f, 'w', encoding='utf-8').write(s)
 
