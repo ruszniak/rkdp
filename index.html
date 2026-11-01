@@ -794,7 +794,9 @@ a.spec h3{color:var(--bg)}
 
 .n-home .n-hero{margin-top:-89px;padding-top:89px;min-height:100svh}
 @media (max-width:640px){.n-home .n-hero{margin-top:-73px;padding-top:73px}}
-.n-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,22vh,220px);background:linear-gradient(rgba(248,245,240,0),var(--bg) 92%);z-index:0;pointer-events:none}
+.n-hero::after{display:none}
+.n-home .n-hero{-webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,#000 78%,transparent 100%)}
+.n-home .n-svc{margin-top:-14vh}
 .n-faq .n-qt,.n-faq .n-qn,.n-faq .n-qa p,.n-faq .n-hd h2,.n-faq .n-svc-more,.n-faq .n-q{transition:color .5s ease,border-color .5s ease}
 .n-faq .n-hd::after,.n-faq .n-qi::before,.n-faq .n-qi::after{transition:background .5s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
 .n-price .n-hd,.n-faq .n-hd{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding-bottom:clamp(28px,3vw,40px)}
@@ -940,7 +942,7 @@ a.spec h3{color:var(--bg)}
 }
 .n-dial-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;overflow:hidden;padding-top:88px;box-sizing:border-box}
 .n-dial-l{position:relative;height:100%;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 98%);mask-image:linear-gradient(180deg,#000 72%,transparent 98%)}
-.n-arc{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%);mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%)}
+.n-arc{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 74%,transparent 88%);mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 74%,transparent 88%)}
 .n-arc{position:absolute;top:42%;right:62%;width:min(150vh,1300px);height:min(150vh,1300px);transform:translate(0,-50%);overflow:visible}
 .n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-dial.in .n-arc path{stroke-dashoffset:0}
