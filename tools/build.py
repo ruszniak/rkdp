@@ -68,7 +68,8 @@ def nav_html():
 
 def footer_html():
     col = lambda pages: ''.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in pages)
-    return f'''<footer class="footer">
+    return f'''<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp.png" alt="" width="217" height="64"></div>
+<footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -156,11 +157,11 @@ def head(title, desc, path, og_type='website', extra_ld=()):
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/css/site.css">
 {ld}</head>
-<body>
-<div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
+<body class="n-sub">
+<div class="n-aura" id="n-aura" aria-hidden="true"><span class="au a1"></span><span class="au a2"></span><span class="au a3"></span><span class="au a4"></span><span class="au a5"></span></div>
 {nav_html()}
 '''
 
@@ -284,6 +285,7 @@ def build_page(p, group_name):
 </main>
 {footer_html()}
 {NAV_JS}
+<script src="/js/fx.js" defer></script>
 </body>
 </html>
 '''
@@ -335,6 +337,7 @@ def build_post(p):
 </main>
 {footer_html()}
 {NAV_JS}
+<script src="/js/fx.js" defer></script>
 </body>
 </html>
 '''
@@ -362,6 +365,7 @@ def build_blog_index():
 </main>
 {footer_html()}
 {NAV_JS}
+<script src="/js/fx.js" defer></script>
 </body>
 </html>
 '''
@@ -390,6 +394,7 @@ def build_team_page():
 </main>
 {footer_html()}
 {NAV_JS}
+<script src="/js/fx.js" defer></script>
 </body>
 </html>
 '''
@@ -420,6 +425,7 @@ def build_pricing_page():
 </main>
 {footer_html()}
 {NAV_JS}
+<script src="/js/fx.js" defer></script>
 </body>
 </html>
 '''

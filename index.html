@@ -178,7 +178,7 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
 
 /* NAV */
-.site-header{position:sticky;top:0;z-index:50; background:rgba(248,245,240,.42);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:0;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
+.site-header{position:sticky;top:0;z-index:50; background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
 .site-header.n-dark{background:rgba(22,19,16,.42)}
 .site-header.n-dark .menu-btn{color:#F6EEE2;border-color:rgba(255,255,255,.22)}
 @media (min-width:1025px){.site-header.n-dark .nav-links>a:not(.btn),.site-header.n-dark .dd>button{color:#F6EEE2}.site-header.n-dark .dd>button:hover,.site-header.n-dark .nav-links>a:not(.btn):hover{color:var(--gold)}}
@@ -985,6 +985,9 @@ a.spec h3{color:var(--bg)}
 }
 .n-ct-map::before{display:none!important}
 .n-ct-map .n-map{box-shadow:0 0 0 1px var(--line-2)!important}
+.site-header::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 28px);z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(248,245,240,.72) 0%,rgba(248,245,240,.5) 60%,rgba(248,245,240,0) 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent);mask-image:linear-gradient(180deg,#000 50%,transparent);transition:opacity .45s}
+.site-header{isolation:isolate}
+.n-home .site-header.n-clear::before{opacity:0}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -1364,8 +1367,8 @@ a.spec h3{color:var(--bg)}
   </dialog>
 </main>
 
-<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp.png" alt="" width="217" height="64"></div>
 <!-- gen:footer -->
+<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp.png" alt="" width="217" height="64"></div>
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">

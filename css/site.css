@@ -37,7 +37,7 @@ p{margin:0}
 @media (hover:hover){.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(122,90,55,.25)}}
 
 /* Nagłówek i menu */
-.site-header{position:sticky;top:0;z-index:50; background:rgba(248,245,240,.42);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border-bottom:0;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
+.site-header{position:sticky;top:0;z-index:50; background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:0;transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
 .site-header.n-dark{background:rgba(22,19,16,.42)}
 .site-header.n-dark .menu-btn{color:#F6EEE2;border-color:rgba(255,255,255,.22)}
 @media (min-width:1025px){.site-header.n-dark .nav-links>a:not(.btn),.site-header.n-dark .dd>button{color:#F6EEE2}.site-header.n-dark .dd>button:hover,.site-header.n-dark .nav-links>a:not(.btn):hover{color:var(--gold)}}
@@ -301,3 +301,89 @@ p{margin:0}
 .tel-fab:hover{background:var(--bronze-dark,#5C4228)}
 @media (max-width:560px){.fab-stack{right:14px;bottom:14px;gap:10px}.fab{height:52px;padding:0 12px}}
 @media print{.fab-stack{display:none}}
+
+/* ================= NOWY STYL PODSTRON (jak strona główna) ================= */
+body.n-sub{background:var(--bg)}
+.n-aura{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;--h1:217,185,142;--h2:196,160,120;--h3:236,214,182;--h4:205,180,150;--h5:244,226,200}
+.n-aura .au{position:absolute;border-radius:50%;filter:blur(60px);will-change:transform}
+.n-aura .a1{width:58vmax;height:58vmax;left:-14vmax;top:-18vmax;background:radial-gradient(circle,rgba(var(--h1),.55),rgba(var(--h1),0) 65%);animation:nAu1 22s ease-in-out infinite alternate}
+.n-aura .a2{width:50vmax;height:50vmax;right:-16vmax;top:6vh;background:radial-gradient(circle,rgba(var(--h2),.42),rgba(var(--h2),0) 65%);animation:nAu2 28s ease-in-out infinite alternate}
+.n-aura .a3{width:46vmax;height:46vmax;left:22vw;bottom:-22vmax;background:radial-gradient(circle,rgba(var(--h3),.6),rgba(var(--h3),0) 65%);animation:nAu3 34s ease-in-out infinite alternate}
+.n-aura .a4{width:34vmax;height:34vmax;left:-8vmax;bottom:6vh;background:radial-gradient(circle,rgba(var(--h4),.38),rgba(var(--h4),0) 65%);animation:nAu4 26s ease-in-out infinite alternate}
+.n-aura .a5{width:38vmax;height:38vmax;right:8vw;top:40vh;background:radial-gradient(circle,rgba(var(--h5),.7),rgba(var(--h5),0) 65%);animation:nAu5 30s ease-in-out infinite alternate}
+@keyframes nAu1{to{transform:translate3d(18vw,14vh,0) scale(1.18)}}@keyframes nAu2{to{transform:translate3d(-20vw,22vh,0) scale(.88)}}@keyframes nAu3{to{transform:translate3d(-14vw,-20vh,0) scale(1.15)}}@keyframes nAu4{to{transform:translate3d(26vw,-10vh,0) scale(1.25)}}@keyframes nAu5{to{transform:translate3d(-24vw,-16vh,0) scale(.9)}}
+.n-lite .n-aura .au{animation:none}
+body.n-sub main,body.n-sub .footer,body.n-sub .n-fdiv{position:relative;z-index:1}
+body.n-sub .bg-fx{display:none}
+/* nagłówek podstrony */
+body.n-sub .page-hero{position:relative;overflow:hidden;isolation:isolate;text-align:center;padding-top:clamp(56px,7vw,110px)!important;padding-bottom:clamp(48px,6vw,90px)!important}
+body.n-sub .page-hero .inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+body.n-sub .page-hero .crumbs{justify-content:center}
+body.n-sub .page-hero .eyebrow{display:none}
+body.n-sub .page-hero h1{font:800 clamp(38px,5.2vw,78px)/1.02 var(--serif)!important;letter-spacing:-.045em!important;color:var(--ink);margin:18px 0 0}
+body.n-sub .page-hero .lead{margin:22px auto 0;max-width:680px;font-size:clamp(16px,1.3vw,18.5px);line-height:1.7;color:var(--text)}
+body.n-sub .page-hero .ctas{justify-content:center;margin-top:32px}
+body.n-sub .page-hero h1,body.n-sub .page-hero .lead,body.n-sub .page-hero .ctas,body.n-sub .page-hero .crumbs{animation:nUp 1s cubic-bezier(.2,.8,.2,1) both}
+body.n-sub .page-hero .lead{animation-delay:.12s}body.n-sub .page-hero .ctas{animation-delay:.24s}
+@keyframes nUp{from{opacity:0;transform:translateY(18px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.n-phros{position:absolute;left:50%;top:50%;width:min(120vmin,1000px);height:auto;transform:translate(-50%,-50%);z-index:-1;pointer-events:none;-webkit-mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%);mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%)}
+.n-phros path{fill:none;stroke:rgba(122,90,55,.26);stroke-width:.7;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 3s cubic-bezier(.6,.05,.2,1)}
+.n-phros.in path{stroke-dashoffset:0}
+.n-phros.n-flowing path{stroke-dasharray:1 1;animation:nFlow 16s cubic-bezier(.55,.05,.35,1) infinite;animation-delay:calc(var(--d,0) * -1s)}
+@keyframes nFlow{0%{stroke-dashoffset:0}55%{stroke-dashoffset:0}80%{stroke-dashoffset:-1}80.01%{stroke-dashoffset:1}100%{stroke-dashoffset:0}}
+.n-lite .n-phros path{transition:none;stroke-dashoffset:0;animation:none}
+/* treść */
+body.n-sub .prose h2{font:700 clamp(26px,2.4vw,36px)/1.15 var(--serif);letter-spacing:-.03em}
+body.n-sub .prose .fact,body.n-sub .related .card{background:rgba(255,253,249,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+body.n-sub .aside-card{background:rgba(255,253,249,.75)!important;color:var(--ink)!important;border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.n-sub .aside-card h2{color:var(--ink)!important}body.n-sub .aside-card p{color:var(--text)!important}
+body.n-sub .aside-card .eyebrow{color:var(--bronze)!important}body.n-sub .aside-card .tel{color:var(--ink)!important}
+body.n-sub .aside-card .btn-primary{background:var(--bronze);color:#F8F5F0}
+/* zespół */
+body.n-sub .team-card{background:rgba(255,253,249,.8)!important;color:var(--ink)!important;border:1px solid var(--line);box-shadow:0 24px 50px rgba(29,26,22,.06)!important}
+body.n-sub .team-card *{color:inherit}
+body.n-sub .team-card h2,body.n-sub .team-card h3{color:var(--ink)!important}
+body.n-sub .team-card p,body.n-sub .team-card li{color:var(--text)!important}
+body.n-sub .team-card a{color:var(--bronze)!important}
+body.n-sub .team-card [class*=role],body.n-sub .team-card .eyebrow{color:var(--bronze)!important}
+/* cennik */
+body.n-sub .price-card{background:rgba(255,253,249,.8)}
+body.n-sub .price-featured{background:#FFFDF9!important;border:1.5px solid var(--bronze)!important;box-shadow:0 30px 60px rgba(122,90,55,.12)!important}
+body.n-sub .price-featured *{color:var(--ink)}
+body.n-sub .price-featured .price-desc,body.n-sub .price-featured li{color:var(--text)!important}
+body.n-sub .price-featured .btn{background:var(--bronze)!important;color:#F8F5F0!important;border-color:var(--bronze)!important}
+/* pas zachęty */
+body.n-sub .cta-band{padding-top:clamp(56px,6vw,96px)}
+body.n-sub .cta-box{background:transparent!important;color:var(--ink)!important;flex-direction:column;text-align:center;padding:0!important;gap:22px}
+body.n-sub .cta-box h2{font:800 clamp(30px,3.4vw,52px)/1.08 var(--serif)!important;letter-spacing:-.04em!important;color:var(--ink)!important;background:linear-gradient(100deg,#1D1A16 0%,#1D1A16 40%,#7A5A37 60%,#C59A62 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body.n-sub .cta-box p{color:var(--text)!important;margin-top:10px}
+body.n-sub .cta-box .ctas{justify-content:center}
+body.n-sub .cta-box .btn-light:first-child{background:var(--bronze)!important;color:#F8F5F0!important;border-color:var(--bronze)!important}
+body.n-sub .cta-box .btn-light+.btn-light{background:transparent!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important}
+/* pojawianie się */
+.n-rv .prose>*,.n-rv .aside>*,.n-rv .team-card,.n-rv .price-card,.n-rv .price-group,.n-rv .cta-box,.n-rv .related .card,.n-rv .faq-block details{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.n-rv .in{opacity:1!important;transform:none!important}
+/* stopka – jasna z logo na linii */
+.n-fdiv{display:flex;align-items:center;gap:24px;max-width:1440px;margin:clamp(56px,6vw,96px) auto 0;padding:0 var(--pad,24px)}
+.n-fdiv::before,.n-fdiv::after{content:"";flex:1;height:1px;background:var(--line-2)}
+.n-fdiv img{height:34px;width:auto;opacity:.9}
+body.n-sub .footer{background:transparent!important;color:var(--muted);padding:clamp(40px,4vw,60px) 0 32px}
+body.n-sub .footer::before{display:none}
+body.n-sub .footer-brand img{display:none}
+body.n-sub .footer-brand p,body.n-sub .footer-brand p a{color:var(--muted)!important}
+body.n-sub .footer nav{gap:12px!important;font-size:14.5px!important}
+body.n-sub .footer nav .k{color:var(--ink)!important;letter-spacing:.04em;text-transform:none;font:700 15px var(--sans)!important;margin-bottom:6px}
+body.n-sub .footer nav a{color:var(--muted)!important}
+body.n-sub .footer nav a:hover,body.n-sub .footer-brand p a:hover{color:var(--bronze)!important}
+body.n-sub .footer-bottom{border-top:1px solid var(--line-2)!important;color:var(--muted)}
+body.n-sub .footer-bottom a{color:var(--bronze)}
+@media (max-width:640px){body.n-sub .footer{text-align:center}body.n-sub .footer .footer-grid{grid-template-columns:1fr!important;justify-items:center}body.n-sub .footer nav,body.n-sub .footer-brand{align-items:center}body.n-sub .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}}
+
+.site-header::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 28px);z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(248,245,240,.72) 0%,rgba(248,245,240,.5) 60%,rgba(248,245,240,0) 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent);mask-image:linear-gradient(180deg,#000 50%,transparent);transition:opacity .45s}
+.site-header{isolation:isolate}
+.n-home .site-header.n-clear::before{opacity:0}
+.site-header.n-dark::before{background:linear-gradient(180deg,rgba(22,19,16,.6),rgba(22,19,16,0))}
+
+.n-phros{-webkit-mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%),linear-gradient(180deg,transparent 4%,#000 18%,#000 58%,transparent 80%);mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%),linear-gradient(180deg,transparent 4%,#000 18%,#000 58%,transparent 80%);-webkit-mask-composite:source-in;mask-composite:intersect}
+body.n-sub .page-hero{overflow:visible!important}
+body.n-sub{overflow-x:hidden}
