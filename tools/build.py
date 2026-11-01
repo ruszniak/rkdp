@@ -74,7 +74,6 @@ def footer_html():
       <div class="footer-brand">
         <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="217" height="64" loading="lazy">
         <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br>Kancelaria: ul. Beaty Artemskiej 11/44, 52-234 Wrocław (Jagodno)<br><a href="{PHONE_HREF}">{PHONE}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-        <p>Sprawy sporne z organami podatkowymi prowadzimy także w spółce partnerskiej <a href="https://m2tax.pl" target="_blank" rel="noopener" style="color:var(--gold)">M2 TAX Doradcy Podatkowi</a>.</p>
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span>{col(P_DOR)}</nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span>{col(P_KSI)}<span class="k" style="margin-top:14px">Okolice</span>{col(P_LOK)}</nav>
