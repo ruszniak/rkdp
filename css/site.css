@@ -387,3 +387,6 @@ body.n-sub .footer-bottom a{color:var(--bronze)}
 .n-phros{-webkit-mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%),linear-gradient(180deg,transparent 4%,#000 18%,#000 58%,transparent 80%);mask-image:radial-gradient(circle,rgba(0,0,0,.12) 30%,#000 50%,#000 60%,transparent 70%),linear-gradient(180deg,transparent 4%,#000 18%,#000 58%,transparent 80%);-webkit-mask-composite:source-in;mask-composite:intersect}
 body.n-sub .page-hero{overflow:visible!important}
 body.n-sub{overflow-x:hidden}
+
+html:has(body.n-sub),body.n-sub{overflow-x:clip}
+body.n-sub .page-hero{overflow-x:clip!important;overflow-y:visible!important}

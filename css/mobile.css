@@ -1,0 +1,45 @@
+/* ================= TELEFON – zwijanie i karuzele ================= */
+@media (max-width:640px){
+ .m-acc{border-bottom:1px solid var(--line-2)}
+ .m-acc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0}
+ .m-acc>summary::-webkit-details-marker{display:none}
+ .m-acc>summary i{position:relative;flex:none;width:16px;height:16px}
+ .m-acc>summary i::before,.m-acc>summary i::after{content:"";position:absolute;left:0;top:50%;width:16px;height:1.6px;margin-top:-.8px;background:var(--bronze);transition:transform .35s}
+ .m-acc>summary i::after{transform:rotate(90deg)}
+ .m-acc[open]>summary i::after{transform:rotate(0)}
+ .m-sec>summary span{font:700 21px/1.25 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+ .m-sec .m-body{padding-bottom:18px}
+ .m-sec:first-of-type{border-top:1px solid var(--line-2)}
+ .m-more>summary span{font:600 14px var(--sans);color:var(--bronze)}
+ .m-foot{width:100%;border-bottom:1px solid var(--line)}
+ .m-foot>summary{padding:14px 0}
+ .m-foot>summary span{font:700 15px var(--sans);color:var(--ink)}
+ .m-foot .m-body{display:flex;flex-direction:column;gap:10px;padding:0 0 16px}
+ body .footer .footer-grid{gap:0!important}
+ body .footer nav{gap:0!important;width:100%}
+ body .footer-brand{margin-bottom:16px}
+ /* karuzele */
+ .m-car{position:relative}
+ .m-track{display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+ .m-track::-webkit-scrollbar{display:none}
+ .m-track>*{flex:0 0 86%!important;scroll-snap-align:start;min-width:0;margin:0!important}
+ .n-prs.m-track>*{flex-basis:72%!important;border-top:0!important;padding-left:0!important}
+ .n-prs.m-track .n-pr+.n-pr::before{display:block!important;left:-7px}
+ .m-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+ .m-nav button{all:unset;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,253,249,.8);display:grid;place-items:center;color:var(--ink);cursor:pointer;transition:opacity .3s,background .3s}
+ .m-nav .m-prev svg{transform:rotate(180deg)}
+ .m-nav button:disabled{opacity:.3}
+ .m-nav button:active{background:var(--ink);color:#F8F5F0}
+ .m-dots{display:flex;gap:6px}
+ .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--line-2);transition:width .3s,background .3s}
+ .m-dots i.on{width:18px;border-radius:3px;background:var(--bronze)}
+ .team.m-track>*{flex-basis:92%!important}
+ .aside{display:none!important}
+ .page-body{grid-template-columns:1fr!important}
+ .price-group{margin-top:28px!important}
+ .n-home .footer{min-height:0!important}
+ .n-home .footer .footer-grid{margin-bottom:24px!important}
+ .m-acc .m-body>*{opacity:1!important;transform:none!important}
+ .page-body>*,.prose,.m-car,.m-acc,.m-body{min-width:0;max-width:100%}
+ .m-track{width:100%}
+}

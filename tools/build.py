@@ -159,6 +159,7 @@ def head(title, desc, path, og_type='website', extra_ld=()):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/mobile.css" media="(max-width:640px)">
 {ld}</head>
 <body class="n-sub">
 <div class="n-aura" id="n-aura" aria-hidden="true"><span class="au a1"></span><span class="au a2"></span><span class="au a3"></span><span class="au a4"></span><span class="au a5"></span></div>
@@ -286,6 +287,7 @@ def build_page(p, group_name):
 {footer_html()}
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
+<script src="/js/mobile.js" defer></script>
 </body>
 </html>
 '''
@@ -338,6 +340,7 @@ def build_post(p):
 {footer_html()}
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
+<script src="/js/mobile.js" defer></script>
 </body>
 </html>
 '''
@@ -366,6 +369,7 @@ def build_blog_index():
 {footer_html()}
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
+<script src="/js/mobile.js" defer></script>
 </body>
 </html>
 '''
@@ -395,6 +399,7 @@ def build_team_page():
 {footer_html()}
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
+<script src="/js/mobile.js" defer></script>
 </body>
 </html>
 '''
@@ -426,6 +431,7 @@ def build_pricing_page():
 {footer_html()}
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
+<script src="/js/mobile.js" defer></script>
 </body>
 </html>
 '''
