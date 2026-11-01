@@ -855,17 +855,17 @@ a.spec h3{color:var(--bg)}
 @media (max-width:900px){.n-ct{grid-template-columns:minmax(0,1fr)}.n-ct-map{min-height:320px}.n-ct-map::before{display:none}.n-ct-btns{width:100%;flex-direction:column}.n-ct-btns .btn{width:100%;justify-content:center;white-space:nowrap}}
 /* STAŁY WZÓR W TLE CAŁEJ STRONY */
 .n-home .n-sec{background:transparent}
-.n-snake{position:absolute;left:0;width:100%;z-index:0;pointer-events:none;overflow:visible}
+.n-snake{position:absolute;left:0;width:100%;z-index:0;pointer-events:none;overflow:visible;-webkit-mask-image:linear-gradient(180deg,#000 85%,transparent);mask-image:linear-gradient(180deg,#000 85%,transparent)}
 .n-snake path{fill:none;stroke:rgba(122,90,55,.22);stroke-width:.7;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
 .n-home main,.n-home section,.n-home footer{position:relative}
 .n-home .n-hero{z-index:1}
 @media (max-width:640px){.n-snake path{stroke:rgba(122,90,55,.16)}}
 /* JASNA STOPKA + KONTAKT JAKO KARTA */
 .n-home .n-contact{margin:clamp(56px,6vw,96px) clamp(12px,2vw,28px) 0;border-radius:clamp(24px,3vw,44px)}
-.n-fdiv{position:relative;z-index:1;display:flex;align-items:center;gap:28px;max-width:1440px;margin:clamp(72px,8vw,120px) auto 0;padding:0 var(--pad,24px)}
+.n-fdiv{position:relative;z-index:1;display:flex;align-items:center;gap:24px;max-width:1440px;margin:clamp(48px,5vw,72px) auto 0;padding:0 var(--pad,24px)}
 .n-fdiv::before,.n-fdiv::after{content:"";flex:1;height:1px;background:var(--line-2)}
-.n-fdiv img{height:44px;width:auto;opacity:.9}
-.n-home .footer{background:transparent!important;color:var(--muted);padding:clamp(40px,4vw,60px) 0 36px}
+.n-fdiv img{height:34px;width:auto;opacity:.9}
+.n-home .footer{background:transparent!important;color:var(--muted);padding:clamp(32px,3vw,44px) 0 28px}
 .n-home .footer::before{display:none}
 .n-home .footer .wrap>.footer-grid{border-top:0!important;padding-top:0!important}
 .n-home .footer-brand img{display:none}
@@ -873,7 +873,11 @@ a.spec h3{color:var(--bg)}
 .n-home .footer nav .k{color:var(--ink);letter-spacing:.04em;text-transform:none;font:700 15px var(--sans)}
 .n-home .footer nav a{color:var(--muted)}
 .n-home .footer nav a:hover,.n-home .footer-brand p a:hover{color:var(--bronze)!important}
-.n-home .footer-bottom{border-top:1px solid var(--line-2);color:var(--muted)}
+.n-home .footer nav{gap:8px!important;font-size:13.5px!important}
+.n-home .footer nav .k{font-size:14px!important;margin-bottom:6px}
+.n-home .footer-brand p{font-size:13px!important;line-height:1.65!important}
+.n-home .footer-grid{gap:40px!important}
+.n-home .footer-bottom{margin-top:32px!important;padding-top:18px!important;font-size:12.5px!important;border-top:1px solid var(--line-2);color:var(--muted)}
 .n-home .footer-bottom a{color:var(--bronze)}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
