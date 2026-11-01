@@ -853,6 +853,31 @@ a.spec h3{color:var(--bg)}
 .n-ct-map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.45) contrast(.95) brightness(.97)}
 .n-ct-map::before{content:"";position:absolute;inset:-14px -14px 14px 14px;border:1px solid rgba(217,185,142,.28);border-radius:28px;pointer-events:none}
 @media (max-width:900px){.n-ct{grid-template-columns:minmax(0,1fr)}.n-ct-map{min-height:320px}.n-ct-map::before{display:none}.n-ct-btns{width:100%;flex-direction:column}.n-ct-btns .btn{width:100%;justify-content:center;white-space:nowrap}}
+/* STAŁY WZÓR W TLE CAŁEJ STRONY */
+.n-home .n-sec{background:transparent}
+.n-bgros{position:fixed;left:50%;top:50%;width:min(130vmax,1500px);height:auto;transform:translate(-50%,-50%);z-index:0;pointer-events:none;opacity:0;transition:opacity .6s linear;-webkit-mask-image:radial-gradient(circle,rgba(0,0,0,.2) 26%,#000 50%,#000 60%,transparent 70%);mask-image:radial-gradient(circle,rgba(0,0,0,.2) 26%,#000 50%,#000 60%,transparent 70%)}
+.n-bgros g{transform-origin:0 0}
+.n-bgros .b1{animation:nRot 200s linear infinite}.n-bgros .b2{animation:nRot 260s linear infinite reverse}
+.n-bgros path{fill:none;stroke:rgba(122,90,55,.16);stroke-width:.6;vector-effect:non-scaling-stroke}
+.n-home main,.n-home section,.n-home footer{position:relative}
+.n-home .n-hero{z-index:1}
+.n-lite .n-bgros g{animation:none}
+@media (max-width:640px){.n-bgros{width:170vmax}.n-bgros path{stroke:rgba(122,90,55,.12)}}
+/* JASNA STOPKA + KONTAKT JAKO KARTA */
+.n-home .n-contact{margin:clamp(56px,6vw,96px) clamp(12px,2vw,28px) 0;border-radius:clamp(24px,3vw,44px)}
+.n-fdiv{position:relative;z-index:1;display:flex;align-items:center;gap:28px;max-width:1440px;margin:clamp(72px,8vw,120px) auto 0;padding:0 var(--pad,24px)}
+.n-fdiv::before,.n-fdiv::after{content:"";flex:1;height:1px;background:var(--line-2)}
+.n-fdiv img{height:44px;width:auto;opacity:.9}
+.n-home .footer{background:transparent!important;color:var(--muted);padding:clamp(40px,4vw,60px) 0 36px}
+.n-home .footer::before{display:none}
+.n-home .footer .wrap>.footer-grid{border-top:0!important;padding-top:0!important}
+.n-home .footer-brand img{display:none}
+.n-home .footer-brand p,.n-home .footer-brand p a{color:var(--muted)!important}
+.n-home .footer nav .k{color:var(--ink);letter-spacing:.04em;text-transform:none;font:700 15px var(--sans)}
+.n-home .footer nav a{color:var(--muted)}
+.n-home .footer nav a:hover,.n-home .footer-brand p a:hover{color:var(--bronze)!important}
+.n-home .footer-bottom{border-top:1px solid var(--line-2);color:var(--muted)}
+.n-home .footer-bottom a{color:var(--bronze)}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -1088,6 +1113,7 @@ a.spec h3{color:var(--bg)}
 </style>
 </head>
 <body class="n-home">
+<svg class="n-bgros" id="n-bgros" viewBox="-400 -400 800 800" aria-hidden="true"></svg>
 <div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grain"></span></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
@@ -1233,6 +1259,7 @@ a.spec h3{color:var(--bg)}
 </main>
 
 <!-- gen:footer -->
+<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp.png" alt="" width="217" height="64"></div>
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -1393,7 +1420,7 @@ a.spec h3{color:var(--bg)}
 }
 
     // przezroczysty nagłówek nad hasłem
-    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-contact,footer,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
+    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-contact,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
       var mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){setTimeout(function(){h.classList.toggle('n-clear',scrollY<40&&mb.getAttribute('aria-expanded')!=='true')},0)})})();
 
     // gilosz w tle nagłówka
@@ -1503,6 +1530,13 @@ a.spec h3{color:var(--bg)}
         var g=document.createElementNS(NS,'g');svg.appendChild(g);[[400,5,44,10],[352,4,56,8]].forEach(function(c,gi){for(var n=0;n<c[3];n++){var ph=n*Math.PI*2/c[3]/c[2],d='';for(var t=0;t<=240;t++){var a=Math.PI*1.08+t/240*Math.PI*.84,r=c[0]+c[1]*Math.sin(c[2]*a+ph*c[2]);d+=(t?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1)}var e=document.createElementNS(NS,'path');e.setAttribute('d',d);e.setAttribute('pathLength','1');e.style.transitionDelay=(gi*.25+n*.04)+'s';g.appendChild(e)}})});
       var els=document.querySelectorAll('svg[data-gil],.n-big');if(lite||!('IntersectionObserver' in window)){[].forEach.call(els,function(e){e.classList.add('in')});return}
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});[].forEach.call(els,function(e){io.observe(e)});
+    })();
+
+    // stały wzór w tle całej strony
+    (function(){var svg=document.getElementById('n-bgros'),hero=document.getElementById('n-hero');if(!svg)return;var NS='http://www.w3.org/2000/svg';
+      [[330,10,18,24,'b1'],[372,6,30,16,'b2']].forEach(function(c){var g=document.createElementNS(NS,'g');g.setAttribute('class',c[4]);svg.appendChild(g);for(var n=0;n<c[3];n++){var ph=n*Math.PI*2/c[3]/c[2],d='';for(var t=0;t<=360;t++){var a=t/360*Math.PI*2,r=c[0]+c[1]*Math.sin(c[2]*a+ph*c[2]);d+=(t?'L':'M')+(r*Math.cos(a)).toFixed(1)+' '+(r*Math.sin(a)).toFixed(1)}var e=document.createElementNS(NS,'path');e.setAttribute('d',d+'Z');g.appendChild(e)}});
+      var tk=false;function u(){tk=false;var h=hero?hero.getBoundingClientRect().bottom:0,o=Math.max(0,Math.min(1,(innerHeight*.9-h)/(innerHeight*.6)));svg.style.opacity=o.toFixed(2)}
+      addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(u)}},{passive:true});u();
     })();
 
     // przewijanie: głębia w nagłówku + indeks usług
