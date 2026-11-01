@@ -880,7 +880,7 @@ a.spec h3{color:var(--bg)}
 .n-home .footer-bottom{margin-top:32px!important;padding-top:18px!important;font-size:12.5px!important;border-top:1px solid var(--line-2);color:var(--muted)}
 .n-home .footer-bottom a{color:var(--bronze)}
 /* KONTAKT – JASNA WERSJA */
-.n-home .n-contact{background:#FFFDF9!important;color:var(--ink)!important;border:1px solid var(--line);box-shadow:0 30px 70px rgba(29,26,22,.06)!important}
+.n-home .n-contact{background:transparent!important;color:var(--ink)!important;border:0!important;box-shadow:none!important;border-radius:0!important;margin-left:0!important;margin-right:0!important}
 .n-ct-h.n-big{color:var(--ink)!important}
 .n-ct-h .n-goldtx{background:linear-gradient(100deg,#7A5A37 0%,#C59A62 35%,#E9CFA3 50%,#C59A62 65%,#7A5A37 100%)!important;background-size:400% 100%!important;-webkit-background-clip:text!important;background-clip:text!important}
 .n-ct-tel{color:var(--ink)!important}.n-ct-tel:hover{color:var(--bronze)!important}
@@ -918,7 +918,7 @@ a.spec h3{color:var(--bg)}
 .n-arc{position:absolute;top:42%;right:62%;width:min(150vh,1300px);height:min(150vh,1300px);transform:translate(0,-50%);overflow:visible}
 .n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-dial.in .n-arc path{stroke-dashoffset:0}
-.n-arc g{transform-origin:0 0;transition:transform .15s linear}
+.n-arc g{transform-origin:0 0}
 .n-dnum{position:absolute;top:42%;left:clamp(20px,3vw,56px);transform:translateY(-50%);display:flex;align-items:baseline;gap:.12em;font:300 clamp(80px,8.4vw,136px)/1 var(--serif);letter-spacing:-.05em;color:var(--ink);font-variant-numeric:tabular-nums}
 .n-dnum i{font-style:normal;font-weight:400;font-size:.42em;letter-spacing:0;color:var(--bronze);margin-right:.08em}
 .n-dlabels{position:absolute;inset:0}
@@ -1478,7 +1478,7 @@ a.spec h3{color:var(--bg)}
       var G;function geo(){var a=arc.getBoundingClientRect(),l=box.getBoundingClientRect();var cx=a.left+a.width/2-l.left,R=a.width/2*0.92+70,gn=document.getElementById('n-gnome');if(gn){var gr=gn.getBoundingClientRect().right-l.left+36;if(cx+R<gr)R=gr-cx}return {cx:cx,cy:box.offsetHeight*.42,R:R}}
       function place(){if(!G)G=geo();var i0=Math.floor(f),i1=Math.min(N-1,i0+1),fr=f-i0,cs=slot[i0]+(slot[i1]-slot[i0])*fr,step=0.12;
         for(var k=0;k<items.length;k++){var it=items[k],t=(it.s-cs)*step,x=G.cx+G.R*Math.cos(t),y=G.cy+G.R*Math.sin(t),o=Math.max(0,1-Math.abs(it.s-cs)/8);it.el.style.transform='translate('+x.toFixed(1)+'px,'+(y-it.el.offsetHeight/2).toFixed(1)+'px)';it.el.style.opacity=o.toFixed(2);it.el.style.visibility=o<.03?'hidden':'visible'}
-        if(!lite){for(var r=0;r<rings.length;r++)rings[r].style.transform='rotate('+(cs*(r?-2.2:1.6))+'deg)';}}
+        if(!lite){for(var r=0;r<rings.length;r++){var g=rings[r],sc=1+Math.sin(cs*.45+r)*.025;g.style.transform='rotate('+(cs*(r?-6:4.5))+'deg) scale('+sc.toFixed(4)+')';var ch=g.children;for(var q=0;q<ch.length;q++)ch[q].setAttribute('transform','rotate('+((q%2?1:-1)*cs*(1.2+(q%3)*.35)).toFixed(2)+')')}}}
       function show(i){if(i===cur)return;var first=cur<0;cur=i;var d=S[i];for(var k=0;k<N;k++)labs[k].classList.toggle('on',k===i);
         document.getElementById('n-dnum').textContent=i+1;document.getElementById('n-dpos').textContent=pad(i+1)+' / '+N;document.getElementById('n-dbar').style.width=((i+1)/N*100)+'%';
         function fill(){document.getElementById('n-dgrp').textContent=d[0];document.getElementById('n-dt').textContent=d[1];document.getElementById('n-dd').textContent=d[3];document.getElementById('n-dl').href=d[4];card.classList.remove('out')}
