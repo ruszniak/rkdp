@@ -948,6 +948,25 @@ a.spec h3{color:var(--bg)}
  .n-home .footer-bottom{padding-top:10px!important;font-size:12px!important}
 }
 .n-goldtx,.n-kin .gold .c{padding-bottom:.12em;margin-bottom:-.12em}
+/* ANIMOWANE TŁO – ŻYWE ODCIENIE */
+.n-home{background:var(--bg)}
+.n-aura{z-index:0!important;--h1:217,185,142;--h2:196,160,120;--h3:236,214,182;--h4:205,180,150;--h5:244,226,200}
+.n-aura .au{position:absolute;border-radius:50%;filter:blur(60px);will-change:transform;opacity:.9;transition:background 1.2s ease}
+.n-aura .a1{width:58vmax;height:58vmax;left:-14vmax;top:-18vmax;background:radial-gradient(circle,rgba(var(--h1),.55),rgba(var(--h1),0) 65%);animation:nAu1 22s ease-in-out infinite alternate}
+.n-aura .a2{width:50vmax;height:50vmax;right:-16vmax;top:6vh;background:radial-gradient(circle,rgba(var(--h2),.42),rgba(var(--h2),0) 65%);animation:nAu2 28s ease-in-out infinite alternate}
+.n-aura .a3{width:46vmax;height:46vmax;left:22vw;bottom:-22vmax;background:radial-gradient(circle,rgba(var(--h3),.6),rgba(var(--h3),0) 65%);animation:nAu3 34s ease-in-out infinite alternate}
+.n-aura .a4{width:34vmax;height:34vmax;left:-8vmax;bottom:6vh;background:radial-gradient(circle,rgba(var(--h4),.38),rgba(var(--h4),0) 65%);animation:nAu4 26s ease-in-out infinite alternate}
+.n-aura .a5{width:38vmax;height:38vmax;right:8vw;top:40vh;background:radial-gradient(circle,rgba(var(--h5),.7),rgba(var(--h5),0) 65%);animation:nAu5 30s ease-in-out infinite alternate}
+.n-aura .au-veil{position:absolute;inset:-20%;background:conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,0),rgba(255,248,236,.35),rgba(255,255,255,0) 40%,rgba(235,214,186,.25),rgba(255,255,255,0) 80%);filter:blur(40px);animation:nVeil 60s linear infinite;mix-blend-mode:soft-light}
+@keyframes nAu1{to{transform:translate3d(18vw,14vh,0) scale(1.18)}}
+@keyframes nAu2{to{transform:translate3d(-20vw,22vh,0) scale(.88)}}
+@keyframes nAu3{to{transform:translate3d(-14vw,-20vh,0) scale(1.15)}}
+@keyframes nAu4{to{transform:translate3d(26vw,-10vh,0) scale(1.25)}}
+@keyframes nAu5{to{transform:translate3d(-24vw,-16vh,0) scale(.9)}}
+@keyframes nVeil{to{transform:rotate(360deg)}}
+.n-lite .n-aura .au,.n-lite .n-aura .au-veil{animation:none}
+@media (prefers-reduced-motion:reduce){.n-aura .au,.n-aura .au-veil{animation:none}}
+@media (max-width:640px){.n-aura .au{filter:blur(40px)}}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -1184,7 +1203,7 @@ a.spec h3{color:var(--bg)}
 </head>
 <body class="n-home">
 
-<div class="bg-fx" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grain"></span></div>
+<div class="bg-fx n-aura" id="n-aura" aria-hidden="true"><span class="au a1"></span><span class="au a2"></span><span class="au a3"></span><span class="au a4"></span><span class="au a5"></span><span class="au-veil"></span></div>
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <!-- gen:nav -->
@@ -1605,6 +1624,17 @@ a.spec h3{color:var(--bg)}
     (function(){if(lite||!window.MutationObserver)return;[['n-hero','n-drawn','#n-ros,#n-wav'],['n-dial','in','#n-arc'],['n-ab','in','#n-me-ros']].forEach(function(m){var el=document.getElementById(m[0]);if(!el)return;
       function go(){setTimeout(function(){[].forEach.call(document.querySelectorAll(m[2]),function(v){[].forEach.call(v.querySelectorAll('path'),function(pp,ix){pp.style.setProperty('--d',((ix*1.37)%16).toFixed(2))});v.classList.add('n-flowing')})},3400)}
       if(el.classList.contains(m[1])){go();return}var o=new MutationObserver(function(){if(el.classList.contains(m[1])){o.disconnect();go()}});o.observe(el,{attributes:true,attributeFilter:['class']})})})();
+
+    // odcienie tła zmieniają się płynnie w trakcie przewijania
+    (function(){var a=document.getElementById('n-aura');if(!a)return;
+      var P=[[[217,185,142],[196,160,120],[236,214,182],[205,180,150],[244,226,200]],
+             [[226,200,165],[214,176,132],[240,224,200],[190,160,128],[248,232,206]],
+             [[206,176,140],[230,206,176],[222,190,150],[244,228,206],[200,168,128]],
+             [[236,218,190],[200,166,124],[246,234,214],[218,192,158],[226,198,160]]];
+      var tk=false;function u(){tk=false;var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0,f=p*(P.length-1),i=Math.min(P.length-2,Math.floor(f)),t=f-i;t=t*t*(3-2*t);
+        for(var k=0;k<5;k++){var A=P[i][k],B=P[i+1][k];a.style.setProperty('--h'+(k+1),Math.round(A[0]+(B[0]-A[0])*t)+','+Math.round(A[1]+(B[1]-A[1])*t)+','+Math.round(A[2]+(B[2]-A[2])*t))}}
+      addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(u)}},{passive:true});u();
+    })();
 
     // przewijanie: głębia w nagłówku + indeks usług
     var photo=document.getElementById('n-photo'),blobs=document.querySelectorAll('.n-blob'),ticking=false;
