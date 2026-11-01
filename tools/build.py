@@ -450,7 +450,7 @@ def update_index():
         i, j = s.index(a) + len(a), s.index(b)
         s = s[:i] + '\n' + content + '\n' + s[j:]
     put('nav', nav_html())
-    put('footer', footer_html())
+    put('footer', re.sub(r'<br>Kancelaria: [^<]*', '', footer_html(), count=1))
     kon_slugs = ('kontrola-podatkowa', 'czynnosci-sprawdzajace', 'odwolanie-od-decyzji')
     groups = [('Doradztwo podatkowe', [p for p in P_DOR if p['slug'] not in kon_slugs]),
               ('Kontrole i postępowania', [p for p in P_DOR if p['slug'] in kon_slugs]),

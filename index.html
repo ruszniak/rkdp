@@ -969,6 +969,22 @@ a.spec h3{color:var(--bg)}
 @media (max-width:640px){.n-aura .au{filter:blur(40px)}}
 @media (max-width:900px){.n-prs .n-pr.n-pr-hot em{position:static!important;display:block;height:auto!important;line-height:1.35!important;margin:0 0 6px!important;font-size:10px!important}}
 @media (max-width:640px){body.n-home .footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:28px 20px!important}.n-home .footer-brand{grid-column:1/-1}body.n-home .footer nav a{white-space:normal}.n-home .footer nav{font-size:13.5px!important;gap:10px!important}}
+.n-map{position:relative}
+.n-map-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--bronze);text-align:center;z-index:0}
+.n-map-ph b{font:700 16px var(--sans);color:var(--ink)}.n-map-ph span{font-size:14px;color:var(--muted)}
+.n-map iframe{position:relative;z-index:1}
+.n-home .n-contact{margin-top:clamp(24px,3vw,48px)!important}
+@media (max-width:640px){
+ .n-home .n-hero{min-height:auto!important;padding-bottom:40px}
+ .n-home .n-svc{margin-top:0}
+ body.n-home .footer{text-align:center}
+ body.n-home .footer .footer-grid{grid-template-columns:1fr!important;justify-items:center}
+ body.n-home .footer nav{align-items:center}
+ body.n-home .footer-brand{align-items:center}
+ body.n-home .footer-bottom{flex-direction:column;align-items:center;text-align:center;gap:8px}
+}
+.n-ct-map::before{display:none!important}
+.n-ct-map .n-map{box-shadow:0 0 0 1px var(--line-2)!important}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -1327,7 +1343,7 @@ a.spec h3{color:var(--bg)}
 <!-- /gen:local --></p>
         </div>
       </div>
-      <div class="n-ct-map"><div class="n-map"><iframe title="Mapa – RKDP Doradztwo Podatkowe, ul. Beaty Artemskiej 11/44, Wrocław" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.8588953364438!2d17.0518489!3d51.0556932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc3e3885705bf%3A0x571ecd802d0f92e0!2sRKDP%20Doradztwo%20Podatkowe!5e0!3m2!1spl!2spl!4v1793234722879!5m2!1spl!2spl" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>
+      <div class="n-ct-map"><div class="n-map"><div class="n-map-ph" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><b>RKDP Doradztwo Podatkowe</b><span>ul. Beaty Artemskiej 11/44, Wrocław</span></div><iframe title="Mapa – RKDP Doradztwo Podatkowe, ul. Beaty Artemskiej 11/44, Wrocław" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.8588953364438!2d17.0518489!3d51.0556932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc3e3885705bf%3A0x571ecd802d0f92e0!2sRKDP%20Doradztwo%20Podatkowe!5e0!3m2!1spl!2spl!4v1793234722879!5m2!1spl!2spl" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div>
     </div>
   </section>
 
@@ -1355,7 +1371,7 @@ a.spec h3{color:var(--bg)}
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="217" height="64" loading="lazy">
-        <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br>Kancelaria: ul. Beaty Artemskiej 11/44, 52-234 Wrocław (Jagodno)<br><a href="tel:+48883643565">+48 883 643 565</a> · <a href="mailto:kancelaria@rkdp.pl">kancelaria@rkdp.pl</a></p>
+        <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br><a href="tel:+48883643565">+48 883 643 565</a> · <a href="mailto:kancelaria@rkdp.pl">kancelaria@rkdp.pl</a></p>
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span><a href="/doradztwo-podatkowe/">Doradca podatkowy Wrocław</a><a href="/kontrola-podatkowa/">Kontrola podatkowa</a><a href="/czynnosci-sprawdzajace/">Wezwanie z urzędu skarbowego</a><a href="/interpretacja-indywidualna/">Interpretacja indywidualna i WIS</a><a href="/odwolanie-od-decyzji/">Odwołanie od decyzji i skarga do WSA</a><a href="/wyplata-pieniedzy-ze-spolki/">Wypłata pieniędzy ze spółki</a><a href="/forma-opodatkowania/">Forma prawna i opodatkowania</a><a href="/restrukturyzacje-spolek/">Spółki z o.o. i SKA – reorganizacje</a><a href="/firmy-rodzinne-sukcesja/">Firmy rodzinne i sukcesja</a><a href="/podatki-nieruchomosci/">PCC i sprzedaż nieruchomości</a></nav>
       <nav aria-label="Księgowość"><span class="k">Księgowość</span><a href="/ksiegowosc-spolki-z-o-o/">Księgowość spółki z o.o.</a><a href="/ksiegowosc-jdg/">Księgowość JDG</a><a href="/kadry-i-place/">Kadry i płace</a><a href="/zmiana-biura-rachunkowego/">Zmiana biura rachunkowego</a><span class="k" style="margin-top:14px">Okolice</span><a href="/doradca-podatkowy-jagodno/">Jagodno i Krzyki</a><a href="/doradca-podatkowy-siechnice/">Siechnice i okolice</a></nav>
