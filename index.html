@@ -975,7 +975,8 @@ a.spec h3{color:var(--bg)}
 .n-pr span{margin-top:12px;font-size:15px;color:var(--muted)}
 .n-pr:hover b{color:var(--bronze)}
 .n-pr-hot b{color:var(--bronze)}
-.n-pr-hot em{font:600 11.5px/18px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.n-pr-hot{padding-top:clamp(26px,3vw,40px)}
+.n-pr-hot em{position:absolute;top:clamp(2px,.6vw,10px);left:clamp(16px,2vw,30px);margin:0;font:600 11.5px/18px var(--sans);letter-spacing:.14em;text-transform:uppercase}
 .n-js .n-pr{opacity:0;transform:translateY(16px);transition:opacity .8s ease calc(var(--k)*90ms),transform .8s cubic-bezier(.2,.8,.2,1) calc(var(--k)*90ms)}
 .n-js .n-prs.in .n-pr{opacity:1;transform:none}
 @media (max-width:640px){.n-pr b{font-size:clamp(28px,8.4vw,40px);white-space:nowrap}.n-pr b i{font-size:13px}}
@@ -1160,15 +1161,15 @@ a.spec h3{color:var(--bg)}
   </section>
 
   <section class="n-stats" id="n-stats" aria-label="RKDP w liczbach"><div class="wrap">
-    <div class="n-stat"><em>01</em><b data-to="10" data-suf="+">10<i>+</i></b><span>lat praktyki w doradztwie podatkowym</span></div>
-    <div class="n-stat"><em>02</em><b data-to="300" data-suf="+">300<i>+</i></b><span>zadowolonych klientów – firm i osób prywatnych</span></div>
-    <div class="n-stat"><em>03</em><b data-to="100" data-suf="+">100<i>+</i></b><span>przeprowadzonych kontroli i czynności sprawdzających</span></div>
-    <div class="n-stat"><em>04</em><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google</span></div>
+    <div class="n-stat"><b data-to="10" data-suf="+">10<i>+</i></b><span>lat praktyki w doradztwie podatkowym</span></div>
+    <div class="n-stat"><b data-to="300" data-suf="+">300<i>+</i></b><span>zadowolonych klientów – firm i osób prywatnych</span></div>
+    <div class="n-stat"><b data-to="100" data-suf="+">100<i>+</i></b><span>przeprowadzonych kontroli i czynności sprawdzających</span></div>
+    <div class="n-stat"><b data-to="5" data-dec="1">5,0</b><span>średnia ocena w Google</span></div>
   </div></section>
   <section id="cennik" class="n-sec n-price">
     <div class="wrap">
       <svg class="n-gil" data-gil="light" viewBox="-420 -440 840 400" aria-hidden="true"></svg><div class="n-hd"><div><h2 class="n-big"><span>Jasne ceny.</span><span class="n-goldtx">Bez niespodzianek.</span></h2></div><a class="n-svc-more" href="/cennik/">Zobacz pełny cennik <span aria-hidden="true">→</span></a></div>
-      <div class="n-prs"><a class="n-pr" href="/cennik/"><em>01</em><small>Konsultacja wstępna</small><b>0 zł</b><span>do 20 minut, bezpłatnie</span></a><a class="n-pr" href="/cennik/"><em>02</em><small>Konsultacja podatkowa</small><b><i>od</i> 300 zł</b><span>za godzinę</span></a><a class="n-pr" href="/cennik/"><em>03</em><small>Abonament doradcy</small><b><i>od</i> 369 zł</b><span>miesięcznie</span></a><a class="n-pr n-pr-hot" href="/cennik/"><em>Najczęściej wybierany</em><small>Księgowość + doradca</small><b><i>od</i> 419 zł</b><span>miesięcznie</span></a></div>
+      <div class="n-prs"><a class="n-pr" href="/cennik/"><small>Konsultacja wstępna</small><b>0 zł</b><span>do 20 minut, bezpłatnie</span></a><a class="n-pr" href="/cennik/"><small>Konsultacja podatkowa</small><b><i>od</i> 300 zł</b><span>za godzinę</span></a><a class="n-pr" href="/cennik/"><small>Abonament doradcy</small><b><i>od</i> 369 zł</b><span>miesięcznie</span></a><a class="n-pr n-pr-hot" href="/cennik/"><em>Najczęściej wybierany</em><small>Księgowość + doradca</small><b><i>od</i> 419 zł</b><span>miesięcznie</span></a></div>
     </div>
   </section>
 
