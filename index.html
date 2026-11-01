@@ -837,6 +837,12 @@ a.spec h3{color:var(--bg)}
 .n-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(120px,22vh,220px);background:linear-gradient(rgba(248,245,240,0),var(--bg) 92%);z-index:0;pointer-events:none}
 .n-faq .n-qt,.n-faq .n-qn,.n-faq .n-qa p,.n-faq .n-hd h2,.n-faq .n-svc-more,.n-faq .n-q{transition:color .5s ease,border-color .5s ease}
 .n-faq .n-hd::after,.n-faq .n-qi::before,.n-faq .n-qi::after{transition:background .5s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.n-price .n-hd,.n-faq .n-hd{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding-bottom:clamp(28px,3vw,40px)}
+.n-price .n-hd::after,.n-faq .n-hd::after{left:50%;right:auto;width:56px;height:2px;margin-left:-28px;background:var(--bronze)}
+.n-price .n-hd h2,.n-faq .n-hd h2{font:700 clamp(30px,3.2vw,46px)/1.1 var(--serif);letter-spacing:-.035em;margin:0}
+.n-price .n-hd .n-svc-more,.n-faq .n-hd .n-svc-more{font-size:14px;color:var(--muted)}
+.n-price .n-prs{margin-top:clamp(16px,2vw,28px)}
+.n-faq .n-faq-list{margin-top:clamp(12px,2vw,24px)}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -944,16 +950,16 @@ a.spec h3{color:var(--bg)}
 
 /* ZESPÓŁ */
 .n-team{overflow:hidden;padding-bottom:clamp(24px,4vw,56px)!important}
-.n-me{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,100px);align-items:center}
-.n-me-ph{position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:center;display:grid;place-items:center}
+.n-me{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,100px);align-items:center}
+.n-me-ph{order:2;position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:center;display:grid;place-items:center}
 .n-me-ros{position:absolute;inset:-6%;width:112%;height:112%;overflow:visible;animation:nRot 160s linear infinite}
 .n-me-ros path{fill:none;stroke:rgba(122,90,55,.30);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-ab.in .n-me-ros path{stroke-dashoffset:0}
 .n-me-img{position:relative;display:block;width:68%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#1d1a16;box-shadow:0 30px 60px rgba(29,26,22,.18);clip-path:circle(0% at 50% 50%);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1) .2s}
-.n-me-img img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.15);transition:transform 1.8s cubic-bezier(.2,.8,.2,1) .2s}
+.n-me-img img{width:100%;height:100%;object-fit:cover;object-position:52% 30%;transform-origin:52% 34%;transform:scale(1.9);transition:transform 1.8s cubic-bezier(.2,.8,.2,1) .2s}
 .n-ab.in .n-me-img{clip-path:circle(50% at 50% 50%)}
-.n-ab.in .n-me-img img{transform:scale(1)}
-.n-me-name{margin:0;font:800 clamp(44px,5.6vw,92px)/.98 var(--serif);letter-spacing:-.05em;color:var(--ink)}
+.n-ab.in .n-me-img img{transform:scale(1.6)}
+.n-me-name{margin:0;font:800 clamp(40px,4.9vw,88px)/.98 var(--serif);letter-spacing:-.05em;color:var(--ink)}
 .n-me-name span{display:block}
 .n-me-name .g{font-size:.78em;white-space:nowrap;padding-top:.06em}
 .n-me-name .g{background:linear-gradient(100deg,#7A5A37 0%,#C59A62 35%,#F0D6A8 50%,#C59A62 65%,#7A5A37 100%);background-size:400% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:nGold 7s ease-in-out infinite}
@@ -962,8 +968,8 @@ a.spec h3{color:var(--bg)}
 .n-ab-up{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .n-ab.in .n-ab-up{opacity:1;transform:none}
 .n-ab.in .n-me-lead{transition-delay:.15s}.n-ab.in .n-me-btns{transition-delay:.3s}
-.n-lite .n-me-img{clip-path:none}.n-lite .n-me-img img{transform:none}.n-lite .n-me-ros{animation:none}.n-lite .n-me-ros path{stroke-dashoffset:0}.n-lite .n-ab-up{opacity:1;transform:none}
-@media (max-width:900px){.n-me{grid-template-columns:minmax(0,1fr);text-align:center}.n-me-ph{max-width:360px}.n-me-lead{margin-left:auto;margin-right:auto}.n-me-btns{justify-content:center}}
+.n-lite .n-me-img{clip-path:none}.n-lite .n-me-img img{transform:scale(1.6)}.n-lite .n-me-ros{animation:none}.n-lite .n-me-ros path{stroke-dashoffset:0}.n-lite .n-ab-up{opacity:1;transform:none}
+@media (max-width:1100px){.n-me{grid-template-columns:minmax(0,1fr);text-align:center}.n-me-ph{order:0}.n-me-ph{max-width:360px}.n-me-lead{margin-left:auto;margin-right:auto}.n-me-btns{justify-content:center}}
 @media (max-width:640px){.n-me-btns .btn{width:100%;justify-content:center}}
 /* WSPÓLNY UKŁAD SEKCJI */
 .n-sec{position:relative;z-index:1;background:var(--bg);padding:clamp(72px,8vw,120px) 0 0}
@@ -1159,7 +1165,7 @@ a.spec h3{color:var(--bg)}
     <div class="wrap n-me n-ab" id="n-ab">
       <div class="n-me-ph">
         <svg class="n-me-ros" id="n-me-ros" viewBox="-300 -300 600 600" aria-hidden="true"></svg>
-        <a class="n-me-img" href="/zespol/" tabindex="-1" aria-hidden="true"><picture><source srcset="/img/michal-zespol.webp" type="image/webp"><img src="/img/michal-zespol.jpg" alt="" loading="lazy" width="952" height="1245"></picture></a>
+        <a class="n-me-img" href="/zespol/" tabindex="-1" aria-hidden="true"><picture><source srcset="/img/michal-ruszniak.webp" type="image/webp"><img src="/img/michal-ruszniak.jpg" alt="" loading="lazy" width="810" height="810"></picture></a>
       </div>
       <div class="n-me-tx">
         <h2 class="n-me-name n-ab-up"><span>Michał Ruszniak</span><span class="g">Doradca podatkowy</span></h2>
@@ -1177,14 +1183,14 @@ a.spec h3{color:var(--bg)}
   </div></section>
   <section id="cennik" class="n-sec n-price">
     <div class="wrap">
-      <div class="n-hd"><div><h2>Jasne ceny</h2></div><a class="n-svc-more" href="/cennik/">Zobacz pełny cennik <span aria-hidden="true">→</span></a></div>
+      <div class="n-hd"><div><h2>Cennik</h2></div><a class="n-svc-more" href="/cennik/">Zobacz pełny cennik <span aria-hidden="true">→</span></a></div>
       <div class="n-prs"><a class="n-pr" href="/cennik/"><em>01</em><small>Konsultacja wstępna</small><b>0 zł</b><span>do 20 minut, bezpłatnie</span></a><a class="n-pr" href="/cennik/"><em>02</em><small>Konsultacja podatkowa</small><b><i>od</i> 300 zł</b><span>za godzinę</span></a><a class="n-pr" href="/cennik/"><em>03</em><small>Abonament doradcy</small><b><i>od</i> 369 zł</b><span>miesięcznie</span></a><a class="n-pr n-pr-hot" href="/cennik/"><em>Najczęściej wybierany</em><small>Księgowość + doradca</small><b><i>od</i> 419 zł</b><span>miesięcznie</span></a></div>
     </div>
   </section>
 
   <section id="faq" class="n-sec n-faq">
     <div class="wrap">
-      <div class="n-hd"><div><h2>Najczęstsze pytania</h2></div><a class="n-svc-more" href="/#termin" data-booking-open>Nie ma Twojego pytania? Umów konsultację <span aria-hidden="true">→</span></a></div>
+      <div class="n-hd"><div><h2>Częste pytania</h2></div><a class="n-svc-more" href="/#termin" data-booking-open>Nie ma Twojego pytania? Umów konsultację <span aria-hidden="true">→</span></a></div>
       <div class="n-faq-list" id="n-faq"><details class="n-q" open><summary><span class="n-qn">01</span><span class="n-qt">Czym różni się doradca podatkowy od księgowej?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Księgowa lub biuro rachunkowe prowadzi księgi i rozliczenia, ale nie może udzielać porad podatkowych ani reprezentować klienta przed urzędem skarbowym i sądem. Doradca podatkowy może robić to wszystko. W RKDP księgowość prowadzi zespół pod nadzorem doradcy podatkowego, więc gdy przychodzi pismo z urzędu, sprawą zajmuje się ta sama kancelaria, która zna Twoje księgi.</p></div></details><details class="n-q"><summary><span class="n-qn">02</span><span class="n-qt">Jak przenieść księgowość z innego biura rachunkowego?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Najwygodniej od początku miesiąca lub roku podatkowego. Ustalamy termin, przygotowujemy pełnomocnictwa (m.in. do urzędu skarbowego i ZUS), odbieramy dokumentację od poprzedniego biura i sprawdzamy ostatnie rozliczenia. Zajmujemy się formalnościami tak, by rozliczenia nie miały przerwy.</p></div></details><details class="n-q"><summary><span class="n-qn">03</span><span class="n-qt">Czy pomagacie we wdrożeniu KSeF w małej firmie?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Tak. Sprawdzamy, od kiedy i w jakim zakresie firma musi wystawiać faktury w Krajowym Systemie e-Faktur, pomagamy nadać uprawnienia i ustawić obieg faktur tak, by trafiały do księgowości bez przepisywania.</p></div></details><details class="n-q"><summary><span class="n-qn">04</span><span class="n-qt">Dostałem pismo z urzędu skarbowego. Co robić?</span><span class="n-qi" aria-hidden="true"></span></summary><div class="n-qa"><p>Nie zwlekaj z odpowiedzią i zadzwoń do nas przed upływem terminu. Jako doradcy podatkowi możemy reprezentować Cię w czynnościach sprawdzających, kontroli i postępowaniu podatkowym, a w razie potrzeby przygotować odwołanie lub skargę do sądu administracyjnego.</p></div></details>
     </div>
   </section>
