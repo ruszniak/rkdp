@@ -988,6 +988,9 @@ a.spec h3{color:var(--bg)}
 .site-header::before{content:"";position:absolute;left:0;right:0;top:0;height:calc(100% + 28px);z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(248,245,240,.72) 0%,rgba(248,245,240,.5) 60%,rgba(248,245,240,0) 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,#000 50%,transparent);mask-image:linear-gradient(180deg,#000 50%,transparent);transition:opacity .45s}
 .site-header{isolation:isolate}
 .n-home .site-header.n-clear::before{opacity:0}
+/* spokojniejsze, nowocześniejsze tło (komputer) */
+.n-aura{opacity:.5;filter:saturate(.7)}
+html body.n-home,html body.n-sub{background:#F9F7F3}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}

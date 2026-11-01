@@ -390,3 +390,7 @@ body.n-sub{overflow-x:hidden}
 
 html:has(body.n-sub),body.n-sub{overflow-x:clip}
 body.n-sub .page-hero{overflow-x:clip!important;overflow-y:visible!important}
+
+/* spokojniejsze, nowocześniejsze tło (komputer) */
+.n-aura{opacity:.5;filter:saturate(.7)}
+html body.n-home,html body.n-sub{background:#F9F7F3}
