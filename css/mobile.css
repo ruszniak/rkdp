@@ -52,4 +52,13 @@
  body .footer.footer-brand p{font-size:14px!important;line-height:1.8!important}
  body .footer.footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center;gap:10px;margin-top:48px!important}
  .n-fdiv.n-fdiv{margin-top:56px!important}
+ /* jaśniejsze, mniej żółte tło na telefonie */
+ html body{background:#FAF8F5!important}
+ .n-aura{opacity:.38!important;filter:saturate(.6)}
+ .n-aura .au{filter:blur(50px)}
+ .n-home .n-hero{background:transparent}
+ .n-home .n-blob{opacity:.18!important;filter:blur(90px) saturate(.6)!important}
+ .n-ros{opacity:.35!important}.n-wav{opacity:.3!important}
+ .n-prs.m-track>*{flex-basis:100%!important}
+ .n-prs.m-track .n-pr+.n-pr::before{display:none!important}
 }
