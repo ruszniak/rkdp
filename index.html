@@ -879,6 +879,17 @@ a.spec h3{color:var(--bg)}
 .n-home .footer-grid{gap:40px!important}
 .n-home .footer-bottom{margin-top:32px!important;padding-top:18px!important;font-size:12.5px!important;border-top:1px solid var(--line-2);color:var(--muted)}
 .n-home .footer-bottom a{color:var(--bronze)}
+/* KONTAKT – JASNA WERSJA */
+.n-home .n-contact{background:#FFFDF9!important;color:var(--ink)!important;border:1px solid var(--line);box-shadow:0 30px 70px rgba(29,26,22,.06)!important}
+.n-ct-h.n-big{color:var(--ink)!important}
+.n-ct-h .n-goldtx{background:linear-gradient(100deg,#7A5A37 0%,#C59A62 35%,#E9CFA3 50%,#C59A62 65%,#7A5A37 100%)!important;background-size:400% 100%!important;-webkit-background-clip:text!important;background-clip:text!important}
+.n-ct-tel{color:var(--ink)!important}.n-ct-tel:hover{color:var(--bronze)!important}
+.n-ct-mail{color:var(--muted)!important;border-color:var(--line-2)!important}
+.n-ct-b1{background:var(--bronze)!important;color:#F8F5F0!important}
+.n-ct-b2{border-color:var(--ink)!important;color:var(--ink)!important}
+.n-ct-addr b{color:var(--bronze)!important}.n-ct-addr span{color:var(--ink)!important}.n-ct-addr small,.n-ct-addr .local{color:var(--muted)!important;border-color:var(--line)!important}.n-ct-addr .local a{color:var(--bronze)!important}
+.n-ct-map .n-map{box-shadow:0 0 0 1px var(--line-2),0 24px 50px rgba(29,26,22,.10)!important;background:#EDE6DB!important}
+.n-ct-map::before{border-color:rgba(122,90,55,.25)!important}
 /* LICZNIKI */
 .n-stats{position:relative;z-index:1;background:var(--bg);padding:clamp(56px,6vw,96px) 0 0}
 .n-stats .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
@@ -1421,7 +1432,7 @@ a.spec h3{color:var(--bg)}
 }
 
     // przezroczysty nagłówek nad hasłem
-    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('.n-contact,[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
+    (function(){var h=document.querySelector('.site-header');if(!h)return;var dk=document.querySelectorAll('[data-dark]');function u(){h.classList.toggle('n-clear',scrollY<40&&!document.body.classList.contains('menu-open'));var y=h.offsetHeight/2,d=false;for(var i=0;i<dk.length;i++){var r=dk[i].getBoundingClientRect();if(r.top<=y&&r.bottom>=y){d=true;break}}h.classList.toggle('n-dark',d)}u();addEventListener('scroll',u,{passive:true});addEventListener('resize',u);
       var mb=document.querySelector('.menu-btn');if(mb)mb.addEventListener('click',function(){setTimeout(function(){h.classList.toggle('n-clear',scrollY<40&&mb.getAttribute('aria-expanded')!=='true')},0)})})();
 
     // gilosz w tle nagłówka
@@ -1534,8 +1545,8 @@ a.spec h3{color:var(--bg)}
     })();
 
     // wąż z linii giloszu rysowany przy przewijaniu
-    (function(){var svg=document.getElementById('n-snake'),start=document.getElementById('o-kancelarii'),end=document.querySelector('.n-fdiv')||document.querySelector('footer');if(!svg||!start||!end)return;var NS='http://www.w3.org/2000/svg',paths=[],top=0,H=0;
-      function build(){var W=document.documentElement.clientWidth;top=start.offsetTop+40;H=Math.max(400,end.offsetTop-top-20);
+    (function(){var svg=document.getElementById('n-snake'),start=document.getElementById('cennik'),end=document.querySelector('.n-fdiv')||document.querySelector('footer');if(!svg||!start||!end)return;var NS='http://www.w3.org/2000/svg',paths=[],top=0,H=0;
+      function build(){var W=document.documentElement.clientWidth;top=start.offsetTop-20;H=Math.max(400,end.offsetTop-top-20);
         svg.style.top=top+'px';svg.style.height=H+'px';svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML='';paths=[];
         var mob=W<700,A=W*(mob?.30:.36),per=mob?900:1300,band=mob?26:44,N=mob?10:16;
         for(var k=0;k<N;k++){var ph=k/N*Math.PI*2,d='';for(var y=0;y<=H;y+=6){var c=W/2+A*Math.sin(y/per*Math.PI*2-Math.PI/2),o=band*Math.sin(y/(mob?70:95)+ph),x=c+o;d+=(y?'L':'M')+x.toFixed(1)+' '+y}
