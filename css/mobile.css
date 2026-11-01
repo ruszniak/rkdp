@@ -42,4 +42,14 @@
  .m-acc .m-body>*{opacity:1!important;transform:none!important}
  .page-body>*,.prose,.m-car,.m-acc,.m-body{min-width:0;max-width:100%}
  .m-track{width:100%}
+ /* stopka jak LTCA: wyśrodkowana, rozwinięta, przestronna */
+ body .footer.footer{text-align:center!important}
+ body .footer.footer .footer-grid{display:flex!important;flex-direction:column!important;align-items:center!important;gap:44px!important}
+ body .footer.footer nav{display:flex!important;flex-direction:column!important;align-items:center!important;gap:22px!important;font-size:16px!important;width:auto}
+ body .footer.footer nav .k{font:700 17px var(--sans)!important;color:var(--ink)!important;margin:0 0 6px!important;letter-spacing:.02em;text-transform:none}
+ body .footer.footer nav a{color:var(--muted)!important;white-space:normal}
+ body .footer.footer-brand{align-items:center!important;text-align:center;margin:0!important}
+ body .footer.footer-brand p{font-size:14px!important;line-height:1.8!important}
+ body .footer.footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center;gap:10px;margin-top:48px!important}
+ .n-fdiv.n-fdiv{margin-top:56px!important}
 }

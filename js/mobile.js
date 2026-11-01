@@ -9,8 +9,6 @@
       if(k.matches('.faq-block,.related,.author,section'))return cur=null;if(cur)cur.lastChild.appendChild(k)})});
   // 2. zespół: listy doświadczenia zwijane
   [].forEach.call(d.querySelectorAll('.team-card ul'),function(ul){var dt=details('Doświadczenie i funkcje','m-more');var b=d.createElement('div');b.className='m-body';ul.parentNode.insertBefore(dt,ul);b.appendChild(ul);dt.appendChild(b)});
-  // 3. stopka: kolumny linków zwijane
-  [].forEach.call(d.querySelectorAll('.footer nav'),function(nv){var k=nv.querySelector('.k');if(!k)return;var dt=details(k.textContent,'m-foot');var b=d.createElement('div');b.className='m-body';[].slice.call(nv.children).forEach(function(c){if(c===k){c.remove();return}b.appendChild(c)});dt.appendChild(b);nv.appendChild(dt)});
   // 4. karuzele ze strzałkami
   function carousel(track){if(!track||track.children.length<2||track.dataset.mc)return;track.dataset.mc=1;track.classList.add('m-track');
     var wrap=d.createElement('div');wrap.className='m-car';track.parentNode.insertBefore(wrap,track);wrap.appendChild(track);
