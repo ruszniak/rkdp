@@ -862,11 +862,11 @@ a.spec h3{color:var(--bg)}
 .n-dial{display:none}
 @media (min-width:1025px) and (min-height:620px){
  .n-js-dial .n-dial{display:block;position:relative;height:calc(100vh * 3)}
- .n-js-dial .n-svc+.n-team{padding-top:clamp(24px,3vw,48px)}
+ .n-js-dial .n-svc+.n-team{padding-top:0;margin-top:-6vh}
  .n-js-dial .n-svc{padding-top:0}
 }
 .n-dial-pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;overflow:hidden;padding-top:88px;box-sizing:border-box}
-.n-dial-l{position:relative;height:100%}
+.n-dial-l{position:relative;height:100%;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 98%);mask-image:linear-gradient(180deg,#000 72%,transparent 98%)}
 .n-arc{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%);mask-image:linear-gradient(180deg,transparent 0,transparent 14%,#000 28%,#000 74%,transparent 88%)}
 .n-arc{position:absolute;top:42%;right:62%;width:min(150vh,1300px);height:min(150vh,1300px);transform:translate(0,-50%);overflow:visible}
 .n-arc path{fill:none;stroke:rgba(122,90,55,.34);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
@@ -949,16 +949,16 @@ a.spec h3{color:var(--bg)}
 @media (max-width:900px){.n-cols{grid-template-columns:minmax(0,1fr)}.n-col{padding-top:30px}}
 
 /* ZESPÓŁ */
-.n-team{overflow:hidden;padding-bottom:clamp(24px,4vw,56px)!important}
+.n-team{overflow:visible;overflow-x:clip;padding-bottom:clamp(24px,4vw,56px)!important}
 .n-me{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,100px);align-items:center}
 .n-me-ph{order:2;position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:center;display:grid;place-items:center}
 .n-me-ros{position:absolute;inset:-6%;width:112%;height:112%;overflow:visible;animation:nRot 160s linear infinite}
 .n-me-ros path{fill:none;stroke:rgba(122,90,55,.30);stroke-width:.6;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.6,.05,.2,1)}
 .n-ab.in .n-me-ros path{stroke-dashoffset:0}
 .n-me-img{position:relative;display:block;width:68%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#1d1a16;box-shadow:0 30px 60px rgba(29,26,22,.18);clip-path:circle(0% at 50% 50%);transition:clip-path 1.3s cubic-bezier(.7,0,.2,1) .2s}
-.n-me-img img{width:100%;height:100%;object-fit:cover;object-position:52% 30%;transform-origin:52% 34%;transform:scale(1.9);transition:transform 1.8s cubic-bezier(.2,.8,.2,1) .2s}
+.n-me-img img{width:100%;height:100%;object-fit:cover;object-position:52% 30%;transform-origin:52% 40%;transform:scale(1.8);transition:transform 1.8s cubic-bezier(.2,.8,.2,1) .2s}
 .n-ab.in .n-me-img{clip-path:circle(50% at 50% 50%)}
-.n-ab.in .n-me-img img{transform:scale(1.6)}
+.n-ab.in .n-me-img img{transform:scale(1.5)}
 .n-me-name{margin:0;font:800 clamp(40px,4.9vw,88px)/.98 var(--serif);letter-spacing:-.05em;color:var(--ink)}
 .n-me-name span{display:block}
 .n-me-name .g{font-size:.78em;white-space:nowrap;padding-top:.06em}
@@ -968,7 +968,7 @@ a.spec h3{color:var(--bg)}
 .n-ab-up{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .n-ab.in .n-ab-up{opacity:1;transform:none}
 .n-ab.in .n-me-lead{transition-delay:.15s}.n-ab.in .n-me-btns{transition-delay:.3s}
-.n-lite .n-me-img{clip-path:none}.n-lite .n-me-img img{transform:scale(1.6)}.n-lite .n-me-ros{animation:none}.n-lite .n-me-ros path{stroke-dashoffset:0}.n-lite .n-ab-up{opacity:1;transform:none}
+.n-lite .n-me-img{clip-path:none}.n-lite .n-me-img img{transform:scale(1.5)}.n-lite .n-me-ros{animation:none}.n-lite .n-me-ros path{stroke-dashoffset:0}.n-lite .n-ab-up{opacity:1;transform:none}
 @media (max-width:1100px){.n-me{grid-template-columns:minmax(0,1fr);text-align:center}.n-me-ph{order:0}.n-me-ph{max-width:360px}.n-me-lead{margin-left:auto;margin-right:auto}.n-me-btns{justify-content:center}}
 @media (max-width:640px){.n-me-btns .btn{width:100%;justify-content:center}}
 /* WSPÓLNY UKŁAD SEKCJI */
