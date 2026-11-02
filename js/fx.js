@@ -5,7 +5,7 @@
   var NS='http://www.w3.org/2000/svg';
   // odcienie tła przy przewijaniu
   var a=document.getElementById('n-aura');
-  if(a){var P=[[[217,185,142],[196,160,120],[236,214,182],[205,180,150],[244,226,200]],[[226,200,165],[214,176,132],[240,224,200],[190,160,128],[248,232,206]],[[236,218,190],[200,166,124],[246,234,214],[218,192,158],[226,198,160]]];
+  if(a){var P=[[[134,148,174],[128,148,188],[188,202,230],[155,170,200],[207,217,237]],[[171,187,220],[140,162,206],[204,215,236],[134,151,184],[214,223,240]],[[195,207,231],[132,152,192],[219,226,241],[164,180,212],[167,184,219]]];
     var tk=false;function u(){tk=false;var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0,f=p*(P.length-1),i=Math.min(P.length-2,Math.floor(f)),t=f-i;t=t*t*(3-2*t);
       for(var k=0;k<5;k++){var A=P[i][k],B=P[i+1][k];a.style.setProperty('--h'+(k+1),Math.round(A[0]+(B[0]-A[0])*t)+','+Math.round(A[1]+(B[1]-A[1])*t)+','+Math.round(A[2]+(B[2]-A[2])*t))}}
     addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(u)}},{passive:true});u();}
