@@ -45,7 +45,7 @@
   };
   var ans=d.getElementById('x-ans'),chips=d.querySelectorAll('.x-chip');
   function show(k){var a=A[k];if(!a||!ans)return;ans.classList.remove('swap');void ans.offsetWidth;
-    ans.innerHTML='<span class="x-tag '+a.tag[0]+'">'+(a.tag[0]==='hot'?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>':'')+a.tag[1]+'</span><h4>'+a.h+'</h4><ol>'+a.s.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol><div class="x-row"><a class="x-btn x-book" href="/#termin" data-booking-open>Umów konsultację '+ARR+'</a><a class="x-more" href="'+a.l+'">'+a.lt+'</a></div>';
+    ans.innerHTML='<span class="x-lbl">'+a.tag[1]+'</span><h4>'+a.h+'</h4><ol>'+a.s.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol><div class="x-row"><a class="x-btn x-book" href="/#termin" data-booking-open>Umów konsultację '+ARR+'</a><a class="x-more" href="'+a.l+'">'+a.lt+'</a></div>';
     ans.classList.add('swap');[].forEach.call(chips,function(c){c.setAttribute('aria-pressed',c.dataset.k===k)})}
   [].forEach.call(chips,function(c){c.addEventListener('click',function(){show(c.dataset.k)})});
   if(ans)show('wezwanie');
