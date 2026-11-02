@@ -26,10 +26,10 @@
  .n-prs.m-track>*{flex-basis:72%!important;border-top:0!important;padding-left:0!important}
  .n-prs.m-track .n-pr+.n-pr::before{display:block!important;left:-7px}
  .m-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
- .m-nav button{all:unset;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,253,249,.8);display:grid;place-items:center;color:var(--ink);cursor:pointer;transition:opacity .3s,background .3s}
+ .m-nav button{all:unset;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.8);display:grid;place-items:center;color:var(--ink);cursor:pointer;transition:opacity .3s,background .3s}
  .m-nav .m-prev svg{transform:rotate(180deg)}
  .m-nav button:disabled{opacity:.3}
- .m-nav button:active{background:var(--ink);color:#F8F5F0}
+ .m-nav button:active{background:var(--ink);color:#F5F7FA}
  .m-dots{display:flex;gap:6px}
  .m-dots i{width:6px;height:6px;border-radius:50%;background:var(--line-2);transition:width .3s,background .3s}
  .m-dots i.on{width:18px;border-radius:3px;background:var(--bronze)}
@@ -53,7 +53,7 @@
  body .footer.footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center;gap:10px;margin-top:48px!important}
  .n-fdiv.n-fdiv{margin-top:56px!important}
  /* jaśniejsze, mniej żółte tło na telefonie */
- html body{background:#FAF8F5!important}
+ html body{background:#F6F8FB!important}
  .n-aura{opacity:.38!important;filter:saturate(.6)}
  .n-aura .au{filter:blur(50px)}
  .n-home .n-hero{background:transparent}
