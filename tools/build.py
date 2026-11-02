@@ -53,7 +53,7 @@ def nav_html():
     dor = dor[:1] + [BY_SLUG['doradca-podatkowy-siechnice']] + dor[1:]
     spory = [BY_SLUG[s] for s in ('kontrola-podatkowa', 'czynnosci-sprawdzajace', 'odwolanie-od-decyzji')]
     return ('<header class="site-header">\n  <div class="wrap nav">\n'
-            '    <a href="/" class="nav-logo" aria-label="RKDP spółka doradztwa podatkowego – strona główna"><img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="183" height="54"></a>\n'
+            '    <a href="/" class="nav-logo" aria-label="RKDP spółka doradztwa podatkowego – strona główna"><img src="/img/logo-rkdp-granat.svg" alt="RKDP spółka doradztwa podatkowego" width="183" height="54"></a>\n'
             '    <button class="menu-btn" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>\n'
             '    <nav id="menu" class="nav-links" aria-label="Menu główne">\n'
             f'      {dd("Doradztwo podatkowe", dor)}\n'
@@ -68,12 +68,12 @@ def nav_html():
 
 def footer_html():
     col = lambda pages: ''.join(f'<a href="{url(p["slug"])}">{e(p["menu"])}</a>' for p in pages)
-    return f'''<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp.png" alt="" width="217" height="64"></div>
+    return f'''<div class="n-fdiv" aria-hidden="true"><img src="/img/logo-rkdp-granat.svg" alt="" width="217" height="64"></div>
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/img/logo-rkdp.png" alt="RKDP spółka doradztwa podatkowego" width="217" height="64" loading="lazy">
+        <img src="/img/logo-rkdp-granat.svg" alt="RKDP spółka doradztwa podatkowego" width="217" height="64" loading="lazy">
         <p>RKDP spółka doradztwa podatkowego sp. z o.o.<br>ul. Czereśniowa 28d, 55-010 Ozorzyce · NIP 8992871126 · KRS 0000812185<br>Kancelaria: ul. Beaty Artemskiej 11/44, 52-234 Wrocław (Jagodno)<br><a href="{PHONE_HREF}">{PHONE}</a> · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
       </div>
       <nav aria-label="Doradztwo podatkowe"><span class="k">Doradztwo</span>{col(P_DOR)}</nav>
@@ -153,8 +153,8 @@ def head(title, desc, path, og_type='website', extra_ld=()):
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{SITE}/img/michal-ruszniak.jpg">
-<meta name="theme-color" content="#1D1A16">
-<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#151C2E">
+<link rel="icon" href="/img/favicon-granat.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
@@ -313,7 +313,7 @@ def build_post(p):
         "@context": "https://schema.org", "@type": "Article", "headline": p['title'], "description": p['desc'],
         "datePublished": p['date'], "dateModified": p.get('updated', p['date']), "inLanguage": "pl-PL",
         "author": {"@type": "Person", "@id": SITE + "/#" + a['id'], "name": a['name'], "jobTitle": "Doradca podatkowy", "url": SITE + "/zespol/"},
-        "publisher": {"@id": SITE + "/#firma", "@type": "Organization", "name": "RKDP spółka doradztwa podatkowego sp. z o.o.", "logo": {"@type": "ImageObject", "url": SITE + "/img/logo-rkdp.png"}},
+        "publisher": {"@id": SITE + "/#firma", "@type": "Organization", "name": "RKDP spółka doradztwa podatkowego sp. z o.o.", "logo": {"@type": "ImageObject", "url": SITE + "/img/logo-rkdp-granat.svg"}},
         "image": SITE + "/img/michal-ruszniak.jpg", "mainEntityOfPage": SITE + path}]
     if p.get('faq'): ld.append(faq_ld(p['faq']))
     body = head(p['title'] + ' | Blog RKDP', p['desc'], path, og_type='article', extra_ld=ld)
