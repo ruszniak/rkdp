@@ -138,3 +138,6 @@
 .x-brand{display:flex;align-items:center;flex-shrink:0}
 a.x-kidp{text-decoration:none;color:inherit}
 a.x-kidp:hover span{color:var(--bronze)}
+/* Safari: przyciski w sekcji o doradcy ucinane od góry (warstwa z backdrop-filter w animowanym rodzicu) */
+.n-me-btns{transform:none!important;transition:none!important;padding:8px 0!important;margin-top:calc(clamp(26px,3vw,40px) - 8px)!important;overflow:visible!important}
+.n-me-btns .btn-outline{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(255,255,255,.6)!important}
