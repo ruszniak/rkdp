@@ -394,3 +394,8 @@ body.n-sub .page-hero{overflow-x:clip!important;overflow-y:visible!important}
 /* spokojniejsze, nowocześniejsze tło (komputer) */
 .n-aura{opacity:.5;filter:saturate(.7)}
 html body.n-home,html body.n-sub{background:#F9F7F3}
+/* KIDP w stopce */
+.footer-brand .x-fkidp{display:inline-block;margin-top:18px;opacity:.85;transition:opacity .2s}
+.footer-brand .x-fkidp:hover{opacity:1}
+.footer-brand .x-fkidp img{height:62px!important;width:auto!important;display:block!important;margin:0!important;opacity:1!important}
+@media(max-width:640px){.footer-brand .x-fkidp img{margin:0 auto!important}}

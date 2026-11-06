@@ -136,3 +136,5 @@
 .x-hkidp.dark img{height:38px}
 @media(max-width:640px){.x-hkidp{margin-left:12px;padding-left:12px;height:36px}.x-hkidp img{height:36px}}
 .x-brand{display:flex;align-items:center;flex-shrink:0}
+a.x-kidp{text-decoration:none;color:inherit}
+a.x-kidp:hover span{color:var(--bronze)}
