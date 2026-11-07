@@ -8,6 +8,16 @@ Treści są w plikach tools/content_*.py.
 """
 import html, json, os, re, sys
 
+import subprocess as _sp, datetime as _dt
+def _wersja():
+    """Numer wersji strony: kolejny numer zmiany w repozytorium + data publikacji."""
+    try:
+        n=int(_sp.check_output(['git','rev-list','--count','HEAD'],cwd=__import__('os').path.dirname(__import__('os').path.abspath(__file__))).strip())+1
+    except Exception:
+        n=0
+    return f"1.{n} z {_dt.date.today().strftime('%d.%m.%Y')}"
+WERSJA=_wersja()
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -83,7 +93,7 @@ def footer_html():
     </div>
     <div class="footer-bottom">
       <span>© <span class="year">2026</span> RKDP spółka doradztwa podatkowego sp. z o.o. Wszelkie prawa zastrzeżone.</span>
-      <span>Doradca podatkowy nr 15009 · Podmiot uprawniony nr 855 · Wykonanie: <a href="https://ruszniak.io" target="_blank" rel="noopener">druslak</a></span>
+      <span>Doradca podatkowy nr 15009 · Podmiot uprawniony nr 855 · <span class="n-ver" title="Wersja strony">wersja {WERSJA}</span> · Wykonanie: <a href="https://ruszniak.io" target="_blank" rel="noopener">druslak</a></span>
     </div>
   </div>
 </footer>

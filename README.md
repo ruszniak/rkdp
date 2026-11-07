@@ -19,3 +19,7 @@ Strona jest w pełni statyczna – nie wymaga żadnych zmiennych środowiskowych
 1. Teksty podstron są w `tools/content_doradztwo.py`, `tools/content_ksiegowosc.py`, `tools/content_lokalne.py`, `tools/content_extra.py`.
 2. Po zmianie uruchom `python3 tools/build.py` – przebuduje podstrony, Zespół, Cennik, sitemapę oraz menu, kafelki i stopkę na stronie głównej.
 3. Pełne karty zespołu i cennika są w `tools/partials/zespol.html` i `tools/partials/cennik.html` (strona główna ma ich skrócone wersje).
+
+## Wersja strony w stopce
+Stopka pokazuje „wersja 1.N z DD.MM.RRRR”, gdzie N to numer kolejnej zmiany w repozytorium.
+Przed każdym commitem uruchom `python3 tools/build.py` – generator wpisze aktualną wersję na wszystkich stronach.
