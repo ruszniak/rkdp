@@ -130,6 +130,9 @@ NAV_JS = '''<dialog class="booking-modal" id="booking-modal" aria-labelledby="bo
     f.onload=function(){var l=document.querySelector('#booking-modal .modal-loading'); if(l) l.remove();};
     window.addEventListener('message',function(e){if(e.data&&e.data.type==='rkdp-umow-close'&&modal.open) modal.close();});
   }
+  // Szybsze otwieranie: kalendarz wczytuje się w tle – chwilę po wejściu na stronę albo gdy kursor/palec zbliży się do przycisku
+  ['pointerover','touchstart','focusin'].forEach(function(ev){document.addEventListener(ev,function(e){var t=e.target;if(t&&t.closest&&t.closest('[data-booking-open], a[href*="/umow/"]')) loadZoho();},{capture:true,passive:true});});
+  window.addEventListener('load',function(){setTimeout(function(){(window.requestIdleCallback||setTimeout)(loadZoho);},2000);});
   if(modal && typeof modal.showModal==='function'){
     document.addEventListener('click',function(e){
       var a=e.target.closest('[data-booking-open], a[href*="/umow/"]');
@@ -168,6 +171,8 @@ def head(title, desc, path, og_type='website', extra_ld=()):
 <meta name="theme-color" content="#1D1A16">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://app.ruszniak.io">
+<link rel="preconnect" href="https://iuszfoyttqnkzjzjpzma.supabase.co" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/css/site.css">
