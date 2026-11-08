@@ -32,7 +32,7 @@ TODAY = '2026-10-13'
 PHONE = '+48 883 643 565'
 PHONE_HREF = 'tel:+48883643565'
 EMAIL = 'kancelaria@rkdp.pl'
-BOOK = 'https://m2taxdoradcypodatkowi.zohobookings.eu/m2taxdoradcypodatkowi'
+BOOK = 'https://app.ruszniak.io/umow/'
 
 ALL_PAGES = P_DOR + P_KSI + P_LOK
 for _p in ALL_PAGES:
@@ -113,7 +113,7 @@ NAV_JS = '''<dialog class="booking-modal" id="booking-modal" aria-labelledby="bo
   <div class="modal-head">
     <strong id="booking-title">Wybierz termin konsultacji</strong>
     <div class="tools">
-      <a href="https://m2taxdoradcypodatkowi.zohobookings.eu/m2taxdoradcypodatkowi" target="_blank" rel="noopener">Otwórz w nowej karcie</a>
+      <a href="https://app.ruszniak.io/umow/" target="_blank" rel="noopener">Otwórz w nowej karcie</a>
       <button type="button" class="modal-close" data-booking-close aria-label="Zamknij kalendarz"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
@@ -121,17 +121,18 @@ NAV_JS = '''<dialog class="booking-modal" id="booking-modal" aria-labelledby="bo
 </dialog>
 <script>
 (function(){
-  // Rezerwacja Zoho w okienku na stronie
+  // Rezerwacja (system umawiania RKDP) w okienku na stronie
   var modal=document.getElementById('booking-modal'), zohoLoaded=false;
   function loadZoho(){
     if(zohoLoaded) return; zohoLoaded=true;
-    var sc=document.createElement('script'); sc.src='https://bookings.nimbuspop.com/assets/embed.js';
-    sc.onload=function(){var h=Math.max(600,document.getElementById('inline-container').clientHeight);Bookings.inlineEmbed({url:'https://m2taxdoradcypodatkowi.zohobookings.eu/portal-embed#/m2taxdoradcypodatkowi',parent:'#inline-container',height:h+'px'});};
-    document.head.appendChild(sc);
+    var f=document.createElement('iframe'); f.src='https://app.ruszniak.io/umow/?embed=1&bare=1'; f.title='Umów spotkanie z doradcą podatkowym'; f.style.cssText='width:100%;height:100%;min-height:600px;border:0;display:block';
+    var c=document.getElementById('inline-container'); c.innerHTML=''; c.style.overflow='hidden'; c.appendChild(f);
+    f.onload=function(){var l=document.querySelector('#booking-modal .modal-loading'); if(l) l.remove();};
+    window.addEventListener('message',function(e){if(e.data&&e.data.type==='rkdp-umow-close'&&modal.open) modal.close();});
   }
   if(modal && typeof modal.showModal==='function'){
     document.addEventListener('click',function(e){
-      var a=e.target.closest('[data-booking-open], a[href*="zohobookings.eu"]');
+      var a=e.target.closest('[data-booking-open], a[href*="/umow/"]');
       if(!a || a.closest('#booking-modal')) return;
       e.preventDefault(); modal.showModal(); loadZoho();
     });
