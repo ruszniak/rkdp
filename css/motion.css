@@ -1,0 +1,12 @@
+/* GSAP + Lenis */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.mo-progress{position:fixed;left:0;top:0;right:0;height:2px;z-index:1000;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--bronze,#7A5A37),var(--gold,#D9B98E));pointer-events:none}
+.mo-w{display:inline-block;will-change:transform,filter,opacity}
+.mo-spot{position:relative;isolation:isolate}
+.mo-spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--sx,50%) var(--sy,50%),rgba(217,185,142,.22),transparent 60%);z-index:0}
+.mo-spot:hover::after{opacity:1}
+.mo-spot>*{position:relative;z-index:1}
+h2 .mo-w.n-goldtx{display:inline-block!important}
