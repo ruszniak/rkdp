@@ -41,3 +41,5 @@
 /* hero: kilka ujęć na zmianę */
 .n-vplay video.n-vnext{z-index:1}
 .n-vplay::after{z-index:2}
+/* łuk usług nie wchodzi na dół filmu w hero */
+.n-home .n-svc{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 140px,#000 300px);mask-image:linear-gradient(180deg,transparent 0,transparent 140px,#000 300px)}
