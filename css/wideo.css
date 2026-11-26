@@ -43,3 +43,6 @@
 .n-vplay::after{z-index:2}
 /* łuk usług nie wchodzi na dół filmu w hero */
 .n-home .n-svc{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 140px,#000 300px);mask-image:linear-gradient(180deg,transparent 0,transparent 140px,#000 300px)}
+/* plakat (pierwsza klatka) widoczny od razu – bez czarnego ekranu przy ładowaniu */
+.n-vplay{background:#16130F url(/video/odra.jpg) center/cover no-repeat}
+.n-vband .n-vbg{background:#16130F url(/video/most.jpg) center/cover no-repeat}
