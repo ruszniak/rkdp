@@ -1,0 +1,46 @@
+name: Pobierz i przygotuj filmy w tle
+# Pobiera nagrania z Pexels (licencja Pexels), kompresuje je i zapisuje w /video, żeby strona nie zależała od zewnętrznego serwera.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/filmy.yml']
+permissions:
+  contents: write
+jobs:
+  filmy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Pobierz
+        run: |
+          mkdir -p src video
+          UA="Mozilla/5.0"
+          curl -fsSL -A "$UA" -o src/ostrow.mp4  https://videos.pexels.com/video-files/37438832/15856177_1280_720_60fps.mp4
+          curl -fsSL -A "$UA" -o src/odra.mp4    https://videos.pexels.com/video-files/35756701/15158200_2560_1440_50fps.mp4
+          curl -fsSL -A "$UA" -o src/katedra.mp4 https://videos.pexels.com/video-files/39822803/16985492_2560_1440_24fps.mp4
+          curl -fsSL -A "$UA" -o src/most.mp4    https://videos.pexels.com/video-files/32616964/13909010_1280_720_30fps.mp4
+          ls -la src
+      - name: Kompresja
+        run: |
+          enc(){ # $1 wejście  $2 nazwa  $3 filtr dodatkowy  $4 opcje wejścia
+            for s in "1280:720:lg:26" "854:480:sm:28"; do IFS=: read W H T C <<< "$s"
+              ffmpeg -loglevel error -y $4 -i src/$1.mp4 -an -vf "${3}scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=30,format=yuv420p" \
+                -c:v libx264 -profile:v high -preset slow -crf $C -movflags +faststart video/$2-$T.mp4
+            done
+            ffmpeg -loglevel error -y $4 -i src/$1.mp4 -vf "${3}scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720" -frames:v 1 -q:v 4 video/$2.jpg
+          }
+          enc ostrow  ostrow  "" ""
+          enc odra    odra    "" "-t 6.5"
+          enc katedra katedra "setpts=PTS/1.8," ""
+          enc most    most    "" ""
+          ls -la video
+      - name: Zapisz w repozytorium
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add video
+          git commit -m "Filmy w tle: lokalne kopie z Pexels (skompresowane)" || echo "bez zmian"
+          git push
