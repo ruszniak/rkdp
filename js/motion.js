@@ -63,6 +63,11 @@
     var ls=h.children.length?h.children:[h];
     gsap.fromTo(ls,{opacity:0,y:'0.35em',filter:'blur(10px)'},Object.assign({stagger:.12,scrollTrigger:{trigger:h,start:'top 86%',once:true}},blurIn));
   });
+  // podstrony: nagłówki sekcji wchodzą z rozmycia
+  document.querySelectorAll('body.n-sub main h2').forEach(function(h){
+    if(h.closest('.x-hd,.x-fr')) return;
+    gsap.fromTo(h,{opacity:0,y:'0.35em',filter:'blur(8px)'},Object.assign({scrollTrigger:{trigger:h,start:'top 88%',once:true}},blurIn));
+  });
   document.querySelectorAll('.x-hd h2, .x-fr h2').forEach(function(h){
     var ws=split(h);
     gsap.fromTo(ws,{opacity:0,y:'0.45em',filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.9,ease:'power3.out',stagger:.06,

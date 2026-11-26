@@ -176,6 +176,7 @@ def head(title, desc, path, og_type='website', extra_ld=()):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/motion.css">
 <link rel="stylesheet" href="/css/mobile.css" media="(max-width:640px)">
 {ld}</head>
 <body class="n-sub">
@@ -305,6 +306,10 @@ def build_page(p, group_name):
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
 <script src="/js/mobile.js" defer></script>
+<script src="/js/vendor/gsap.min.js" defer></script>
+<script src="/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/motion.js" defer></script>
 </body>
 </html>
 '''
@@ -358,6 +363,10 @@ def build_post(p):
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
 <script src="/js/mobile.js" defer></script>
+<script src="/js/vendor/gsap.min.js" defer></script>
+<script src="/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/motion.js" defer></script>
 </body>
 </html>
 '''
@@ -387,6 +396,10 @@ def build_blog_index():
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
 <script src="/js/mobile.js" defer></script>
+<script src="/js/vendor/gsap.min.js" defer></script>
+<script src="/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/motion.js" defer></script>
 </body>
 </html>
 '''
@@ -417,6 +430,10 @@ def build_team_page():
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
 <script src="/js/mobile.js" defer></script>
+<script src="/js/vendor/gsap.min.js" defer></script>
+<script src="/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/motion.js" defer></script>
 </body>
 </html>
 '''
@@ -449,6 +466,10 @@ def build_pricing_page():
 {NAV_JS}
 <script src="/js/fx.js" defer></script>
 <script src="/js/mobile.js" defer></script>
+<script src="/js/vendor/gsap.min.js" defer></script>
+<script src="/js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/motion.js" defer></script>
 </body>
 </html>
 '''
