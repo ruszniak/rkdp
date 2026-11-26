@@ -8,7 +8,7 @@
   var small=Math.min(screen.width,innerWidth)<=820;
   function src(v){return small&&v.getAttribute('data-sm')?v.getAttribute('data-sm'):v.getAttribute('data-lg')}
   function load(v){if(!v.src){v.src=src(v);v.load()}}
-  function play(v){v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function play(v){var r=parseFloat(v.getAttribute('data-rate'));if(r){v.defaultPlaybackRate=r;v.playbackRate=r}v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){})}
 
   // pas z mostem (i każde pojedyncze wideo poza hero)
   [].forEach.call(document.querySelectorAll('.n-vbg:not(.n-vplay) video'),function(v){
@@ -23,7 +23,7 @@
   if(small) vids=vids.filter(function(v){return v.getAttribute('data-sm')}); // telefon: tylko lekkie ujęcie
   if(!vids.length)return;
   var i=0,timer=null,visible=true,SHOW=9000;
-  vids.forEach(function(v){v.loop=vids.length===1;v.addEventListener('error',function(){v.dataset.bad=1})});
+  vids.forEach(function(v){v.loop=true;v.addEventListener('error',function(){v.dataset.bad=1})});
   function next(){
     if(!visible)return;
     var cur=vids[i],j=i;
