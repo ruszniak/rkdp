@@ -38,3 +38,6 @@
 
 /* bez ruchu / oszczędzanie danych: zostaje ciemne tło */
 @media (prefers-reduced-motion:reduce){.n-vbg video{display:none}}
+/* hero: kilka ujęć na zmianę */
+.n-vplay video.n-vnext{z-index:1}
+.n-vplay::after{z-index:2}
