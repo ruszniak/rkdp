@@ -8,7 +8,12 @@
   var small=Math.min(screen.width,innerWidth)<=820;
   function src(v){return small&&v.getAttribute('data-sm')?v.getAttribute('data-sm'):v.getAttribute('data-lg')}
   function load(v){if(!v.src){v.src=src(v);v.load()}}
-  function play(v){var r=parseFloat(v.getAttribute('data-rate'));if(r){v.defaultPlaybackRate=r;v.playbackRate=r}v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  // fragment filmu: data-start / data-end (sekundy) – np. żeby pominąć ujęcie przez kratę
+  function seg(v){if(v._seg)return;v._seg=1;var a=parseFloat(v.getAttribute('data-start'))||0,b=parseFloat(v.getAttribute('data-end'));
+    if(!a&&!b)return;
+    v.addEventListener('loadedmetadata',function(){if(v.currentTime<a)v.currentTime=a});
+    v.addEventListener('timeupdate',function(){if(b&&v.currentTime>=b)v.currentTime=a});}
+  function play(v){seg(v);var r=parseFloat(v.getAttribute('data-rate'));if(r){v.defaultPlaybackRate=r;v.playbackRate=r}v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){})}
 
   // pas z mostem (i każde pojedyncze wideo poza hero)
   [].forEach.call(document.querySelectorAll('.n-vbg:not(.n-vplay) video'),function(v){
@@ -30,7 +35,7 @@
     do{j=(j+1)%vids.length}while(vids[j].dataset.bad&&j!==i);
     if(j===i){timer=setTimeout(next,SHOW);return}
     var nv=vids[j];load(nv);
-    function go(){nv.currentTime=0;play(nv);setTimeout(function(){cur.classList.remove('on');cur.pause()},1600);i=j;timer=setTimeout(next,SHOW)}
+    function go(){nv.currentTime=parseFloat(nv.getAttribute('data-start'))||0;play(nv);setTimeout(function(){cur.classList.remove('on');cur.pause()},1600);i=j;timer=setTimeout(next,SHOW)}
     if(nv.readyState>=3)go();else{var t=setTimeout(function(){nv.removeEventListener('canplay',ok);timer=setTimeout(next,SHOW)},8000);function ok(){clearTimeout(t);go()}nv.addEventListener('canplay',ok,{once:true})}
   }
   load(vids[0]);play(vids[0]);
